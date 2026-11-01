@@ -52,6 +52,10 @@ def wait_ready(container_id, token):
 
 
 def main():
+    if os.environ.get("CHECK_ONLY") == "1":
+        me = api("GET", "me", os.environ["IG_ACCESS_TOKEN"], fields="user_id,username,account_type")
+        print(f"Token OK: @{me.get('username')} ({me.get('account_type')})")
+        return
     date = os.environ.get("POST_DATE") or datetime.now(JST).strftime("%Y-%m-%d")
     folder = QUEUE / date
     if not folder.is_dir():

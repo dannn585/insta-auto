@@ -12,6 +12,10 @@ on:
         description: "1 にすると投稿せず内容だけ確認"
         required: false
         default: "0"
+      check_only:
+        description: "1 にするとトークンの確認だけ（投稿しない）"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
@@ -34,6 +38,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           POST_DATE: ${{ github.event.inputs.post_date }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
+          CHECK_ONLY: ${{ github.event.inputs.check_only }}
         run: python scripts/publish.py
       - name: Move posted files
         run: |
