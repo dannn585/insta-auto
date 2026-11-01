@@ -10,3 +10,8 @@ Instagram 自動投稿（AI起業ログ）
 必要な GitHub Secret: `IG_ACCESS_TOKEN`（Meta の App Dashboard で発行した長期トークン、有効期限60日）
 
 テスト: Actions タブ → "Instagram daily post" → Run workflow（dry_run に 1 を入れると投稿せず確認だけ）
+
+## リール
+- `drafts/reels/YYYY-MM-DD.json` → `python scripts/reel.py <draft>` で `queue/YYYY-MM-DD/reel.mp4`（1080x1920, 30fps, H.264/AAC）と `cover.jpg` を生成
+- `--stills` を付けると各シーンの静止画だけ出力（確認用）
+- BGM は `scripts/beat.py` が毎回生成するオリジナル音源（著作権フリー）

@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <style>
   :root {
-    --paper: #F4F1EA;
-    --grid: #DCD6C8;
-    --ink: #1C1E24;
-    --sub: #5B5F68;
-    --accent: #E8552D;
-    --blue: #2A4D8F;
+    --paper: #0A0C12;
+    --grid: rgba(255,255,255,.07);
+    --ink: #FFFFFF;
+    --sub: rgba(255,255,255,.72);
+    --accent: #FFD400;
+    --blue: #FFD400;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1080px; height: 1350px; }
@@ -25,6 +25,9 @@
     position: relative;
     overflow: hidden;
   }
+  body::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:#2B4CFF;filter:blur(160px);opacity:.45;left:-350px;top:-300px}
+  body::after{content:"";position:absolute;width:800px;height:800px;border-radius:50%;background:#FF3B5C;filter:blur(160px);opacity:.4;right:-350px;bottom:-300px}
+  .frame{z-index:1}
   .frame {
     position: absolute; inset: 64px;
     display: flex; flex-direction: column;
@@ -34,7 +37,7 @@
     font-size: 26px; font-weight: 700; letter-spacing: .08em; color: var(--sub);
   }
   .tag {
-    background: var(--ink); color: var(--paper);
+    background: #FFD400; color: #0A0C12;
     padding: 10px 22px; border-radius: 4px; letter-spacing: .12em;
   }
   .content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -51,7 +54,7 @@
     font-size: 40px; color: var(--accent); letter-spacing: .1em;
     border-bottom: 6px solid var(--accent); padding-bottom: 8px; margin-bottom: 48px;
   }
-  .title { font-size: 104px; font-weight: 900; line-height: 1.22; letter-spacing: -.01em; }
+  .title { font-feature-settings: "palt"; font-size: 104px; font-weight: 900; line-height: 1.22; letter-spacing: -.01em; }
   .title em { font-style: normal; color: var(--accent); }
   .sub { margin-top: 56px; font-size: 38px; font-weight: 500; line-height: 1.6; color: var(--sub); }
 
@@ -64,7 +67,7 @@
   .items li {
     display: grid; grid-template-columns: 76px 1fr; align-items: start;
     font-size: 44px; font-weight: 700; line-height: 1.55;
-    background: rgba(255,255,255,.72); border: 3px solid var(--ink);
+    background: rgba(255,255,255,.06); border: 3px solid rgba(255,255,255,.85);
     border-radius: 10px; padding: 30px 36px 30px 28px;
   }
   .num {
@@ -76,10 +79,10 @@
   /* cta */
   .cta .title { font-size: 92px; }
   .cta-box {
-    margin-top: 72px; background: var(--ink); color: var(--paper);
+    margin-top: 72px; background: #FFD400; color: #0A0C12;
     border-radius: 12px; padding: 48px 52px; font-size: 42px; font-weight: 700; line-height: 1.6;
   }
-  .cta-box span { color: #FFB59E; }
+  .cta-box span { color: #C4002B; }
 </style>
 </head>
 <body>

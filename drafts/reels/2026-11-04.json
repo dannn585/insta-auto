@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-04",
+  "tag": "DAY 1",
+  "scenes": [
+    {
+      "type": "hook",
+      "dur": 3.0,
+      "alert": "保存推奨",
+      "text": "大学生が\n<span class=\"hl\">Claudeに</span>\n<span class=\"hl\">丸投げ</span>した\nこと5選",
+      "sub": "全部、実際にやりました"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "01",
+      "text": "YouTube動画の\n<span class=\"hl\">要約</span>",
+      "sub": "URLを渡すだけで中身を整理"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "02",
+      "text": "伸びてる動画の\n<span class=\"hl\">リサーチ</span>",
+      "sub": "再生数の多い動画の共通点を分析"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "03",
+      "text": "インスタ投稿の\n<span class=\"hl\">デザイン</span>",
+      "sub": "画像もキャプションも"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "04",
+      "text": "リール動画の\n<span class=\"hl\">編集</span>",
+      "sub": "BGMもAIの自作。この動画です"
+    },
+    {
+      "type": "item",
+      "dur": 3.2,
+      "n": "05",
+      "text": "毎日の\n<span class=\"hl\">自動投稿</span>",
+      "sub": "決まった時間に勝手に投稿される"
+    },
+    {
+      "type": "cta",
+      "dur": 3.0,
+      "text": "次は何を\n<span class=\"hl\">丸投げ</span>する？",
+      "box": "コメントで募集中<br>フォローで続きへ"
+    }
+  ],
+  "caption": "【DAY 1】大学生がClaudeに丸投げしたこと5選\n\n① YouTube動画の要約\n② 伸びてるショート動画のリサーチ\n③ インスタ投稿のデザイン\n④ リール動画の編集（BGMもAIの自作）\n⑤ 毎日の自動投稿\n\n全部、実際にやったことです。\n次に何を丸投げしてほしいか、コメントで教えてください。採用したら動画にします。\n\n#Claude #AI活用 #AIツール #大学生 #ClaudeCode #AI副業 #生成AI #AI起業"
+}

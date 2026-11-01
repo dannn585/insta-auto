@@ -1,7 +1,8 @@
 """Publish today's queued post to Instagram via the official Instagram API (Instagram Login).
 
 Queue layout:
-  queue/YYYY-MM-DD/1.jpg, 2.jpg, ...   (1 image = single post, 2-10 = carousel)
+  queue/YYYY-MM-DD/reel.mp4 (+cover.jpg)  -> Reel
+  queue/YYYY-MM-DD/1.jpg, 2.jpg, ...      -> 1 image = single post, 2-10 = carousel
   queue/YYYY-MM-DD/caption.txt
 
 Runs in GitHub Actions. Images are served to Instagram from raw.githubusercontent.com,
@@ -40,7 +41,7 @@ def api(method, path, token, **params):
 
 
 def wait_ready(container_id, token):
-    for _ in range(30):
+    for _ in range(72):  # up to 6 minutes (video processing takes a while)
         status = api("GET", container_id, token, fields="status_code").get("status_code")
         if status == "FINISHED":
             return
@@ -57,23 +58,32 @@ def main():
         print(f"No post queued for {date}. Nothing to do.")
         return
 
-    images = sorted(folder.glob("*.jpg"), key=lambda p: int(p.stem) if p.stem.isdigit() else 999)
     caption = (folder / "caption.txt").read_text(encoding="utf-8").strip()
-    if not 1 <= len(images) <= 10:
-        sys.exit(f"{folder}: need 1-10 .jpg images, found {len(images)}")
-
     repo = os.environ["GITHUB_REPOSITORY"]
     branch = os.environ.get("GITHUB_REF_NAME", "main")
-    urls = [f"https://raw.githubusercontent.com/{repo}/{branch}/queue/{date}/{p.name}" for p in images]
+    base = f"https://raw.githubusercontent.com/{repo}/{branch}/queue/{date}"
+
+    is_reel = (folder / "reel.mp4").exists()
+    images = [] if is_reel else sorted(
+        (p for p in folder.glob("*.jpg") if p.stem.isdigit()), key=lambda p: int(p.stem))
+    if not is_reel and not 1 <= len(images) <= 10:
+        sys.exit(f"{folder}: need reel.mp4 or 1-10 numbered .jpg images, found {len(images)}")
+    urls = [f"{base}/reel.mp4"] if is_reel else [f"{base}/{p.name}" for p in images]
 
     if os.environ.get("DRY_RUN") == "1":
-        print(json.dumps({"date": date, "urls": urls, "caption": caption}, ensure_ascii=False, indent=2))
+        print(json.dumps({"date": date, "type": "REELS" if is_reel else "IMAGE/CAROUSEL",
+                          "urls": urls, "caption": caption}, ensure_ascii=False, indent=2))
         return
 
     token = os.environ["IG_ACCESS_TOKEN"]
     ig_id = api("GET", "me", token, fields="user_id,username")["user_id"]
 
-    if len(urls) == 1:
+    if is_reel:
+        params = dict(media_type="REELS", video_url=urls[0], caption=caption, share_to_feed="true")
+        if (folder / "cover.jpg").exists():
+            params["cover_url"] = f"{base}/cover.jpg"
+        creation_id = api("POST", f"{ig_id}/media", token, **params)["id"]
+    elif len(urls) == 1:
         creation_id = api("POST", f"{ig_id}/media", token, image_url=urls[0], caption=caption)["id"]
     else:
         children = []
