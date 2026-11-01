@@ -1,0 +1,45 @@
+name: AXIS daily post
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # 毎日 21:00 JST
+  workflow_dispatch:
+    inputs:
+      post_date:
+        description: "投稿する日付フォルダ（YYYY-MM-DD）。空欄なら今日"
+        required: false
+      dry_run:
+        description: "1 にすると投稿せず内容だけ確認"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-post   # メインの投稿と git push がぶつからないよう同じグループ
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Publish (@axis_doshisha)
+        env:
+          ACCOUNT_DIR: axis
+          IG_ACCESS_TOKEN: ${{ secrets.AXIS_IG_ACCESS_TOKEN }}
+          POST_DATE: ${{ github.event.inputs.post_date }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python scripts/publish.py
+      - name: Move posted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase -q || true
+          git add -A
+          git diff --cached --quiet || (git commit -m "AXIS posted $(TZ=Asia/Tokyo date +%F)" && git push)

@@ -26,8 +26,10 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
-QUEUE = ROOT / "queue"
-POSTED = ROOT / "posted"
+# ACCOUNT_DIR を指定すると別アカウント用のフォルダ（例: axis）を使う
+ACCOUNT_DIR = os.environ.get("ACCOUNT_DIR", "").strip("/")
+QUEUE = ROOT / ACCOUNT_DIR / "queue" if ACCOUNT_DIR else ROOT / "queue"
+POSTED = QUEUE.parent / "posted"
 API = f"https://graph.instagram.com/{os.environ.get('IG_API_VERSION', 'v26.0')}"
 JST = timezone(timedelta(hours=9))
 
@@ -65,7 +67,8 @@ def main():
     caption = (folder / "caption.txt").read_text(encoding="utf-8").strip()
     repo = os.environ["GITHUB_REPOSITORY"]
     branch = os.environ.get("GITHUB_REF_NAME", "main")
-    base = f"https://raw.githubusercontent.com/{repo}/{branch}/queue/{date}"
+    prefix = f"{ACCOUNT_DIR}/" if ACCOUNT_DIR else ""
+    base = f"https://raw.githubusercontent.com/{repo}/{branch}/{prefix}queue/{date}"
 
     is_reel = (folder / "reel.mp4").exists()
     images = [] if is_reel else sorted(
@@ -79,7 +82,10 @@ def main():
                           "urls": urls, "caption": caption}, ensure_ascii=False, indent=2))
         return
 
-    token = os.environ["IG_ACCESS_TOKEN"]
+    token = os.environ.get("IG_ACCESS_TOKEN")
+    if not token:
+        print("IG_ACCESS_TOKEN が未設定なので投稿をスキップしました。")
+        return
     ig_id = api("GET", "me", token, fields="user_id,username")["user_id"]
 
     if is_reel:
