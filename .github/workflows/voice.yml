@@ -1,0 +1,45 @@
+name: Add voice to reels
+
+on:
+  push:
+    branches: [main]
+    paths: ["queue/**/narration.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-post   # never runs at the same time as the posting job
+  cancel-in-progress: false
+
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    services:
+      voicevox:
+        image: voicevox/voicevox_engine:cpu-latest
+        ports:
+          - 50021:50021
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install requests
+      - name: Wait for VOICEVOX engine
+        run: |
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:50021/version && exit 0
+            sleep 5
+          done
+          echo "engine did not start"; exit 1
+      - run: python scripts/voice.py
+      - name: Commit voiced reels
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A queue
+          git diff --cached --quiet || (git commit -m "Add VOICEVOX narration" && git push)

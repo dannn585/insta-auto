@@ -164,6 +164,15 @@ def main():
         b.close()
 
     (out / "caption.txt").write_text(d["caption"].strip() + "\n", encoding="utf-8")
+    if any(s.get("narration") for s in d["scenes"]):
+        t0, segs = 0.0, []
+        for s in d["scenes"]:
+            if s.get("narration"):
+                segs.append({"start": round(t0, 3), "dur": s["dur"], "text": s["narration"]})
+            t0 += s["dur"]
+        (out / "narration.json").write_text(json.dumps(
+            {"voiced": False, **d.get("voice", {"speaker": 8}), "segments": segs}, ensure_ascii=False, indent=2),
+            encoding="utf-8")
     if stills:
         print(f"stills in {tmp}")
         return
