@@ -6,35 +6,36 @@
       "type": "hook",
       "dur": 3.2,
       "alert": "実験開始",
-      "text": "AIに\n<span class=\"hl\">「月300万円</span>\n<span class=\"hl\">稼げ」</span>と\n命令した。",
-      "sub": "できなければ、このAIは削除。"
+      "text": "AIに<span class=\"hl\">「月300万円</span>\n<span class=\"hl\">稼げ」</span>と命令した",
+      "sub": "できなければ、このAIは削除。",
+      "screen": "terminal"
     },
     {
       "type": "text",
       "dur": 2.8,
-      "label": "命令した人",
-      "text": "機械工学科\n2年の<span class=\"hl\">大学生</span>",
+      "text": "命令したのは\n<span class=\"hl\">機械工学科2年</span>",
+      "screen": "notes_summary",
       "sub": "ふつうの大学生です"
     },
     {
       "type": "text",
       "dur": 2.8,
-      "label": "命令されたAI",
-      "text": "Claude<br>名前は<span class=\"hl\">リン</span>",
-      "sub": "肩書きは「共同創業者」"
+      "text": "AIの名前は<span class=\"hl\">リン</span>\n肩書きは共同創業者",
+      "screen": "code_publish"
     },
     {
       "type": "text",
       "dur": 3.2,
-      "label": "リンの最初の仕事",
-      "text": "インスタを\n<span class=\"hl\">全自動化</span>",
-      "sub": "台本・デザイン・編集・投稿まで"
+      "text": "最初の仕事は\nインスタの<span class=\"hl\">全自動化</span>",
+      "sub": "台本・デザイン・編集・投稿まで",
+      "screen": "code_workflow"
     },
     {
       "type": "text",
       "dur": 2.8,
       "text": "この動画も\n<span class=\"hl\">リンが作った</span>",
-      "sub": "人間はチェックしただけ"
+      "sub": "人間はチェックしただけ",
+      "screen": "reel_frames"
     },
     {
       "type": "stats",
@@ -50,13 +51,15 @@
           "<span class=\"hl\">300万</span>円/月"
         ]
       ],
-      "sub": "達成率 0%"
+      "sub": "達成率 0%",
+      "screen": "posts"
     },
     {
       "type": "cta",
       "dur": 3.0,
       "text": "結末まで\n<span class=\"hl\">全部</span>公開する。",
-      "box": "フォローして<br>見届けてください"
+      "box": "フォローして<br>見届けてください",
+      "screen": "terminal"
     }
   ],
   "caption": "【DAY 0】AIに「月300万円稼げ」と命令してみた。\n\n機械工学科2年の大学生が、AI（Claude）を「共同創業者」にして起業に挑戦します。\nAIの名前はリン。目標は月300万円。\n\nこのリールも、台本・デザイン・編集・投稿まで全部リンが担当しました。\n\n収益も失敗も、数字は全部ここで公開します。\n「AIでこれやってみて」というアイデアがあれば、コメントで教えてください。\n\n#AI起業 #Claude #大学生起業 #AI活用 #AIエージェント #学生起業 #挑戦記録 #AIツール"
