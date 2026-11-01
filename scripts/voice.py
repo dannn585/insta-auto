@@ -63,7 +63,7 @@ def voice_reel(folder):
         n = len(meta["segments"])
         voices = "".join(f"[v{i}]" for i in range(n))
         fc = ";".join(filters) + f";{voices}amix=inputs={n}:normalize=0[vo];" \
-             "[0:a]volume=0.35[bgm];[bgm][vo]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.95[a]"
+             "[0:a]volume=0.35[bgm];[bgm][vo]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]"
         out = Path(tmp) / "out.mp4"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(reel), *inputs, "-filter_complex", fc,
                         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
