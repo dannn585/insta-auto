@@ -32,7 +32,8 @@ def get(url, **params):
 def main():
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not token:
-        sys.exit("IG_ACCESS_TOKEN が未設定です")
+        secret = "AXIS_IG_ACCESS_TOKEN" if ACCOUNT_DIR == "axis" else "IG_ACCESS_TOKEN"
+        sys.exit(f"::error::GitHub の Secret「{secret}」が未設定です（Settings → Secrets and variables → Actions で登録）")
     me = get(f"{API}/me", fields="user_id,username,followers_count,media_count", access_token=token)
     posts, url, params = [], f"{API}/me/media", dict(fields=FIELDS, limit=50, access_token=token)
     while url:

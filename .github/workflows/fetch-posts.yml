@@ -4,9 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       account:
-        description: "axis = @axis_doshisha / main = 自分のアカウント"
+        description: "main = 収益化用（@panda.7475341） / axis = @axis_doshisha"
+        type: choice
+        options: [main, axis]
         required: true
-        default: "axis"
+        default: "main"
 
 permissions:
   contents: write
@@ -19,8 +21,8 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install requests

@@ -53,8 +53,19 @@ def wait_ready(container_id, token):
     sys.exit(f"Container {container_id} not ready in time")
 
 
+def missing_token():
+    secret = "AXIS_IG_ACCESS_TOKEN" if ACCOUNT_DIR == "axis" else "IG_ACCESS_TOKEN"
+    msg = f"GitHub の Secret「{secret}」が未設定です（Settings → Secrets and variables → Actions で登録）"
+    if ACCOUNT_DIR:  # サブアカウントは鍵が届くまでスキップ扱い
+        print(f"::warning::{msg}。投稿をスキップしました。")
+        return
+    sys.exit(f"::error::{msg}")
+
+
 def main():
     if os.environ.get("CHECK_ONLY") == "1":
+        if not os.environ.get("IG_ACCESS_TOKEN"):
+            return missing_token()
         me = api("GET", "me", os.environ["IG_ACCESS_TOKEN"], fields="user_id,username,account_type")
         print(f"Token OK: @{me.get('username')} ({me.get('account_type')})")
         return
@@ -84,8 +95,7 @@ def main():
 
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not token:
-        print("IG_ACCESS_TOKEN が未設定なので投稿をスキップしました。")
-        return
+        return missing_token()
     ig_id = api("GET", "me", token, fields="user_id,username")["user_id"]
 
     if is_reel:

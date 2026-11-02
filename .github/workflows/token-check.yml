@@ -1,0 +1,28 @@
+name: Token check
+
+# 毎週月曜 9:00 JST に鍵（アクセストークン）が生きているか確認する。
+# 失敗すると GitHub からメールが届くので、鍵の期限切れ（発行から60日）に気づける。
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        account: [main, axis]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Check token (${{ matrix.account }})
+        env:
+          CHECK_ONLY: "1"
+          ACCOUNT_DIR: ${{ matrix.account == 'axis' && 'axis' || '' }}
+          IG_ACCESS_TOKEN: ${{ matrix.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || secrets.IG_ACCESS_TOKEN }}
+        run: python scripts/publish.py
