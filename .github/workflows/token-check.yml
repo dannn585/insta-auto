@@ -24,5 +24,5 @@ jobs:
         env:
           CHECK_ONLY: "1"
           ACCOUNT_DIR: ${{ matrix.account == 'axis' && 'axis' || '' }}
-          IG_ACCESS_TOKEN: ${{ matrix.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || secrets.IG_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ matrix.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || matrix.account != 'axis' && secrets.IG_ACCESS_TOKEN || '' }}
         run: python scripts/publish.py

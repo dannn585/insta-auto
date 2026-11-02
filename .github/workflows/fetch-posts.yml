@@ -29,7 +29,7 @@ jobs:
       - name: Fetch
         env:
           ACCOUNT_DIR: ${{ github.event.inputs.account == 'axis' && 'axis' || '' }}
-          IG_ACCESS_TOKEN: ${{ github.event.inputs.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || secrets.IG_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ github.event.inputs.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || github.event.inputs.account != 'axis' && secrets.IG_ACCESS_TOKEN || '' }}
         run: python scripts/fetch_posts.py
       - name: Commit
         run: |
