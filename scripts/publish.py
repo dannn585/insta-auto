@@ -25,21 +25,22 @@ from pathlib import Path
 
 import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from igapi import IG  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 # ACCOUNT_DIR を指定すると別アカウント用のフォルダ（例: axis）を使う
 ACCOUNT_DIR = os.environ.get("ACCOUNT_DIR", "").strip("/")
 QUEUE = ROOT / ACCOUNT_DIR / "queue" if ACCOUNT_DIR else ROOT / "queue"
 POSTED = QUEUE.parent / "posted"
-API = f"https://graph.instagram.com/{os.environ.get('IG_API_VERSION', 'v26.0')}"
 JST = timezone(timedelta(hours=9))
 
 
+IG_CLIENT = None
+
+
 def api(method, path, token, **params):
-    r = requests.request(method, f"{API}/{path}", params={**params, "access_token": token}, timeout=60)
-    data = r.json()
-    if r.status_code != 200 or "error" in data:
-        sys.exit(f"API error on {path}: {json.dumps(data, ensure_ascii=False)}")
-    return data
+    return IG_CLIENT.call(method, path, **params)
 
 
 def wait_ready(container_id, token):
@@ -66,8 +67,8 @@ def main():
     if os.environ.get("CHECK_ONLY") == "1":
         if not os.environ.get("IG_ACCESS_TOKEN"):
             return missing_token()
-        me = api("GET", "me", os.environ["IG_ACCESS_TOKEN"], fields="user_id,username,account_type")
-        print(f"Token OK: @{me.get('username')} ({me.get('account_type')})")
+        me = IG(os.environ["IG_ACCESS_TOKEN"], ACCOUNT_DIR).profile()
+        print(f"Token OK: @{me.get('username')} (followers {me.get('followers_count')}, posts {me.get('media_count')})")
         return
     date = os.environ.get("POST_DATE") or datetime.now(JST).strftime("%Y-%m-%d")
     folder = QUEUE / date
@@ -96,7 +97,9 @@ def main():
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not token:
         return missing_token()
-    ig_id = api("GET", "me", token, fields="user_id,username")["user_id"]
+    global IG_CLIENT
+    IG_CLIENT = IG(token, ACCOUNT_DIR)
+    ig_id = IG_CLIENT.ig_id
 
     if is_reel:
         params = dict(media_type="REELS", video_url=urls[0], caption=caption, share_to_feed="true")

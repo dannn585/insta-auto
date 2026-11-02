@@ -13,10 +13,12 @@ from pathlib import Path
 
 import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from igapi import IG  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 ACCOUNT_DIR = os.environ.get("ACCOUNT_DIR", "").strip("/")
 OUT = (ROOT / ACCOUNT_DIR if ACCOUNT_DIR else ROOT) / "reference"
-API = f"https://graph.instagram.com/{os.environ.get('IG_API_VERSION', 'v26.0')}"
 FIELDS = ("id,caption,media_type,media_url,thumbnail_url,permalink,timestamp,like_count,comments_count,"
           "children{media_type,media_url,thumbnail_url}")
 
@@ -34,8 +36,9 @@ def main():
     if not token:
         secret = "AXIS_IG_ACCESS_TOKEN" if ACCOUNT_DIR == "axis" else "IG_ACCESS_TOKEN"
         sys.exit(f"::error::GitHub の Secret「{secret}」が未設定です（Settings → Secrets and variables → Actions で登録）")
-    me = get(f"{API}/me", fields="user_id,username,followers_count,media_count", access_token=token)
-    posts, url, params = [], f"{API}/me/media", dict(fields=FIELDS, limit=50, access_token=token)
+    ig = IG(token, ACCOUNT_DIR)
+    me = ig.profile()
+    posts, url, params = [], f"{ig.base}/{ig.ig_id}/media", dict(fields=FIELDS, limit=50, access_token=token)
     while url:
         page = get(url, **params)
         posts += page.get("data", [])
