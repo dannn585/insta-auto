@@ -64,6 +64,28 @@ def missing_token():
 
 
 def main():
+    global IG_CLIENT
+    if os.environ.get("CHECK_ONLY") == "2":  # 投稿の手前（下書きコンテナ作成）まで試す。公開はしない
+        token = os.environ.get("IG_ACCESS_TOKEN")
+        if not token:
+            return missing_token()
+        IG_CLIENT = IG(token, ACCOUNT_DIR)
+        folders = sorted(p for p in QUEUE.iterdir() if p.is_dir()) if QUEUE.is_dir() else []
+        if not folders:
+            sys.exit("テストに使う予約投稿（queue/）がありません")
+        f = folders[0]
+        repo = os.environ["GITHUB_REPOSITORY"]
+        prefix = f"{ACCOUNT_DIR}/" if ACCOUNT_DIR else ""
+        base = f"https://raw.githubusercontent.com/{repo}/main/{prefix}queue/{f.name}"
+        if (f / "reel.mp4").exists():
+            params = dict(media_type="REELS", video_url=f"{base}/reel.mp4", caption="test")
+        else:
+            params = dict(image_url=f"{base}/1.jpg", caption="test")
+        print(f"Testing with {f.name} ({params.get('media_type', 'IMAGE')})")
+        cid = api("POST", f"{IG_CLIENT.ig_id}/media", token, **params)["id"]
+        wait_ready(cid, token)
+        print(f"Publish test OK: container {cid} is ready (not published)")
+        return
     if os.environ.get("CHECK_ONLY") == "1":
         if not os.environ.get("IG_ACCESS_TOKEN"):
             return missing_token()
@@ -97,7 +119,6 @@ def main():
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not token:
         return missing_token()
-    global IG_CLIENT
     IG_CLIENT = IG(token, ACCOUNT_DIR)
     ig_id = IG_CLIENT.ig_id
 
