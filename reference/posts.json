@@ -2,8 +2,33 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 0,
-    "media_count": 0,
+    "media_count": 2,
     "username": "panda.7475341"
   },
-  "posts": []
+  "posts": [
+    {
+      "id": "18133299574845324",
+      "caption": "【DAY 1】大学生がClaudeに丸投げしたこと5選\n\n① YouTube動画の要約\n② 伸びてるショート動画のリサーチ\n③ インスタ投稿のデザイン\n④ リール動画の編集（BGMもAIの自作）\n⑤ 毎日の自動投稿\n\n全部、実際にやったことです。\n次に何を丸投げしてほしいか、コメントで教えてください。採用したら動画にします。\n\n#Claude #AI活用 #AIツール #大学生 #ClaudeCode #AI副業 #生成AI #AI起業\n\n音声：VOICEVOX:春日部つむぎ",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DfSgW56AYVB/",
+      "timestamp": "2026-11-03T18:17:29+0000",
+      "files": [
+        "media/18133299574845324_1.jpg"
+      ]
+    },
+    {
+      "id": "18161548561499379",
+      "caption": "【DAY 0】AIに「月300万円稼げ」と命令してみた。\n\n機械工学科2年の大学生が、AI（Claude）を「共同創業者」にして起業に挑戦します。\nAIの名前はリン。目標は月300万円。\n\nこのリールも、台本・デザイン・編集・投稿まで全部リンが担当しました。\n\n収益も失敗も、数字は全部ここで公開します。\n「AIでこれやってみて」というアイデアがあれば、コメントで教えてください。\n\n#AI起業 #Claude #大学生起業 #AI活用 #AIエージェント #学生起業 #挑戦記録 #AIツール\n\n音声：VOICEVOX:春日部つむぎ",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DfQL_lBkqAP/",
+      "timestamp": "2026-11-02T20:41:01+0000",
+      "files": [
+        "media/18161548561499379_1.jpg"
+      ]
+    }
+  ]
 }
