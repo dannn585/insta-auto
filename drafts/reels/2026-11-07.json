@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-07",
+  "tag": "DAY 4",
+  "scenes": [
+    {
+      "type": "hook",
+      "dur": 3.0,
+      "alert": "保存推奨",
+      "text": "<span class=\"hl\">地味に便利</span>な\n自動化<span class=\"hl\">5選</span>",
+      "sub": "Claude Codeに作らせた。全部使用中",
+      "screen": "code_workflow",
+      "narration": "クロードコードに作らせた、地味に便利な自動化、5選。"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "01",
+      "text": "リールに\n<span class=\"hl\">声</span>を自動でつける",
+      "sub": "台本を置くだけ。この声もそれ",
+      "screen": "code_reel",
+      "narration": "1つ目、リールに声を自動でつける。"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "02",
+      "text": "BGMと声の\n<span class=\"hl\">音量</span>をそろえる",
+      "sub": "毎回、同じ聞こえ方に調整",
+      "screen": "terminal",
+      "narration": "2つ目、BGMと声の音量をそろえる。"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "03",
+      "text": "動画の上の\n<span class=\"hl\">作業画面</span>づくり",
+      "sub": "実際のコードやメモから画像を作る",
+      "screen": "code_publish",
+      "narration": "3つ目、動画の上の作業画面づくり。"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "04",
+      "text": "過去の投稿の\n<span class=\"hl\">数字</span>を集める",
+      "sub": "いいね・コメント数をボタン1つで保存",
+      "screen": "posts",
+      "narration": "4つ目、過去の投稿の数字を集める。"
+    },
+    {
+      "type": "item",
+      "dur": 3.0,
+      "n": "05",
+      "text": "ログインの鍵の\n<span class=\"hl\">期限チェック</span>",
+      "sub": "毎週月曜に確認。切れたらメールが届く",
+      "screen": "terminal",
+      "narration": "5つ目、ログインの鍵の期限チェック。"
+    },
+    {
+      "type": "cta",
+      "dur": 3.0,
+      "text": "あなたなら何を\n<span class=\"hl\">自動化</span>したい？",
+      "box": "コメントで募集中<br>フォローで続きへ",
+      "screen": "terminal",
+      "narration": "あなたなら何を自動化したい？コメントで教えて。"
+    }
+  ],
+  "caption": "【DAY 4】Claude Codeに作らせた、地味に便利な自動化5選\n\n① リールに声を自動でつける（台本を置くだけ）\n② BGMと声の音量をそろえる\n③ 動画の上に出す作業画面づくり\n④ 過去の投稿の数字（いいね・コメント数）を集める\n⑤ ログインの鍵の期限チェック（毎週月曜。切れていたらメールが届く）\n\n全部、このアカウントの運用で実際に使っている仕組みです。\nコードは全部Claude Codeが書きました。\n\nあなたなら何を自動化したいですか？コメントで教えてください。採用したら作って動画にします👇\n\n#ClaudeCode #Claude #AI活用 #自動化 #AIツール #生成AI #大学生 #AI起業\n\n音声：VOICEVOX:春日部つむぎ",
+  "voice": {
+    "speaker": 8,
+    "credit": "VOICEVOX:春日部つむぎ"
+  }
+}

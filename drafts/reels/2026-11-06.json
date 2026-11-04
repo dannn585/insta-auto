@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-06",
+  "tag": "DAY 3",
+  "scenes": [
+    {
+      "type": "hook",
+      "dur": 3.0,
+      "alert": "実験中",
+      "text": "社員<span class=\"hl\">6人</span>全員が\n<span class=\"hl\">AI</span>の会社を作った",
+      "sub": "人間は社長（自分）だけ",
+      "screen": "terminal",
+      "narration": "社員6人、全員AIの会社を作りました。"
+    },
+    {
+      "type": "item",
+      "dur": 2.5,
+      "n": "01",
+      "text": "秘書の<span class=\"hl\">リン</span>\n社長との窓口",
+      "sub": "仕事を各部署に振り分ける",
+      "screen": "code_publish",
+      "narration": "1人目、秘書のリン。社長との窓口です。"
+    },
+    {
+      "type": "item",
+      "dur": 2.5,
+      "n": "02",
+      "text": "<span class=\"hl\">リサーチ</span>部",
+      "sub": "伸びている投稿を分析",
+      "screen": "notes_research",
+      "narration": "2人目、リサーチ部。伸びてる投稿を分析。"
+    },
+    {
+      "type": "item",
+      "dur": 2.5,
+      "n": "03",
+      "text": "<span class=\"hl\">クリエイティブ</span>部",
+      "sub": "台本とデザイン。この動画の担当",
+      "screen": "code_reel",
+      "narration": "3人目、クリエイティブ部。この動画の担当です。"
+    },
+    {
+      "type": "item",
+      "dur": 2.5,
+      "n": "04",
+      "text": "<span class=\"hl\">コミュニティ</span>部",
+      "sub": "コメント・DMの返信案を書く",
+      "screen": "posts",
+      "narration": "4人目、コミュニティ部。コメントの返信を考える。"
+    },
+    {
+      "type": "item",
+      "dur": 2.5,
+      "n": "05",
+      "text": "<span class=\"hl\">マーケ</span>部",
+      "sub": "インスタから先の流れを設計",
+      "screen": "notes_summary",
+      "narration": "5人目、マーケ部。インスタから先の流れを考える。"
+    },
+    {
+      "type": "item",
+      "dur": 2.5,
+      "n": "06",
+      "text": "<span class=\"hl\">プロダクト</span>部",
+      "sub": "売る商品を作る。まだ0個",
+      "screen": "code_workflow",
+      "narration": "6人目、プロダクト部。売る商品は、まだ0個。"
+    },
+    {
+      "type": "cta",
+      "dur": 3.0,
+      "text": "7人目は\n<span class=\"hl\">何部</span>がいい？",
+      "box": "コメントで募集中<br>フォローで続きへ",
+      "screen": "terminal",
+      "narration": "7人目は何部がいい？コメントで教えて。"
+    }
+  ],
+  "caption": "【DAY 3】社員6人、全員AIの会社を作った\n\n人間は社長（自分）だけ。\nClaudeで、秘書1人と5つの部署を作りました。\n\n① 秘書のリン：社長との窓口。仕事を振り分ける\n② リサーチ部：伸びている投稿の分析\n③ クリエイティブ部：台本・デザイン（この動画の担当）\n④ コミュニティ部：コメント・DMの返信案\n⑤ マーケティング部：インスタから先の流れの設計\n⑥ プロダクト部：売る商品づくり（まだ0個）\n\nお金・投稿の新しい形・DMの送信などは、AIが下書きまでで止めて、社長が確認するルールです。\n\n7人目の社員は何部がいいと思いますか？コメントで教えてください👇\n\n#AI起業 #Claude #ClaudeCode #AIエージェント #大学生起業 #AI活用 #学生起業 #挑戦記録\n\n音声：VOICEVOX:春日部つむぎ",
+  "voice": {
+    "speaker": 8,
+    "credit": "VOICEVOX:春日部つむぎ"
+  }
+}
