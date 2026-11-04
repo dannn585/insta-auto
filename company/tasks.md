@@ -20,4 +20,5 @@
 | T16 | 固定投稿②「AI秘書の作り方キット、中身を全部見せます」カルーセル制作 | creative | 11/09 | 未着手 | T13 の後。固定①は 11/06 DAY3 リールを使う |
 | T17 | 11/05 の投稿が 19:30〜23:59 に出たか確認 | secretary | 11/06 | 未着手 | T8 の効果確認 |
 | T18 | VS Code 側の Chrome で Instagram（@panda.7475341）にログインする | ダン | 11/08 | 確認待ち（ダン） | 11/04 ブラウザ接続は確認済み。ただしこの Chrome では Instagram 未ログイン。ログインは本人のみ。T14（プロフィール変更）の前に必要 |
-| T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | secretary | 11/06 | 実行待ち | 11/05 fetch-posts.yml に axis_public を追加。push 後に Actions → Fetch past posts → axis_public で実行 → axis/reference/ に保存。取り込めたら AXIS のデザイン・トーン調整（T4 を待たずに進められる） |
+| T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | secretary | 11/08 | 確認待ち（ダン） | 11/05 実行 → Meta「(#10) アプリに権限がない」。今の鍵は Instagramログイン方式で、Business Discovery は Facebookログイン方式（instagram_basic・instagram_manage_insights・pages_read_engagement、pandaをFacebookページに連携）が必要。仕組み（scripts/fetch_public.py・fetch-posts.yml の axis_public）は完成済み。鍵を追加発行すれば即動く |
+| T20 | AXISのCanvaテンプレ（canva.link/x62knvsxtyiiypy, DAG8ijGL2Fc）を読み取り、axis/templates をテンプレに合わせる | secretary | 11/06 | 確認待ち（ダン） | ダンがPCのChromeでリンクを開くと閲覧権限が付く。リンが15分おきにアクセスを確認し、開けた時点で自動で着手 |
