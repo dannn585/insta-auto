@@ -92,6 +92,15 @@ def main():
         me = IG(os.environ["IG_ACCESS_TOKEN"], ACCOUNT_DIR).profile()
         print(f"Token OK: @{me.get('username')} (followers {me.get('followers_count')}, posts {me.get('media_count')})")
         return
+    # 予約実行のときだけ、決めた時間帯（JST）の中でしか投稿しない。
+    # GitHub の予約実行は数時間遅れることがあり、日付をまたぐと翌日分を早朝に出してしまうため。
+    window = os.environ.get("POST_WINDOW", "").strip()  # 例 "19:30-23:59"
+    if window:
+        now = datetime.now(JST)
+        start, end = (datetime.strptime(t, "%H:%M").time() for t in window.split("-"))
+        if not (start <= now.time() <= end):
+            print(f"Outside posting window {window} JST (now {now:%H:%M}). Skip; a later run will post.")
+            return
     date = os.environ.get("POST_DATE") or datetime.now(JST).strftime("%Y-%m-%d")
     folder = QUEUE / date
     if not folder.is_dir():

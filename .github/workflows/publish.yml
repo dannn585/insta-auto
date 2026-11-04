@@ -2,7 +2,13 @@ name: Instagram daily post
 
 on:
   schedule:
-    - cron: "0 11 * * *"   # 毎日 20:00 JST（GitHubの混雑で数分〜数十分遅れることがあります）
+    # 20:00 JST ごろに投稿。GitHub の予約は遅れる・飛ぶことがあるので、0分を避けて何回か実行する。
+    # 投稿済みなら後の回は何もしない。19:30〜23:59 JST 以外に動いた回も何もしない（POST_WINDOW）。
+    - cron: "43 10 * * *"   # 19:43 JST
+    - cron: "13 11 * * *"   # 20:13 JST
+    - cron: "43 11 * * *"   # 20:43 JST
+    - cron: "23 12 * * *"   # 21:23 JST
+    - cron: "23 13 * * *"   # 22:23 JST
   workflow_dispatch:        # 手動実行ボタン（テスト用）
     inputs:
       post_date:
@@ -39,6 +45,7 @@ jobs:
           POST_DATE: ${{ github.event.inputs.post_date }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
           CHECK_ONLY: ${{ github.event.inputs.check_only }}
+          POST_WINDOW: ${{ github.event_name == 'schedule' && '19:30-23:59' || '' }}
         run: python scripts/publish.py
       - name: Move posted files
         run: |

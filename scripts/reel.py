@@ -157,7 +157,7 @@ def main():
             ff.stdin.close()
             if ff.wait() != 0:
                 sys.exit(f"ffmpeg failed on scene {i}")
-            part_tmp.rename(part)
+            part_tmp.replace(part)
             parts.append(part)
             start += s["dur"]
             print(f"scene {i} done ({nframes} frames)")
@@ -188,7 +188,7 @@ def main():
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(video), "-i", str(beat),
                     "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
                     "-shortest", "-movflags", "+faststart", str(final_tmp)], check=True)
-    final_tmp.rename(out / "reel.mp4")
+    final_tmp.replace(out / "reel.mp4")
     print(f"reel -> {out / 'reel.mp4'} ({total:.1f}s)")
 
 

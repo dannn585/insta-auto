@@ -2,7 +2,10 @@ name: AXIS daily post
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # 毎日 21:00 JST
+    # 21:00 JST ごろに投稿。メインと同じく、0分を避けて何回か実行し、20:30〜23:59 JST 以外の回は何もしない。
+    - cron: "53 11 * * *"   # 20:53 JST
+    - cron: "33 12 * * *"   # 21:33 JST
+    - cron: "33 13 * * *"   # 22:33 JST
   workflow_dispatch:
     inputs:
       post_date:
@@ -32,6 +35,7 @@ jobs:
       - name: Publish (@axis_doshisha)
         env:
           ACCOUNT_DIR: axis
+          POST_WINDOW: ${{ github.event_name == 'schedule' && '20:30-23:59' || '' }}
           IG_ACCESS_TOKEN: ${{ secrets.AXIS_IG_ACCESS_TOKEN }}
           POST_DATE: ${{ github.event.inputs.post_date }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
