@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       account:
-        description: "main = 収益化用（@panda.7475341） / axis = @axis_doshisha"
+        description: "main = 収益化用（@panda.7475341） / axis = @axis_doshisha（AXISの鍵） / axis_public = AXISの公開投稿をpandaの鍵で読む"
         type: choice
-        options: [main, axis]
+        options: [main, axis, axis_public]
         required: true
         default: "main"
 
@@ -27,10 +27,18 @@ jobs:
           python-version: "3.12"
       - run: pip install requests
       - name: Fetch
+        if: github.event.inputs.account != 'axis_public'
         env:
           ACCOUNT_DIR: ${{ github.event.inputs.account == 'axis' && 'axis' || '' }}
           IG_ACCESS_TOKEN: ${{ github.event.inputs.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || github.event.inputs.account != 'axis' && secrets.IG_ACCESS_TOKEN || '' }}
         run: python scripts/fetch_posts.py
+      - name: Fetch public posts via Business Discovery
+        if: github.event.inputs.account == 'axis_public'
+        env:
+          ACCOUNT_DIR: axis
+          TARGET_USERNAME: axis_doshisha
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python scripts/fetch_public.py
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"

@@ -20,3 +20,4 @@
 | T16 | 固定投稿②「AI秘書の作り方キット、中身を全部見せます」カルーセル制作 | creative | 11/09 | 未着手 | T13 の後。固定①は 11/06 DAY3 リールを使う |
 | T17 | 11/05 の投稿が 19:30〜23:59 に出たか確認 | secretary | 11/06 | 未着手 | T8 の効果確認 |
 | T18 | VS Code 側の Chrome で Instagram（@panda.7475341）にログインする | ダン | 11/08 | 確認待ち（ダン） | 11/04 ブラウザ接続は確認済み。ただしこの Chrome では Instagram 未ログイン。ログインは本人のみ。T14（プロフィール変更）の前に必要 |
+| T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | secretary | 11/06 | 実行待ち | 11/05 fetch-posts.yml に axis_public を追加。push 後に Actions → Fetch past posts → axis_public で実行 → axis/reference/ に保存。取り込めたら AXIS のデザイン・トーン調整（T4 を待たずに進められる） |
