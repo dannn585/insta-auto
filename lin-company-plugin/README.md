@@ -1,19 +1,30 @@
 # リン・カンパニー プラグイン
 
-秘書リンと5部署のエージェント、`/company` コマンドを、どのフォルダからでも使えるようにするためのもの。
+秘書リンと5部署のエージェント、`/company` コマンドを、どのフォルダからでも使えるようにするプラグイン。
+**リン・カンパニーの元のファイルは、ここ1か所だけ。**
 
-## 3つの置き場所
-| 場所 | 役割 |
-|---|---|
-| `insta-auto/.claude/` | **元のファイル**。直すときはここだけ直す |
-| `~/.claude/agents`, `~/.claude/commands` | 全体用（どのフォルダでも `secretary` などで呼べる） |
-| `lin-company-plugin/plugins/lin-company/` | プラグイン（`lin-company:secretary` などで呼べる） |
+## 呼び方
+- 入口：`/lin-company:company`
+- エージェント：`lin-company:secretary`、`lin-company:research` など
 
-全体用とプラグインのファイルには「会社の本拠地＝insta-auto」の一文が入っている。別のフォルダで呼んでも、記録（company/）の読み書きと git pull / push は insta-auto で行う。
+どのフォルダで呼んでも、記録（company/）の読み書きと git pull / push は本拠地の insta-auto で行う（各ファイルの冒頭に書いてある）。
 
-## 元のファイルを直したら
+## 中身
 ```
-bash lin-company-plugin/build.sh
+lin-company-plugin/
+├─ .claude-plugin/marketplace.json   プラグインの置き場の情報
+└─ plugins/lin-company/
+   ├─ .claude-plugin/plugin.json     プラグインの名前・版
+   ├─ agents/                        秘書と5部署
+   └─ commands/company.md            /lin-company:company
+```
+
+## 直したら（反映させる手順）
+インストールしたプラグインはコピーされて使われるので、直しただけでは反映されない。
+1. `plugins/lin-company/.claude-plugin/plugin.json` の `version` を1つ上げる（例 1.1.0 → 1.2.0）
+2. 次を実行して、新しい画面を開く
+```
+claude plugin marketplace update lin-company
 claude plugin update lin-company@lin-company
 ```
 

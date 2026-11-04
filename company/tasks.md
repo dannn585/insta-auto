@@ -15,4 +15,4 @@
 | T9 | 「Fetch past posts」をダンが手動実行（数字の取得） | ダン | 11/05 | 確認待ち（ダン） | Claude側からは権限不足で実行できない |
 | T10 | 11/06〜08 の下書きを画像・動画にして queue/ へ（11/06 20:00 までに必須） | secretary | 11/05 | 確認待ち（ダン） | このPCに部品（pillow・playwright）が無い。PCに入れるか、デスクトップアプリ側で作るか |
 | T11 | vidIQ に Instagram をつなぐ（保存・シェア・視聴時間を取るため） | ダン | 11/07 | 確認待ち（ダン） | アカウント設定の変更なのでダンが実施 |
-| T12 | リン・カンパニーを全体用（~/.claude）とプラグイン（lin-company）に入れ、どのフォルダでも使えるようにする | secretary | 11/04 | 完了 | 11/04 完了。直し方は lin-company-plugin/README.md |
+| T12 | リン・カンパニーをプラグイン（lin-company）1つにまとめ、どのフォルダでも使えるようにする | secretary | 11/04 | 完了 | 11/04 完了。.claude/ と ~/.claude の重複は削除（ダン了承済み）。呼び方 /lin-company:company。直し方は lin-company-plugin/README.md |

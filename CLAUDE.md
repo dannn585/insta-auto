@@ -21,6 +21,8 @@
 
 各部署の細かいルールは `company/departments/<部署>/CLAUDE.md`。
 
+エージェントはプラグイン `lin-company`（`lin-company-plugin/plugins/lin-company/`）にまとめてあり、どのフォルダからでも `lin-company:secretary` のように呼べる。入口は `/lin-company:company`。直し方は `lin-company-plugin/README.md`。
+
 ## 共通の記録場所（両方の環境で同じものを使う）
 - `company/tasks.md`：全タスク（担当・期限・状態）。仕事を始める前と終わった後に必ず更新
 - `company/ideas.md`：アイデアメモ
