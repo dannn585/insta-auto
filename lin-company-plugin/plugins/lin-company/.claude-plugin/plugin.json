@@ -1,6 +1,6 @@
 {
   "name": "lin-company",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "リン・カンパニー：秘書リンと5部署のエージェント、/company コマンド。記録は insta-auto フォルダ（本拠地）に集める",
   "author": { "name": "ダン" }
 }
