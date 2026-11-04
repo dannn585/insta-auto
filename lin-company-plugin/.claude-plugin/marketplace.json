@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "lin-company",
+  "description": "リン・カンパニー（ダンの会社）用のプラグイン置き場",
+  "owner": { "name": "ダン" },
+  "plugins": [
+    {
+      "name": "lin-company",
+      "source": "./plugins/lin-company",
+      "description": "秘書リンと5部署（research / creative / community / marketing / product）のエージェント、/company コマンド"
+    }
+  ]
+}
