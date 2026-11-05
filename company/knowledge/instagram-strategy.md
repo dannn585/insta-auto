@@ -28,3 +28,8 @@
 ## 自動投稿の時間（2026-11-04 分かったこと）
 - GitHub の予約実行は5〜10時間遅れることがあった（20:00予定 → 実際は深夜3〜6時）。日付をまたぐと翌日分を出していた
 - 対策：予約を0分から外して数回に分け、POST_WINDOW（JSTの時間帯）の中の回だけ投稿する。手動実行には時間帯の制限なし
+
+## 投稿予定の確認ページ（2026-11-05）
+- https://claude.ai/artifact/FRpZvbfWet4pYmBdaq6QqM （ダンだけが見られる。slug 74d71b38-7081-44b7-9f0b-124036961898）
+- panda と AXIS の queue/ を日付順に、画像（横スクロール・拡大）・リール動画・キャプション（コピー可）で表示
+- 作り直し：python scripts/review_page.py /home/claude/review → 同じ artifact に publish_files で再公開（自動では更新されない）
