@@ -2,10 +2,33 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 0,
-    "media_count": 2,
+    "media_count": 3,
     "username": "panda.7475341"
   },
   "posts": [
+    {
+      "id": "18154699189493882",
+      "caption": "【DAY 2】AIと起業する大学生の3つのルール\n\nコードが書けない会社員がAIを「共同創業者」にして事業を作った、という海外の話を見て、自分もやってみることにしました。\n\n相棒はClaude。\nこの投稿も、文章・デザイン・投稿作業まで全部AI（リン）が担当しています。人間はチェックしただけ。\n\nルールは3つ。\n① AIに任せられることは全部任せる\n② 作る前に、欲しい人がいるか確かめる\n③ 数字も失敗も全部ここに載せる\n\nうまくいくかは分かりません。でも過程は全部見せます。\n「AIでこれ作れない？」というアイデアがあれば、ぜひコメントで教えてください👇\n\n#AI起業 #Claude #大学生起業 #機械工学科 #AI活用 #学生起業 #AIエージェント #副業 #挑戦記録",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DfXIPgMiWiq/",
+      "timestamp": "2026-11-05T13:22:34+0000",
+      "files": [
+        "media/18154699189493882_1.jpg",
+        "media/18154699189493882_2.jpg",
+        "media/18154699189493882_3.jpg",
+        "media/18154699189493882_4.jpg",
+        "media/18154699189493882_5.jpg"
+      ],
+      "insights": {
+        "reach": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 0
+      }
+    },
     {
       "id": "18133299574845324",
       "caption": "【DAY 1】大学生がClaudeに丸投げしたこと5選\n\n① YouTube動画の要約\n② 伸びてるショート動画のリサーチ\n③ インスタ投稿のデザイン\n④ リール動画の編集（BGMもAIの自作）\n⑤ 毎日の自動投稿\n\n全部、実際にやったことです。\n次に何を丸投げしてほしいか、コメントで教えてください。採用したら動画にします。\n\n#Claude #AI活用 #AIツール #大学生 #ClaudeCode #AI副業 #生成AI #AI起業\n\n音声：VOICEVOX:春日部つむぎ",
@@ -16,7 +39,14 @@
       "timestamp": "2026-11-03T18:17:29+0000",
       "files": [
         "media/18133299574845324_1.jpg"
-      ]
+      ],
+      "insights": {
+        "reach": 6,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 6
+      }
     },
     {
       "id": "18161548561499379",
@@ -28,7 +58,14 @@
       "timestamp": "2026-11-02T20:41:01+0000",
       "files": [
         "media/18161548561499379_1.jpg"
-      ]
+      ],
+      "insights": {
+        "reach": 29,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 31
+      }
     }
   ]
 }
