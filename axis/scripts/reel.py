@@ -23,46 +23,50 @@ W, H, FPS = 1080, 1920, 30
 CSS = """
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;overflow:hidden}
-body{font-family:"Noto Sans CJK JP",sans-serif;color:#fff;position:relative;
-  background:radial-gradient(120% 80% at 20% 10%,#21467A 0%,#11284C 45%,#081530 100%)}
-.orbit{position:absolute;border:6px solid rgba(255,255,255,.10);border-radius:50%;transform:rotate(-20deg)}
+body{font-family:"Noto Sans CJK JP",sans-serif;color:#111;position:relative;background:#EDE7E1}
+.bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(3px);animation:kb 24s linear both}
+.bg.fallback{background:radial-gradient(520px 380px at 18% 25%,#F6F1E8 0%,transparent 70%),radial-gradient(600px 420px at 80% 15%,#fff 0%,transparent 70%),radial-gradient(420px 360px at 85% 60%,#8C9A78 0%,transparent 70%),radial-gradient(560px 420px at 22% 70%,#9A7B62 0%,transparent 70%),radial-gradient(600px 300px at 55% 92%,#C9A88A 0%,transparent 70%),linear-gradient(180deg,#F3EFEA 0%,#D9CFC6 55%,#CDBFB2 100%);filter:blur(36px)}
+.haze{position:absolute;inset:0;background:rgba(255,255,255,.62)}
+.foot{position:absolute;left:0;bottom:150px;font-weight:900;font-size:76px;z-index:3}
+.flogo{position:absolute;right:56px;bottom:130px;width:170px;height:170px;border-radius:50%;mix-blend-mode:multiply;z-index:3}
+.orbit{position:absolute;border:6px solid rgba(17,17,17,.05);border-radius:50%;transform:rotate(-20deg)}
 .o1{width:1700px;height:640px;left:-320px;top:560px;animation:spin 24s linear both}
-.o2{width:1400px;height:500px;left:-60px;top:1180px;border-color:rgba(255,255,255,.06);animation:spin2 24s linear both}
-.dot{position:absolute;width:44px;height:44px;border-radius:50%;background:#E8323A;box-shadow:0 0 40px rgba(232,50,58,.8);
+.o2{width:1400px;height:500px;left:-60px;top:1180px;border-color:rgba(17,17,17,.04);animation:spin2 24s linear both}
+.dot{position:absolute;width:44px;height:44px;border-radius:50%;background:#FF3131;box-shadow:0 0 30px rgba(255,49,49,.5);
   offset-path:path('M 0 0 C 300 -120 700 -120 1000 0');left:40px;top:1560px;animation:fly 24s linear both}
 @keyframes spin{from{transform:rotate(-24deg)}to{transform:rotate(-14deg)}}
 @keyframes spin2{from{transform:rotate(-16deg)}to{transform:rotate(-24deg)}}
 @keyframes fly{from{offset-distance:0%}to{offset-distance:100%}}
-.progress{position:absolute;left:0;top:0;height:12px;background:#E8323A;z-index:5}
-.top{position:absolute;left:60px;right:60px;top:84px;display:flex;justify-content:space-between;align-items:center;z-index:3}
-.brand{display:flex;align-items:center;gap:20px;font-weight:900;font-size:40px;letter-spacing:.08em}
-.brand img{width:92px;height:92px;border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
-.tag{background:#fff;color:#11284C;font-weight:900;font-size:34px;padding:10px 26px;border-radius:999px}
+.progress{position:absolute;left:0;top:0;height:12px;background:#38B6FF;z-index:5}
+.top{position:absolute;left:60px;right:0;top:84px;display:flex;justify-content:flex-end;align-items:center;z-index:3}
+.brand{display:none}
+.brand img{width:92px;height:92px;border-radius:50%;mix-blend-mode:multiply}
+.tag{background:#4F136B;color:#fff;font-weight:900;font-size:34px;padding:10px 26px;border-radius:999px}
 .card{position:absolute;left:70px;right:70px;top:230px;height:860px;border-radius:30px;overflow:hidden;z-index:2;
-  box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 4px rgba(255,255,255,.15);animation:cardin .45s cubic-bezier(.2,1.3,.3,1) both}
+  box-shadow:0 30px 80px rgba(0,0,0,.18);animation:cardin .45s cubic-bezier(.2,1.3,.3,1) both}
 .card img{width:100%;height:100%;object-fit:cover;display:block;animation:kb 6s ease-out both}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
 @keyframes cardin{from{transform:translateY(40px) scale(.96);opacity:0}to{transform:none;opacity:1}}
 .cap{position:absolute;left:50px;right:50px;top:300px;bottom:330px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:3}
 .has-photo .cap{top:1130px;bottom:300px}
-.chip{font-size:46px;font-weight:900;padding:12px 32px;border-radius:12px;margin-bottom:34px;background:#fff;color:#11284C;
+.chip{font-size:46px;font-weight:900;padding:12px 32px;border-radius:12px;margin-bottom:34px;background:#38B6FF;color:#fff;
   animation:pop .3s cubic-bezier(.2,1.6,.4,1) both}
-.chip.red{background:#E8323A;color:#fff;animation:pop .3s cubic-bezier(.2,1.6,.4,1) both, blink .5s steps(2) .35s 3}
+.chip.red{background:#FF3131;color:#fff;animation:pop .3s cubic-bezier(.2,1.6,.4,1) both, blink .5s steps(2) .35s 3}
 .lines{font-feature-settings:"palt";font-size:108px;font-weight:900;line-height:1.38}
 .has-photo .lines{font-size:88px}
 .lines .l{display:block;animation:rise .38s cubic-bezier(.2,1.25,.3,1) both}
 .lines .l:nth-child(2){animation-delay:.14s}.lines .l:nth-child(3){animation-delay:.28s}.lines .l:nth-child(4){animation-delay:.42s}
-.hl{color:#FFD24A}.red{color:#FF6B72}
-.mark{background:#E8323A;padding:0 18px;border-radius:10px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.sub{margin-top:40px;font-size:50px;font-weight:700;color:rgba(255,255,255,.9);line-height:1.5;animation:fade .4s ease .55s both}
-.num{font-family:"Inter",sans-serif;font-weight:900;font-size:210px;line-height:1;color:#11284C;background:#fff;
+.hl{color:#FF3131}.red{color:#FF3131}
+.mark{color:#38B6FF}
+.sub{margin-top:40px;font-size:50px;font-weight:700;color:#333;line-height:1.5;animation:fade .4s ease .55s both}
+.num{font-family:"Inter",sans-serif;font-weight:900;font-size:210px;line-height:1;color:#fff;background:#38B6FF;
   padding:4px 46px 16px;border-radius:30px;margin-bottom:40px;transform:rotate(-4deg);
-  animation:pop .35s cubic-bezier(.2,1.6,.4,1) both;box-shadow:0 14px 40px rgba(0,0,0,.4);position:relative}
-.num::after{content:"";position:absolute;right:-18px;top:-18px;width:52px;height:52px;border-radius:50%;background:#E8323A}
-.ctabox{margin-top:44px;background:#fff;color:#11284C;font-size:58px;font-weight:900;padding:30px 46px;border-radius:22px;line-height:1.4;
+  animation:pop .35s cubic-bezier(.2,1.6,.4,1) both;box-shadow:0 14px 40px rgba(0,0,0,.15);position:relative}
+.num::after{content:"";position:absolute;right:-18px;top:-18px;width:52px;height:52px;border-radius:50%;background:#FF3131}
+.ctabox{margin-top:44px;background:#9DD7E6;color:#111;border-radius:60px;font-size:58px;font-weight:900;padding:30px 46px;border-radius:22px;line-height:1.4;
   animation:pop .4s cubic-bezier(.2,1.6,.4,1) .5s both}
-.ctabox span{color:#E8323A}
-.handle{position:absolute;left:0;right:0;bottom:230px;text-align:center;font-size:36px;font-weight:700;color:rgba(255,255,255,.6);z-index:3}
+.ctabox span{color:#FF3131}
+.handle{display:none}
 @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1) rotate(var(--r,0));opacity:1}}
 @keyframes rise{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -93,18 +97,22 @@ def scene_html(s, tag, start, total):
     if s.get("photo"):
         uri = (ROOT / "assets" / "photos" / s["photo"]).resolve().as_uri()
         photo = f'<div class="card"><img src="{uri}"></div>'
+    bgp = ROOT / "assets" / "bg.jpg"
+    bgcls, bgstyle = ("", f"background-image:url('{bgp.resolve().as_uri()}')") if bgp.exists() else ("fallback", "")
     # 背景の動きはリール全体で連続させる（シーン開始時刻ぶん先送り）
     return f"""<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>{CSS}
 @keyframes prog{{from{{width:{p0:.3f}%}}to{{width:{p1:.3f}%}}}}
 .progress{{animation:prog {dur}s linear both}}
-.o1,.o2{{animation-delay:-{start:.2f}s}} .dot{{animation-delay:-{start:.2f}s}}
+.o1,.o2,.bg{{animation-delay:-{start:.2f}s}} .dot{{animation-delay:-{start:.2f}s}}
 </style></head><body class="{'has-photo' if photo else ''}">
+<div class="bg {bgcls}" style="{bgstyle}"></div><div class="haze"></div>
 <div class="orbit o1"></div><div class="orbit o2"></div><div class="dot"></div>
 <div class="progress"></div>
 <div class="top"><div class="brand"><img src="{LOGO}">{CONFIG['short']}</div><span class="tag">{tag}</span></div>
 {photo}
 <div class="cap">{cap}</div>
 <div class="handle">@{CONFIG['handle']}</div>
+<div class="foot">business×大学</div><img class="flogo" src="{LOGO}">
 </body></html>"""
 
 

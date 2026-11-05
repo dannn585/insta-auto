@@ -21,4 +21,4 @@
 | T17 | 11/05 の投稿が 19:30〜23:59 に出たか確認 | secretary | 11/06 | 未着手 | T8 の効果確認 |
 | T18 | VS Code 側の Chrome で Instagram（@panda.7475341）にログインする | ダン | 11/08 | 確認待ち（ダン） | 11/04 ブラウザ接続は確認済み。ただしこの Chrome では Instagram 未ログイン。ログインは本人のみ。T14（プロフィール変更）の前に必要 |
 | T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | secretary | 11/08 | 確認待ち（ダン） | 11/05 実行 → Meta「(#10) アプリに権限がない」。今の鍵は Instagramログイン方式で、Business Discovery は Facebookログイン方式（instagram_basic・instagram_manage_insights・pages_read_engagement、pandaをFacebookページに連携）が必要。仕組み（scripts/fetch_public.py・fetch-posts.yml の axis_public）は完成済み。鍵を追加発行すれば即動く |
-| T20 | 【PCを開いたら・ダン】ChromeでAXISのCanvaテンプレ（https://canva.link/x62knvsxtyiiypy）を開き、リンに「開いた」と送る → リンがテンプレを読み取り、axis/templates と 11/04・11/06 の下書きを作り直す | ダン → secretary | 11/06 | 確認待ち（ダン） | Canvaにログインした状態で開くと閲覧権限が付く（DAG8ijGL2Fc）。自動確認は11/05に中止。リンはどちらの環境でも、ダンがPCを開いたら最初にこれを伝える |
+| T20 | AXISのCanvaテンプレに合わせて投稿デザインを作り直す | secretary | 11/06 | 完了 | 11/05 テンプレ（DAG8ijGL2Fc「AXIS１ 勉強会やってます」5枚）を読み取り、axis/templates/slide.html と axis/scripts/reel.py を作り直し。11/04カルーセル（6枚）・11/06リールを再生成。残り：活動写真を axis/assets/bg.jpg に置くと背景がテンプレと同じ「写真を白く薄めた」見た目になる（今は色だけで代用）。Canvaでの直接複製は権限で止められた |

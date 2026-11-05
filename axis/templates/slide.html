@@ -2,66 +2,67 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<!--
+  AXIS カルーセル v2（2026-11-05）
+  サークルのCanvaテンプレ「AXIS１ 勉強会やってます」(DAG8ijGL2Fc) に合わせた見た目。
+  - 背景：活動の写真を白っぽく薄めたもの（axis/assets/bg.jpg。無いときは色だけで近い雰囲気を出す）
+  - 文字：中央ぞろえ・極太・黒。強調は 赤 #FF3131（<em>）と 水色 #38B6FF（<strong>）
+  - 左下に「business×大学」、右下にロゴ
+-->
 <style>
-  :root { --navy:#17355F; --navy2:#0E2142; --red:#D7262E; --paper:#F5F6FA; --sub:#5B6478; }
+  :root { --red:#FF3131; --blue:#38B6FF; --ink:#111111; --band:rgba(223,241,245,.9); --bubble:#9DD7E6; --purple:#4F136B; }
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { width:1080px; height:1350px; }
-  body { font-family:"Noto Sans CJK JP",sans-serif; color:var(--navy2); background:var(--paper); position:relative; overflow:hidden; }
-  /* ロゴの「軌道」モチーフ */
-  .orbit { position:absolute; width:1500px; height:560px; border:5px solid rgba(23,53,95,.10); border-radius:50%;
-           left:-210px; top:400px; transform:rotate(-18deg); }
-  .orbit.o2 { width:1300px; height:460px; left:40px; top:820px; transform:rotate(-18deg); border-color:rgba(23,53,95,.06); }
-  .dot { position:absolute; width:34px; height:34px; border-radius:50%; background:var(--red); right:96px; bottom:150px; }
-  .cover-band { position:absolute; left:0; right:0; top:0; height:14px; background:var(--navy); }
-  .cover-band::after { content:""; position:absolute; left:0; top:0; width:220px; height:14px; background:var(--red); }
-  .frame { position:absolute; inset:70px 72px 60px; display:flex; flex-direction:column; z-index:1; }
-  .top { display:flex; justify-content:space-between; align-items:center; }
-  .brand { display:flex; align-items:center; gap:18px; font-weight:900; font-size:28px; color:var(--navy); letter-spacing:.04em; }
-  .brand img { width:72px; height:72px; border-radius:50%; box-shadow:0 0 0 3px rgba(23,53,95,.12); }
-  .brand small { display:block; font-size:20px; font-weight:500; color:var(--sub); letter-spacing:.02em; }
-  .tag { background:var(--navy); color:#fff; font-weight:900; font-size:26px; padding:10px 24px; border-radius:999px; letter-spacing:.08em; }
-  .content { flex:1; display:flex; flex-direction:column; justify-content:center; }
-  .bottom { display:flex; justify-content:space-between; align-items:center; font-size:24px; color:var(--sub); font-weight:500; }
-  .page { font-family:"Inter",sans-serif; font-weight:700; letter-spacing:.1em; }
-  .swipe { color:var(--navy); font-weight:900; }
+  body { font-family:"Noto Sans CJK JP",sans-serif; color:var(--ink); position:relative; overflow:hidden; background:#EDE7E1; }
 
-  /* cover */
-  .kicker { align-self:flex-start; font-weight:900; font-size:36px; color:var(--red); letter-spacing:.08em; margin-bottom:40px;
-            border:4px solid var(--red); padding:8px 24px; border-radius:8px; background:#fff; }
-  .title { font-feature-settings:"palt"; font-size:100px; font-weight:900; line-height:1.28; color:var(--navy2); }
-  .title em { font-style:normal; color:var(--red); background:linear-gradient(transparent 70%, rgba(215,38,46,.16) 70%); }
-  .sub { margin-top:48px; font-size:38px; font-weight:700; line-height:1.6; color:var(--sub); }
+  /* 背景：写真 + 白いもや */
+  .bg { position:absolute; inset:-40px; background-size:cover; background-position:center; filter:blur(3px); }
+  .bg.fallback {
+    background:
+      radial-gradient(420px 300px at 18% 30%, #F6F1E8 0%, transparent 70%),
+      radial-gradient(520px 380px at 78% 18%, #FFFFFF 0%, transparent 70%),
+      radial-gradient(360px 300px at 85% 62%, #8C9A78 0%, transparent 70%),
+      radial-gradient(460px 360px at 25% 72%, #9A7B62 0%, transparent 70%),
+      radial-gradient(520px 260px at 55% 92%, #C9A88A 0%, transparent 70%),
+      radial-gradient(300px 260px at 52% 48%, #B79C86 0%, transparent 70%),
+      linear-gradient(180deg, #F3EFEA 0%, #D9CFC6 55%, #CDBFB2 100%);
+    filter:blur(30px);
+  }
+  .haze { position:absolute; inset:0; background:rgba(255,255,255,.62); }
 
-  /* text */
-  .heading { font-feature-settings:"palt"; font-size:68px; font-weight:900; line-height:1.3; margin-bottom:56px; color:var(--navy2); }
-  .heading::before { content:""; display:block; width:90px; height:10px; background:var(--red); border-radius:5px; margin-bottom:26px; }
-  .items { list-style:none; display:flex; flex-direction:column; gap:30px; }
-  .items li { display:grid; grid-template-columns:84px 1fr; gap:10px; align-items:start; font-size:42px; font-weight:900; line-height:1.5;
-              background:#fff; border-radius:20px; padding:30px 36px 30px 28px; box-shadow:0 10px 30px rgba(14,33,66,.08); }
-  .num { width:64px; height:64px; border-radius:50%; background:var(--navy); color:#fff; font-family:"Inter",sans-serif;
-         font-size:30px; font-weight:900; display:flex; align-items:center; justify-content:center; margin-top:2px; }
-  .items li small { display:block; font-size:31px; font-weight:500; color:var(--sub); margin-top:8px; line-height:1.55; }
-  .items li em { font-style:normal; color:var(--red); }
+  .content { position:absolute; left:80px; right:80px; top:130px; bottom:230px;
+             display:flex; flex-direction:column; justify-content:center; align-items:center; gap:110px; text-align:center; }
+  .block { font-feature-settings:"palt"; font-weight:900; font-size:66px; line-height:1.5; letter-spacing:.02em; }
+  .block.s { font-size:54px; }
+  .block.xs { font-size:38px; font-weight:700; line-height:1.6; }
+  .block.left { text-align:left; }
+  em { font-style:normal; color:var(--red); }
+  strong { font-weight:900; color:var(--blue); }
 
-  /* cta */
-  .cta .title { font-size:90px; }
-  .cta-box { margin-top:64px; background:var(--navy); color:#fff; border-radius:24px; padding:46px 52px; font-size:42px; font-weight:700; line-height:1.65;
-             position:relative; overflow:hidden; }
-  .cta-box::after { content:""; position:absolute; right:-60px; top:-60px; width:200px; height:200px; border-radius:50%; background:var(--red); opacity:.9; }
-  .cta-box span { color:#FFD3D5; font-weight:900; }
-  .cta-box b { display:inline-block; background:#fff; color:var(--navy2); padding:2px 18px; border-radius:8px; margin:0 4px; }
+  /* 表紙：水色の帯 + 右上の紫のタグ */
+  .cover .band { position:absolute; left:0; right:0; top:420px; padding:70px 60px; background:var(--band); text-align:center; }
+  .cover .band .block { font-size:74px; line-height:1.55; }
+  .tag { position:absolute; right:0; top:300px; min-width:150px; height:120px; padding:0 34px; background:var(--purple); color:#fff;
+         display:flex; align-items:center; justify-content:center; font-weight:900; font-size:40px; letter-spacing:.06em; }
+
+  /* 下部 */
+  .foot { position:absolute; left:0; bottom:48px; font-family:"Noto Sans CJK JP",sans-serif; font-weight:900; font-size:66px; letter-spacing:-.01em; }
+  .logo { position:absolute; right:56px; bottom:44px; width:150px; height:150px; border-radius:50%; mix-blend-mode:multiply; }
+  .page { position:absolute; right:60px; top:56px; font-weight:700; font-size:28px; color:rgba(17,17,17,.45); letter-spacing:.1em; }
+
+  /* 最後：大きなロゴ + 水色の吹き出し */
+  .cta .content { justify-content:flex-start; top:140px; gap:70px; }
+  .cta .biglogo { position:absolute; right:30px; top:780px; width:360px; height:360px; border-radius:50%; mix-blend-mode:multiply; }
+  .bubble { position:absolute; left:60px; bottom:90px; width:720px; padding:46px 40px; background:var(--bubble); border-radius:60px;
+            font-weight:900; font-size:62px; line-height:1.45; text-align:center; }
+  .bubble::after { content:""; position:absolute; right:80px; top:-56px; border:40px solid transparent; border-bottom:40px solid var(--bubble);
+                   border-right-width:0; border-left-width:70px; border-bottom-width:60px; }
 </style>
 </head>
-<body>
-  <div class="cover-band"></div>
-  <div class="orbit"></div><div class="orbit o2"></div><div class="dot"></div>
-  <div class="frame">
-    <div class="top">
-      <div class="brand"><img src="{{LOGO}}"><div>{{NAME}}<small>@{{HANDLE}}</small></div></div>
-      <span class="tag">{{TAG}}</span>
-    </div>
-    <div class="content {{TYPE}}">{{BODY}}</div>
-    <div class="bottom"><span class="page">{{PAGE}}</span><span class="swipe">{{SWIPE}}</span></div>
-  </div>
+<body class="{{TYPE}}">
+  <div class="bg {{BGCLASS}}" style="{{BGSTYLE}}"></div><div class="haze"></div>
+  {{BODY}}
+  <div class="page">{{PAGE}}</div>
+  {{FOOT}}
 </body>
 </html>
