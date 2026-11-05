@@ -183,7 +183,7 @@ def main():
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(video), "-i", str(beat),
                     "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
                     "-shortest", "-movflags", "+faststart", str(final_tmp)], check=True)
-    final_tmp.rename(out / "reel.mp4")
+    final_tmp.replace(out / "reel.mp4")
     print(f"reel -> {out / 'reel.mp4'} ({total:.1f}s)")
 
 
