@@ -23,3 +23,4 @@
 | T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | secretary | 11/06 | 完了 | 11/05 ダンが鍵を出し直し IG_ACCESS_TOKEN を更新。Token check 成功・Fetch past posts（axis_public）で20件取得 → axis/reference/。いつでも Actions → Fetch past posts → axis_public で最新化できる。分析は knowledge/axis.md |
 | T20 | AXISのCanvaテンプレ・過去投稿に合わせて投稿デザインを作り直す | secretary | 11/06 | 完了 | 11/05 テンプレ＋過去投稿20件に合わせて v3（背景写真・帯＋サブタイトル・business×テーマ・小見出し・定型の締め2枚・キャプションの「興味あり」導線）。11/04カルーセル8枚・11/06リールを再生成 |
 | T21 | AXISの次の投稿ネタ：過去投稿で反応ゼロだった理由をふまえ、リール中心の週間計画を作る | creative | 11/08 | 未着手 | 過去20件はすべてカルーセル・いいね0〜3。リールでフォロワー外に届ける。人気の型（企業の雑学「なんでサイゼは安い？」・本の要約）をリール化 |
+| T22 | 代表に見せる用にAXISの投稿を4本追加 | creative | 11/05 | 完了 | 11/05 作成：11/07リール「なんでニトリは安い？」（戦略）、11/08カルーセル「1・2回生の就活準備5選」（就活）、11/09リール「AXISって何してる？」（大学・活動は過去投稿の記載どおり）、11/10カルーセル「72の法則」（お金）。確認ページ https://claude.ai/artifact/FRpZvbfWet4pYmBdaq6QqM に反映。AXISの鍵が無いので自動投稿はされない |
