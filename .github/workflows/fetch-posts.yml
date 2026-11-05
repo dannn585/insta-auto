@@ -1,6 +1,9 @@
 name: Fetch past posts
 
 on:
+  schedule:
+    # 毎晩 AXIS の数字（リーチ・保存など）を自動で取り込む。23:07 JST（GitHubの予約は数時間遅れることがある）
+    - cron: "7 14 * * *"
   workflow_dispatch:
     inputs:
       account:
@@ -27,13 +30,13 @@ jobs:
           python-version: "3.12"
       - run: pip install requests
       - name: Fetch
-        if: github.event.inputs.account != 'axis_public'
+        if: (github.event.inputs.account || 'axis') != 'axis_public'
         env:
-          ACCOUNT_DIR: ${{ github.event.inputs.account == 'axis' && 'axis' || '' }}
-          IG_ACCESS_TOKEN: ${{ github.event.inputs.account == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || github.event.inputs.account != 'axis' && secrets.IG_ACCESS_TOKEN || '' }}
+          ACCOUNT_DIR: ${{ (github.event.inputs.account || 'axis') == 'axis' && 'axis' || '' }}
+          IG_ACCESS_TOKEN: ${{ (github.event.inputs.account || 'axis') == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || (github.event.inputs.account || 'axis') != 'axis' && secrets.IG_ACCESS_TOKEN || '' }}
         run: python scripts/fetch_posts.py
       - name: Fetch public posts via Business Discovery
-        if: github.event.inputs.account == 'axis_public'
+        if: (github.event.inputs.account || 'axis') == 'axis_public'
         env:
           ACCOUNT_DIR: axis
           TARGET_USERNAME: axis_doshisha
@@ -45,4 +48,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase -q || true
           git add -A
-          git diff --cached --quiet || (git commit -m "Fetch past posts (${{ github.event.inputs.account }})" && git push)
+          git diff --cached --quiet || (git commit -m "Fetch past posts (${{ (github.event.inputs.account || 'axis') }})" && git push)
