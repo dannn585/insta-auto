@@ -2,7 +2,7 @@ name: Fetch past posts
 
 on:
   schedule:
-    # 毎晩 AXIS の数字（リーチ・保存など）を自動で取り込む。23:07 JST（GitHubの予約は数時間遅れることがある）
+    # 毎晩 AXIS と panda の数字（リーチ・保存など）を自動で取り込む。23:07 JST（GitHubの予約は数時間遅れることがある）
     - cron: "7 14 * * *"
   workflow_dispatch:
     inputs:
@@ -35,6 +35,13 @@ jobs:
           ACCOUNT_DIR: ${{ (github.event.inputs.account || 'axis') == 'axis' && 'axis' || '' }}
           IG_ACCESS_TOKEN: ${{ (github.event.inputs.account || 'axis') == 'axis' && secrets.AXIS_IG_ACCESS_TOKEN || (github.event.inputs.account || 'axis') != 'axis' && secrets.IG_ACCESS_TOKEN || '' }}
         run: python scripts/fetch_posts.py
+      - name: Fetch panda too (nightly only)
+        if: always() && github.event_name == 'schedule'
+        continue-on-error: true   # panda が失敗しても AXIS の分は保存する
+        env:
+          ACCOUNT_DIR: ""
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python scripts/fetch_posts.py
       - name: Fetch public posts via Business Discovery
         if: (github.event.inputs.account || 'axis') == 'axis_public'
         env:
@@ -43,6 +50,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: python scripts/fetch_public.py
       - name: Commit
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
