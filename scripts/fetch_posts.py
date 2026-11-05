@@ -1,7 +1,7 @@
 """自分のアカウントの過去投稿を Instagram公式API で取得し、<ACCOUNT_DIR>/reference/ に保存する。
 
 保存物:
-  reference/posts.json            … キャプション・投稿日時・いいね数・コメント数・URL
+  reference/posts.json            … キャプション・投稿日時・いいね数・コメント数・URL・insights（リーチ・保存・シェア・再生数）
   reference/media/<id>_<n>.jpg    … 画像（動画はサムネイル）
 
 Env: IG_ACCESS_TOKEN（必須）, ACCOUNT_DIR（例: axis）, IG_API_VERSION（任意）
@@ -29,6 +29,20 @@ def get(url, **params):
     if r.status_code != 200 or "error" in data:
         sys.exit(f"API error: {json.dumps(data, ensure_ascii=False)}")
     return data
+
+
+INSIGHT_METRICS = "reach,saved,shares,total_interactions,views"
+
+
+def insights(ig, token, media_id):
+    """投稿ごとのリーチ・保存・シェア・再生数。取れない投稿（古い・種類が違う等）はエラー内容だけ残す。"""
+    r = requests.get(f"{ig.base}/{media_id}/insights",
+                     params=dict(metric=INSIGHT_METRICS, access_token=token), timeout=60)
+    data = r.json()
+    if "error" in data:
+        return {"error": data["error"].get("message", "")}
+    return {m["name"]: (m.get("values") or [{}])[0].get("value", m.get("total_value", {}).get("value"))
+            for m in data.get("data", [])}
 
 
 def main():
@@ -60,6 +74,7 @@ def main():
         for k in ("media_url", "thumbnail_url"):
             p.pop(k, None)  # 期限付きURLは保存しない
         p.pop("children", None)
+        p["insights"] = insights(ig, token, p["id"])
 
     (OUT / "posts.json").write_text(json.dumps({"account": me, "posts": posts}, ensure_ascii=False, indent=2),
                                     encoding="utf-8")
