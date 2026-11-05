@@ -27,6 +27,7 @@ body{font-family:"Noto Sans CJK JP",sans-serif;color:#111;position:relative;back
 .bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(3px);animation:kb 24s linear both}
 .bg.fallback{background:radial-gradient(520px 380px at 18% 25%,#F6F1E8 0%,transparent 70%),radial-gradient(600px 420px at 80% 15%,#fff 0%,transparent 70%),radial-gradient(420px 360px at 85% 60%,#8C9A78 0%,transparent 70%),radial-gradient(560px 420px at 22% 70%,#9A7B62 0%,transparent 70%),radial-gradient(600px 300px at 55% 92%,#C9A88A 0%,transparent 70%),linear-gradient(180deg,#F3EFEA 0%,#D9CFC6 55%,#CDBFB2 100%);filter:blur(36px)}
 .haze{position:absolute;inset:0;background:rgba(255,255,255,.62)}
+.bg.photo{filter:none}.bg.photo+.haze{background:rgba(255,255,255,.12)}
 .foot{position:absolute;left:0;bottom:150px;font-weight:900;font-size:76px;z-index:3}
 .flogo{position:absolute;right:56px;bottom:130px;width:170px;height:170px;border-radius:50%;mix-blend-mode:multiply;z-index:3}
 .orbit{position:absolute;border:6px solid rgba(17,17,17,.05);border-radius:50%;transform:rotate(-20deg)}
@@ -41,7 +42,7 @@ body{font-family:"Noto Sans CJK JP",sans-serif;color:#111;position:relative;back
 .top{position:absolute;left:60px;right:0;top:84px;display:flex;justify-content:flex-end;align-items:center;z-index:3}
 .brand{display:none}
 .brand img{width:92px;height:92px;border-radius:50%;mix-blend-mode:multiply}
-.tag{background:#4F136B;color:#fff;font-weight:900;font-size:34px;padding:10px 26px;border-radius:999px}
+.tag{display:none;background:#4F136B;color:#fff;font-weight:900;font-size:34px;padding:10px 26px;border-radius:999px}
 .card{position:absolute;left:70px;right:70px;top:230px;height:860px;border-radius:30px;overflow:hidden;z-index:2;
   box-shadow:0 30px 80px rgba(0,0,0,.18);animation:cardin .45s cubic-bezier(.2,1.3,.3,1) both}
 .card img{width:100%;height:100%;object-fit:cover;display:block;animation:kb 6s ease-out both}
@@ -98,7 +99,7 @@ def scene_html(s, tag, start, total):
         uri = (ROOT / "assets" / "photos" / s["photo"]).resolve().as_uri()
         photo = f'<div class="card"><img src="{uri}"></div>'
     bgp = ROOT / "assets" / "bg.jpg"
-    bgcls, bgstyle = ("", f"background-image:url('{bgp.resolve().as_uri()}')") if bgp.exists() else ("fallback", "")
+    bgcls, bgstyle = ("photo", f"background-image:url('{bgp.resolve().as_uri()}')") if bgp.exists() else ("fallback", "")
     # 背景の動きはリール全体で連続させる（シーン開始時刻ぶん先送り）
     return f"""<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>{CSS}
 @keyframes prog{{from{{width:{p0:.3f}%}}to{{width:{p1:.3f}%}}}}
@@ -112,7 +113,7 @@ def scene_html(s, tag, start, total):
 {photo}
 <div class="cap">{cap}</div>
 <div class="handle">@{CONFIG['handle']}</div>
-<div class="foot">business×大学</div><img class="flogo" src="{LOGO}">
+<div class="foot">business×{tag}</div><img class="flogo" src="{LOGO}">
 </body></html>"""
 
 

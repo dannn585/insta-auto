@@ -9,12 +9,13 @@ Draft format (v2):
 {
   "date": "2026-11-04", "tag": "お金", "caption": "...", "bg": "assets/bg.jpg"(任意),
   "slides": [
-    {"type": "cover", "lines": ["<em>年金</em>・<em>税金</em>", "知らないと損する", "..."]},
+    {"type": "cover", "lines": ["<em>年金</em>・<em>税金</em>", "知らないと損する"], "sub": "〜知らないと一生損するかも〜"},
     {"type": "text", "blocks": [["1行目", "2行目"], {"lines": ["・箇条書き"], "align": "left", "size": "s"}]},
     {"type": "cta", "blocks": [...], "bubble": "興味ある人はタップ<br>してDMください！"}
   ]
 }
-size: 省略=標準 / "s"=少し小さめ / "xs"=注釈
+size: 省略=標準 / "s"=少し小さめ / "h"=小見出し（まずは・結論など） / "xs"=注釈
+左下は「business×<tag>」（過去投稿は お金・現実・経済・税制度 など）。cta の blocks 省略時はサークルの定型文
 """
 import base64
 import io
@@ -38,6 +39,13 @@ def data_uri(path):
 LOGO = data_uri(ROOT / "assets" / "logo.jpg")
 
 
+# 最後の1枚は、サークルの過去投稿・テンプレと同じ文言を基本にする
+CTA_BLOCKS = [
+    {"lines": ["・参加は完全に任意", "・Zoomで気軽に参加", "・興味ある回だけでOK"], "align": "left", "size": "s"},
+    {"lines": ["私たちと一緒に学び、大学生活", "やキャリア設計をより良いものに", "しませんか？"], "align": "left", "size": "s"},
+]
+
+
 def block_html(b):
     if isinstance(b, list):
         b = {"lines": b}
@@ -48,12 +56,13 @@ def block_html(b):
 def slide_body(s, tag):
     t = s["type"]
     if t == "cover":
-        return (f'<div class="tag">{tag}</div>' if tag else "") + \
-            '<div class="band"><div class="block">' + "<br>".join(s["lines"]) + "</div></div>"
+        sub = f'<div class="subt">{s["sub"]}</div>' if s.get("sub") else ""
+        return '<div class="band"><div class="block">' + "<br>".join(s["lines"]) + "</div>" + sub + "</div>"
     if t == "text":
         return '<div class="content">' + "".join(block_html(b) for b in s["blocks"]) + "</div>"
     if t == "cta":
-        return ('<div class="content">' + "".join(block_html(b) for b in s.get("blocks", [])) + "</div>"
+        blocks = s.get("blocks") or CTA_BLOCKS
+        return ('<div class="content">' + "".join(block_html(b) for b in blocks) + "</div>"
                 + f'<img class="biglogo" src="{LOGO}">'
                 + f'<div class="bubble">{s.get("bubble", "興味ある人はタップ<br>してDMください！")}</div>')
     raise ValueError(f"unknown slide type {t}")
@@ -69,8 +78,8 @@ def render(draft_path, page):
     bg_path = ROOT / d.get("bg", "assets/bg.jpg")
     bg = data_uri(bg_path) if bg_path.exists() else ""
     for i, s in enumerate(d["slides"], 1):
-        foot = "" if s["type"] == "cta" else f'<div class="foot">business×大学</div><img class="logo" src="{LOGO}">'
-        html = (TEMPLATE.replace("{{BGCLASS}}", "" if bg else "fallback")
+        foot = "" if s["type"] == "cta" else f'<div class="foot">business×{d.get("tag", "大学")}</div><img class="logo" src="{LOGO}">'
+        html = (TEMPLATE.replace("{{BGCLASS}}", "photo" if bg else "fallback")
                 .replace("{{BGSTYLE}}", f"background-image:url('{bg}')" if bg else "")
                 .replace("{{PAGE}}", f"{i} / {n}" if i > 1 else "")
                 .replace("{{TYPE}}", s["type"])

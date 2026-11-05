@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!--
-  AXIS カルーセル v2（2026-11-05）
+  AXIS カルーセル v3（2026-11-05）：過去投稿20件（axis/reference）の型に合わせた
   サークルのCanvaテンプレ「AXIS１ 勉強会やってます」(DAG8ijGL2Fc) に合わせた見た目。
   - 背景：活動の写真を白っぽく薄めたもの（axis/assets/bg.jpg。無いときは色だけで近い雰囲気を出す）
   - 文字：中央ぞろえ・極太・黒。強調は 赤 #FF3131（<em>）と 水色 #38B6FF（<strong>）
@@ -29,19 +29,24 @@
     filter:blur(30px);
   }
   .haze { position:absolute; inset:0; background:rgba(255,255,255,.62); }
+  /* 実写背景（axis/assets/bg.jpg）は白いもやを焼き込み済み → そのまま使う */
+  .bg.photo { inset:0; filter:none; }
+  .bg.photo + .haze { display:none; }
 
-  .content { position:absolute; left:80px; right:80px; top:130px; bottom:230px;
-             display:flex; flex-direction:column; justify-content:center; align-items:center; gap:110px; text-align:center; }
+  .content { position:absolute; left:70px; right:70px; top:110px; bottom:230px;
+             display:flex; flex-direction:column; justify-content:center; align-items:center; gap:90px; text-align:center; }
   .block { font-feature-settings:"palt"; font-weight:900; font-size:66px; line-height:1.5; letter-spacing:.02em; }
   .block.s { font-size:54px; }
   .block.xs { font-size:38px; font-weight:700; line-height:1.6; }
+  .block.h { font-size:52px; }   /* 「まずは」「結論」などの小見出し */
   .block.left { text-align:left; }
   em { font-style:normal; color:var(--red); }
   strong { font-weight:900; color:var(--blue); }
 
   /* 表紙：水色の帯 + 右上の紫のタグ */
-  .cover .band { position:absolute; left:0; right:0; top:420px; padding:70px 60px; background:var(--band); text-align:center; }
+  .cover .band { position:absolute; left:0; right:0; top:400px; padding:70px 60px; background:var(--band); text-align:center; }
   .cover .band .block { font-size:74px; line-height:1.55; }
+  .cover .band .subt { margin-top:28px; font-weight:900; font-size:54px; }
   .tag { position:absolute; right:0; top:300px; min-width:150px; height:120px; padding:0 34px; background:var(--purple); color:#fff;
          display:flex; align-items:center; justify-content:center; font-weight:900; font-size:40px; letter-spacing:.06em; }
 

@@ -20,5 +20,6 @@
 | T16 | 固定投稿②「AI秘書の作り方キット、中身を全部見せます」カルーセル制作 | creative | 11/09 | 未着手 | T13 の後。固定①は 11/06 DAY3 リールを使う |
 | T17 | 11/05 の投稿が 19:30〜23:59 に出たか確認 | secretary | 11/06 | 未着手 | T8 の効果確認 |
 | T18 | VS Code 側の Chrome で Instagram（@panda.7475341）にログインする | ダン | 11/08 | 確認待ち（ダン） | 11/04 ブラウザ接続は確認済み。ただしこの Chrome では Instagram 未ログイン。ログインは本人のみ。T14（プロフィール変更）の前に必要 |
-| T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | ダン → secretary | 11/06 | 確認待ち（ダン） | 11/05 リンがMetaアプリに instagram_manage_insights を追加し、統合ログインの設定（ID 1688594062778406）の許可にも追加・保存済み。残り：ダンが開発者画面「2. アクセストークンを生成する」の panda.7475341「トークンを生成」→ 別ウィンドウで許可 → 出た EAA… の鍵で GitHub の IG_ACCESS_TOKEN を上書き → リンが Fetch past posts（axis_public）を実行。今の許可を全部含むので自動投稿はそのまま動く |
-| T20 | AXISのCanvaテンプレに合わせて投稿デザインを作り直す | secretary | 11/06 | 完了 | 11/05 テンプレ（DAG8ijGL2Fc「AXIS１ 勉強会やってます」5枚）を読み取り、axis/templates/slide.html と axis/scripts/reel.py を作り直し。11/04カルーセル（6枚）・11/06リールを再生成。残り：活動写真を axis/assets/bg.jpg に置くと背景がテンプレと同じ「写真を白く薄めた」見た目になる（今は色だけで代用）。Canvaでの直接複製は権限で止められた |
+| T19 | AXISの公開投稿を panda の鍵で取り込む（Business Discovery） | secretary | 11/06 | 完了 | 11/05 ダンが鍵を出し直し IG_ACCESS_TOKEN を更新。Token check 成功・Fetch past posts（axis_public）で20件取得 → axis/reference/。いつでも Actions → Fetch past posts → axis_public で最新化できる。分析は knowledge/axis.md |
+| T20 | AXISのCanvaテンプレ・過去投稿に合わせて投稿デザインを作り直す | secretary | 11/06 | 完了 | 11/05 テンプレ＋過去投稿20件に合わせて v3（背景写真・帯＋サブタイトル・business×テーマ・小見出し・定型の締め2枚・キャプションの「興味あり」導線）。11/04カルーセル8枚・11/06リールを再生成 |
+| T21 | AXISの次の投稿ネタ：過去投稿で反応ゼロだった理由をふまえ、リール中心の週間計画を作る | creative | 11/08 | 未着手 | 過去20件はすべてカルーセル・いいね0〜3。リールでフォロワー外に届ける。人気の型（企業の雑学「なんでサイゼは安い？」・本の要約）をリール化 |
