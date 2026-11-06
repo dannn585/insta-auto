@@ -15,7 +15,7 @@ OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / ".build" / "review"
 WEEK = "月火水木金土日"
 
 ACCOUNTS = [
-    {"key": "panda", "name": "@panda.7475341", "dir": ROOT / "queue", "time": "毎日 19:30〜23:59 の間",
+    {"key": "panda", "name": "@dan_aishain", "dir": ROOT / "queue", "time": "毎日 19:30〜23:59 の間",
      "note": "自動投稿 稼働中"},
     {"key": "axis", "name": "@axis_doshisha（AXIS）", "dir": ROOT / "axis" / "queue", "time": "毎日 20:30〜23:59 の間",
      "note": "AXISの鍵が未登録のため、自動投稿は停止中"},
