@@ -131,6 +131,18 @@ def main():
     IG_CLIENT = IG(token, ACCOUNT_DIR)
     ig_id = IG_CLIENT.ig_id
 
+    # 二重投稿防止：Instagram 上の最近の投稿に同じキャプションがあれば、投稿済みとして片付けるだけにする
+    try:
+        recent = api("GET", f"{ig_id}/media", token, fields="id,caption", limit=10).get("data", [])
+    except (Exception, SystemExit) as e:  # 確認に失敗しても投稿は続ける
+        print(f"::warning::recent media check failed: {e}")
+        recent = []
+    dup = next((m for m in recent if (m.get("caption") or "").strip() == caption), None)
+    if dup:
+        print(f"Already on Instagram (media id {dup['id']}). Moving {date} to posted without re-posting.")
+        finish(folder, date, dup["id"])
+        return
+
     if is_reel:
         params = dict(media_type="REELS", video_url=urls[0], caption=caption, share_to_feed="true")
         if (folder / "cover.jpg").exists():
@@ -150,7 +162,10 @@ def main():
     wait_ready(creation_id, token)
     media_id = api("POST", f"{ig_id}/media_publish", token, creation_id=creation_id)["id"]
     print(f"Published {date}: media id {media_id}")
+    finish(folder, date, media_id)
 
+
+def finish(folder, date, media_id):
     POSTED.mkdir(exist_ok=True)
     dest = POSTED / date
     shutil.move(str(folder), str(dest))

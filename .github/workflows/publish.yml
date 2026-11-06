@@ -2,13 +2,10 @@ name: Instagram daily post
 
 on:
   schedule:
-    # 20:00 JST ごろに投稿。GitHub の予約は遅れる・飛ぶことがあるので、0分を避けて何回か実行する。
-    # 投稿済みなら後の回は何もしない。19:30〜23:59 JST 以外に動いた回も何もしない（POST_WINDOW）。
-    - cron: "43 10 * * *"   # 19:43 JST
-    - cron: "13 11 * * *"   # 20:13 JST
-    - cron: "43 11 * * *"   # 20:43 JST
-    - cron: "23 12 * * *"   # 21:23 JST
-    - cron: "23 13 * * *"   # 22:23 JST
+    # 20:00 JST ごろに投稿したいが、GitHub の予約は毎日 7〜8 時間遅れて動いていた（2026-11 実測）。
+    # そこで「毎時1回」動かし、19:30〜23:59 JST に当たった最初の回だけが投稿する（POST_WINDOW）。
+    # 投稿済みなら後の回は何もしない（queue から posted に移動済み＋Instagram 上の同じキャプションも確認）。
+    - cron: "17 * * * *"
   workflow_dispatch:        # 手動実行ボタン（テスト用）
     inputs:
       post_date:
@@ -35,6 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # 予約が遅れて待たされた回でも、最新の状態（投稿済みかどうか）を見る
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -52,4 +51,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || (git commit -m "Posted $(TZ=Asia/Tokyo date +%F)" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Posted $(TZ=Asia/Tokyo date +%F)"
+          # PC の自動同期などと push がぶつかることがあるので、取り込み直して数回やり直す
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && exit 0; sleep $((i*5)); done
+          exit 1

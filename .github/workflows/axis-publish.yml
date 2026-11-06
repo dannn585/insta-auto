@@ -2,10 +2,9 @@ name: AXIS daily post
 
 on:
   schedule:
-    # 21:00 JST ごろに投稿。メインと同じく、0分を避けて何回か実行し、20:30〜23:59 JST 以外の回は何もしない。
-    - cron: "53 11 * * *"   # 20:53 JST
-    - cron: "33 12 * * *"   # 21:33 JST
-    - cron: "33 13 * * *"   # 22:33 JST
+    # 21:00 JST ごろに投稿。GitHub の予約は毎日 7〜8 時間遅れることがあるので（2026-11 実測）、
+    # 毎時1回動かし、20:30〜23:59 JST に当たった最初の回だけが投稿する。
+    - cron: "47 * * * *"
   workflow_dispatch:
     inputs:
       post_date:
@@ -28,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # 予約が遅れて待たされた回でも、最新の状態（投稿済みかどうか）を見る
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -44,6 +45,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase -q || true
           git add -A
-          git diff --cached --quiet || (git commit -m "AXIS posted $(TZ=Asia/Tokyo date +%F)" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "AXIS posted $(TZ=Asia/Tokyo date +%F)"
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && exit 0; sleep $((i*5)); done
+          exit 1
