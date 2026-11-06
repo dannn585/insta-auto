@@ -1,16 +1,35 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 0,
-    "media_count": 3,
-    "username": "panda.7475341"
+    "followers_count": 5,
+    "media_count": 4,
+    "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "17957164689286786",
+      "caption": "【DAY 3】社員6人、全員AIの会社を作った\n\n人間は社長（自分）だけ。\nClaudeで、秘書1人と5つの部署を作りました。\n\n① 秘書のリン：社長との窓口。仕事を振り分ける\n② リサーチ部：伸びている投稿の分析\n③ クリエイティブ部：台本・デザイン（この動画の担当）\n④ コミュニティ部：コメント・DMの返信案\n⑤ マーケティング部：インスタから先の流れの設計\n⑥ プロダクト部：売る商品づくり（まだ0個）\n\nお金・投稿の新しい形・DMの送信などは、AIが下書きまでで止めて、社長が確認するルールです。\n\n7人目の社員は何部がいいと思いますか？コメントで教えてください👇\n\n#AI起業 #Claude #ClaudeCode #AIエージェント #大学生起業 #AI活用 #学生起業 #挑戦記録\n\n音声：VOICEVOX:春日部つむぎ",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DfZviyFnOue/",
+      "timestamp": "2026-11-06T13:44:50+0000",
+      "files": [
+        "media/17957164689286786_1.jpg"
+      ],
+      "insights": {
+        "reach": 1,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 1
+      }
+    },
     {
       "id": "18154699189493882",
       "caption": "【DAY 2】AIと起業する大学生の3つのルール\n\nコードが書けない会社員がAIを「共同創業者」にして事業を作った、という海外の話を見て、自分もやってみることにしました。\n\n相棒はClaude。\nこの投稿も、文章・デザイン・投稿作業まで全部AI（リン）が担当しています。人間はチェックしただけ。\n\nルールは3つ。\n① AIに任せられることは全部任せる\n② 作る前に、欲しい人がいるか確かめる\n③ 数字も失敗も全部ここに載せる\n\nうまくいくかは分かりません。でも過程は全部見せます。\n「AIでこれ作れない？」というアイデアがあれば、ぜひコメントで教えてください👇\n\n#AI起業 #Claude #大学生起業 #機械工学科 #AI活用 #学生起業 #AIエージェント #副業 #挑戦記録",
       "comments_count": 0,
-      "like_count": 0,
+      "like_count": 1,
       "media_type": "CAROUSEL_ALBUM",
       "permalink": "https://www.instagram.com/p/DfXIPgMiWiq/",
       "timestamp": "2026-11-05T13:22:34+0000",
@@ -22,11 +41,11 @@
         "media/18154699189493882_5.jpg"
       ],
       "insights": {
-        "reach": 0,
+        "reach": 3,
         "saved": 0,
         "shares": 0,
-        "total_interactions": 0,
-        "views": 0
+        "total_interactions": 1,
+        "views": 6
       }
     },
     {
@@ -41,7 +60,7 @@
         "media/18133299574845324_1.jpg"
       ],
       "insights": {
-        "reach": 6,
+        "reach": 7,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
@@ -60,11 +79,11 @@
         "media/18161548561499379_1.jpg"
       ],
       "insights": {
-        "reach": 29,
+        "reach": 30,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 31
+        "views": 36
       }
     }
   ]
