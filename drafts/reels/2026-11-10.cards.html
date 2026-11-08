@@ -1,0 +1,83 @@
+<!-- 11/10 リール「ClaudeにESを本気でダメ出しさせた」の上の画面（カード）。
+     ES は説明用の架空の例。Claude の答えは実際に Claude（このリールを作った Claude）が出した内容を短くしたもの。
+     template の id を drafts/reels/2026-11-10.json の "card" から呼ぶ。 -->
+
+<template id="hook">
+<div class="paper">
+  <div class="ptitle">学生時代に力を入れたこと</div>
+  <p>サークルの副代表として、新歓イベントを成功させました。<s>メンバーと協力し、</s><u>多くの新入生</u>に参加してもらいました。<s>この経験から、チームで目標に向かう大切さを学びました。</s></p>
+  <div class="note n1">数字は？</div>
+  <div class="note n2">誰でも書ける</div>
+  <div class="note n3">あなたは何をした？</div>
+  <div class="stamp">落とす理由<br><b>5つ</b></div>
+</div>
+</template>
+
+<template id="soft_q">
+<div class="chat">
+  <div class="me">このESを直して<div class="quote">サークルの副代表として、新歓イベントを成功させました。メンバーと協力し、多くの新入生に…</div></div>
+</div>
+</template>
+
+<template id="soft_a">
+<div class="chat">
+  <div class="me">このESを直して<div class="quote">サークルの副代表として、新歓イベントを成功させました。メンバーと協力し、多くの新入生に…</div></div>
+  <div class="ai"><span class="mark">とても良いESです！</span>リーダーシップと協調性がよく伝わります。表現を少し整えるだけで十分だと思います😊</div>
+</div>
+</template>
+
+<template id="ask_typing1">
+<div class="chat end">
+  <div class="input">人事の面接官として、<span class="cur"></span></div>
+</div>
+</template>
+
+<template id="ask_typing2">
+<div class="chat end">
+  <div class="input">人事の面接官として、このESを<span class="mark">落とす理由を5つ</span>挙げて。遠慮はいらない。<span class="cur"></span></div>
+</div>
+</template>
+
+<template id="ask_sent">
+<div class="chat">
+  <div class="me">人事の面接官として、このESを<b>落とす理由を5つ</b>挙げて。遠慮はいらない。</div>
+  <div class="ai dim">面接官として読むと、落とす理由は次の5つです。</div>
+</div>
+</template>
+
+<template id="reasons">
+<div class="chat">
+  <div class="ai small">面接官として読むと、落とす理由は次の5つです。</div>
+  <ol class="reasons">
+    <li><b>具体的な数字がない</b><span>「多くの新入生」では規模が伝わらない</span></li>
+    <li><b>誰でも書ける</b><span>副代表なら全員同じ文になる</span></li>
+    <li><b>あなたの役割が見えない</b><span>「協力し」で、自分は何をした？</span></li>
+    <li><b>工夫の中身がない</b><span>結果だけで、どう考えたかがない</span></li>
+    <li><b>学びがありきたり</b><span>「チームの大切さ」はみんな書く</span></li>
+  </ol>
+</div>
+</template>
+
+<template id="fix_q">
+<div class="chat">
+  <div class="ai small">…落とす理由は次の5つです。（略）</div>
+  <div class="me">指摘を<b>全部直した版</b>を書いて</div>
+</div>
+</template>
+
+<template id="before_after">
+<div class="ba">
+  <div class="box before"><div class="lab">BEFORE</div>サークルの副代表として、新歓イベントを成功させました。メンバーと協力し、多くの新入生に参加してもらいました。</div>
+  <div class="arrow">▼</div>
+  <div class="box after"><div class="lab">AFTER</div>新歓の参加者を<span class="mark">前年の32人から58人</span>に増やしました。「雰囲気が分からず来にくい」が原因だと考え、<span class="mark">練習の様子を毎日SNSで発信</span>し、体験会を週1回から週3回に増やしました。</div>
+</div>
+</template>
+
+<template id="prompt_card">
+<div class="save">
+  <div class="slab">保存用｜ESを本気で直す頼み方</div>
+  <div class="pr"><b>①</b>人事の面接官として、このESを<span class="mark">落とす理由を5つ</span>挙げて。遠慮はいらない。</div>
+  <div class="pr"><b>②</b>指摘を<span class="mark">全部直した版</span>を書いて。</div>
+  <div class="tip">ChatGPT でも使えます</div>
+</div>
+</template>
