@@ -1,59 +1,123 @@
 {
   "type": "reel_v3",
   "voice": "drafts/voice/1110.m4a",
-  "background": "drafts/higgs/1110_hook.png",
-  "background_note": "Higgsfield z_image で生成（11/08）。紙の文字がでたらめな英語なので、強くぼかして背景にだけ使う",
   "title": "ClaudeにESを<y>本気で</y>ダメ出しさせた",
   "segments_note": "録音の無音（-35dB・0.5秒以上）で区切った話し声の範囲（秒）。前後0.1秒を残し、場面の間の無音は約0.2秒になる",
   "scenes": [
     {
-      "audio": [1.14, 4.76],
+      "audio": [
+        1.14,
+        4.76
+      ],
       "steps": [
-        {"card": "hook", "cap": "ESを<y>本気で</y>ダメ出しさせた"}
+        {
+          "card": "hook",
+          "cap": "ESを<y>本気で</y>ダメ出しさせた"
+        }
       ]
     },
     {
-      "audio": [5.49, 8.76],
+      "audio": [
+        5.49,
+        8.76
+      ],
       "steps": [
-        {"card": "soft_q", "cap": "「直して」だと…"},
-        {"card": "soft_a", "cap": "「直して」だと<y>褒めるだけ</y>"}
+        {
+          "card": "soft_q",
+          "cap": "「直して」だと…"
+        },
+        {
+          "card": "soft_a",
+          "cap": "「直して」だと<y>褒めるだけ</y>"
+        }
       ]
     },
     {
-      "audio": [9.50, 13.68],
+      "audio": [
+        9.5,
+        13.68
+      ],
       "steps": [
-        {"card": "ask_typing1", "cap": "だから、こう頼む"},
-        {"card": "ask_typing2", "cap": "「<y>落とす理由</y>を5つ挙げて」"},
-        {"card": "ask_sent", "cap": "「<y>落とす理由</y>を5つ挙げて」"}
+        {
+          "card": "ask_typing1",
+          "cap": "だから、こう頼む"
+        },
+        {
+          "card": "ask_typing2",
+          "cap": "「<y>落とす理由</y>を5つ挙げて」"
+        },
+        {
+          "card": "ask_sent",
+          "cap": "「<y>落とす理由</y>を5つ挙げて」"
+        }
       ]
     },
     {
-      "audio": [14.20, 19.80],
+      "audio": [
+        14.2,
+        19.8
+      ],
       "steps": [
-        {"card": "reasons1", "cap": "普通に<y>刺さる</y>"},
-        {"card": "reasons2", "cap": "普通に<y>刺さる</y>"},
-        {"card": "reasons3", "cap": "普通に<y>刺さる</y>"},
-        {"card": "reasons4", "cap": "普通に<y>刺さる</y>"},
-        {"card": "reasons5", "cap": "普通に<y>刺さる</y>"}
+        {
+          "card": "reasons1",
+          "cap": "普通に<y>刺さる</y>"
+        },
+        {
+          "card": "reasons2",
+          "cap": "普通に<y>刺さる</y>"
+        },
+        {
+          "card": "reasons3",
+          "cap": "普通に<y>刺さる</y>"
+        },
+        {
+          "card": "reasons4",
+          "cap": "普通に<y>刺さる</y>"
+        },
+        {
+          "card": "reasons5",
+          "cap": "普通に<y>刺さる</y>"
+        }
       ]
     },
     {
-      "audio": [20.58, 24.73],
+      "audio": [
+        20.58,
+        24.73
+      ],
       "steps": [
-        {"card": "fix_q", "cap": "「全部直した版を書いて」"},
-        {"card": "before_after", "cap": "直した版まで<y>5分</y>"}
+        {
+          "card": "fix_q",
+          "cap": "「全部直した版を書いて」"
+        },
+        {
+          "card": "before_after",
+          "cap": "直した版まで<y>5分</y>"
+        }
       ]
     },
     {
-      "audio": [25.04, 26.75],
+      "audio": [
+        25.04,
+        26.75
+      ],
       "steps": [
-        {"card": "prompt_card", "cap": "就活の人は<y>保存</y>して"}
+        {
+          "card": "prompt_card",
+          "cap": "就活の人は<y>保存</y>して"
+        }
       ]
     },
     {
-      "audio": [27.11, 30.24],
+      "audio": [
+        27.11,
+        30.24
+      ],
       "steps": [
-        {"card": "prompt_card", "cap": "頼み方のキットは<br>コメントに<y>「AI」</y>で送ります"}
+        {
+          "card": "prompt_card",
+          "cap": "頼み方のキットは<br>コメントに<y>「AI」</y>で送ります"
+        }
       ]
     }
   ],

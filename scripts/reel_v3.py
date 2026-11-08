@@ -21,7 +21,7 @@ W, H, FPS = 1080, 1920, 30
 
 CSS = """
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;height:1920px;overflow:hidden;background:#07080C}
+html,body{width:1080px;height:1920px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#2A2D36 0%,#07080C 75%)}
 body{font-family:"Noto Sans JP","Yu Gothic","Meiryo",sans-serif;color:#fff;position:relative;font-feature-settings:"palt"}
 .bg{position:absolute;inset:-80px;background-size:cover;background-position:center;filter:blur(30px) brightness(.38) saturate(1.1)}
 .title{position:absolute;left:0;right:0;top:150px;height:190px;background:#07080C;display:flex;align-items:center;justify-content:center;
@@ -101,7 +101,7 @@ def card_html(name, tpl):
 
 def page(spec, tpl, step, bg_uri):
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>
-<div class="bg" style="background-image:url('{bg_uri}')"></div>
+{f'<div class="bg" style="background-image:url({bg_uri})"></div>' if bg_uri else ''}
 <div class="title"><span>{spec['title']}</span></div>
 <div class="card">{card_html(step['card'], tpl)}</div>
 <div class="cap"><span class="t">{step['cap']}</span></div>
@@ -131,7 +131,7 @@ def main():
     out = spec_path.parent / spec_path.stem
     out.mkdir(parents=True, exist_ok=True)
     voice = ROOT / spec["voice"]
-    bg_uri = data_uri(ROOT / spec["background"])
+    bg_uri = data_uri(ROOT / spec["background"]) if spec.get("background") else ""
 
     with tempfile.TemporaryDirectory() as td:
         td = Path(td)
