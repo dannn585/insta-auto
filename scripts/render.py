@@ -13,6 +13,7 @@ Draft format:
     {"type": "cta", "title": "...", "box": "..."}
   ]
 }
+"start": N on a text slide makes its item numbers begin at N (for one list across slides).
 Text fields accept <em>, <br> and <span> (in cta box) for emphasis.
 """
 import io
@@ -36,7 +37,7 @@ def slide_body(s):
                 + (f'<div class="sub">{s["sub"]}</div>' if s.get("sub") else ""))
     if t == "text":
         lis = []
-        for i, it in enumerate(s["items"], 1):
+        for i, it in enumerate(s["items"], s.get("start", 1)):
             text, note = (it, "") if isinstance(it, str) else (it["text"], it.get("note", ""))
             lis.append(f'<li><span class="num">{i:02d}</span><div>{text}'
                        + (f"<small>{note}</small>" if note else "") + "</div></li>")
