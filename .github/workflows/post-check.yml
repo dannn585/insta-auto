@@ -1,0 +1,28 @@
+name: 投稿もれチェック
+
+on:
+  schedule:
+    # 毎日 00:05 JST に「前の日までの投稿が queue に残っていないか」を確認する。
+    # 残っていたら失敗にする → GitHub からダンにメールが届く。予約が数時間遅れても判定は変わらない。
+    - cron: "5 15 * * *"
+  workflow_dispatch:
+    inputs:
+      test_alert:
+        description: "1 にすると、わざと失敗させて通知メールを試す"
+        required: false
+        default: "0"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Check
+        env:
+          TEST_ALERT: ${{ github.event.inputs.test_alert }}
+        run: python scripts/check_missed.py
