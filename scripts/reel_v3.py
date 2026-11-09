@@ -8,7 +8,7 @@ Usage: python scripts/reel_v3.py drafts/reels/2026-11-10.json
 Output goes to drafts/ (not queue/): the first reels of a new style are checked by Dan before queue/.
 
 Optional spec keys (added 11/09):
-  "bgm": {"preset": "pop", "seed": 3, "db": -13}  original music from scripts/bgm.py under the voice
+  "bgm": {"preset": "pop", "seed": 3, "db": -10}  original music from scripts/bgm.py under the voice
         (ducked while Dan speaks). "tail": seconds the last screen stays after the last word (default 0.8 with bgm).
   pauses inside one scene longer than 0.45 s are shortened to 0.25 s automatically ("tighten": false to keep them).
   step "w": relative length of a step inside its scene (default 1).
@@ -230,7 +230,7 @@ def main():
             import bgm as bgm_mod
             g = spec["bgm"]
             bgm_mod.write(td / "bgm.wav", bgm_mod.render(total, g.get("preset", "chill"), g.get("seed", 1)))
-            db = g.get("db", -13)
+            db = g.get("db", -10)
             fc = (cat + f",loudnorm=I=-16:TP=-2,aresample=48000,apad=whole_dur={total:.3f},asplit=2[vo][sc];"
                   f"[1:a]aresample=48000,volume={db}dB[m];"
                   "[m][sc]sidechaincompress=threshold=0.04:ratio=4:attack=30:release=400:makeup=1[md];"

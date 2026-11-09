@@ -1,0 +1,23 @@
+{
+  "type": "reel_v3",
+  "voice": "drafts/voice/1116.m4a",
+  "title": "ChatGPTとClaude<y>使い分け</y>",
+  "bgm": {"preset": "chill", "seed": 16},
+  "segments_note": "録音の秒。言い直しなし",
+  "scenes": [
+    {"audio": [1.0, 4.95], "steps": [
+      {"card": "vs", "cap": "<y>どっち</y>使えばいい？"}]},
+    {"audio": [5.5, 8.35], "steps": [
+      {"card": "split0", "cap": "僕は<y>使い分け</y>派"}]},
+    {"audio": [9.82, 13.12], "steps": [
+      {"card": "split1", "cap": "長い資料 → <y>Claude</y>"},
+      {"card": "longdoc", "cap": "長い資料 → <y>Claude</y>", "w": 1.3}]},
+    {"audio": [13.32, 16.5], "steps": [
+      {"card": "split2", "cap": "画像・調べ物 → <y>ChatGPT</y>"}]},
+    {"audio": [17.12, 21.05], "steps": [
+      {"card": "queue", "cap": "自動投稿の仕組みも<y>Claude</y>"}]},
+    {"audio": [21.3, 23.45], "steps": [
+      {"card": "poll", "cap": "あなたは<y>どっち派</y>？"}]}
+  ],
+  "caption": "ChatGPTとClaude、どっちを使えばいいか迷ってない？\n\n僕は、どっちか1つにしないで使い分けています👇\n\n・長い資料を読ませて、まとめる・直す → Claude\n・画像を作る、ちょっと調べ物をする → ChatGPT\n\nこのアカウントの動画づくりや、毎日の自動投稿の仕組みは、全部Claudeで作りました。\n\nあなたはどっち派？コメントで教えてください。\n\n#Claude #ChatGPT #AI活用 #生成AI #使い分け #大学生 #AIツール"
+}

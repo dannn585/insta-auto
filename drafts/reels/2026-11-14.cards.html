@@ -1,0 +1,78 @@
+<!-- 11/14 リール「スマホのClaudeに写真を見せるだけでできること」の上の画面（カード）。
+     写真は絵文字のアイコンで表した説明用の例。答えは Claude が出す内容を短くしたもの。 -->
+
+<template id="four">
+<div class="grid2">
+  <div class="tile"><div class="ic">🧊</div><b>冷蔵庫</b>→ 3日分の献立</div>
+  <div class="tile"><div class="ic">📝</div><b>板書</b>→ 要点まとめ</div>
+  <div class="tile"><div class="ic">📘</div><b>英語の説明書</b>→ 日本語の手順</div>
+  <div class="tile"><div class="ic">📅</div><b>シフト表</b>→ 予定の一覧</div>
+</div>
+</template>
+
+<template id="four_end">
+<div class="grid2">
+  <div class="tile hl"><div class="ic">🧊</div><b>冷蔵庫</b>→ 3日分の献立</div>
+  <div class="tile hl"><div class="ic">📝</div><b>板書</b>→ 要点まとめ</div>
+  <div class="tile hl"><div class="ic">📘</div><b>英語の説明書</b>→ 日本語の手順</div>
+  <div class="tile hl"><div class="ic">📅</div><b>シフト表</b>→ 予定の一覧</div>
+  <div class="tip" style="grid-column:1/3;font-size:40px;color:#1F1E1B;text-align:center;margin-top:10px">打ち込まなくていい。<span class="mark">撮って送るだけ</span></div>
+</div>
+</template>
+
+<template id="fridge_q">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">🧊</div>冷蔵庫の写真<br><span style="font-size:32px;color:#BDB8AA">卵・キャベツ・豚こま・豆腐・ねぎ</span></div><div style="margin-top:14px">これで<b class="mark">3日分の夕飯</b>考えて</div></div>
+</div>
+</template>
+
+<template id="fridge_a">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">🧊</div>冷蔵庫の写真</div><div style="margin-top:14px">これで<b class="mark">3日分の夕飯</b>考えて</div></div>
+  <div class="ai">1日目：豚こまとキャベツのみそ炒め<br>2日目：豆腐と卵のふわふわ丼<br>3日目：キャベツたっぷりお好み焼き</div>
+</div>
+</template>
+
+<template id="board_q">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">📝</div>授業のホワイトボードの写真</div><div style="margin-top:14px"><b class="mark">要点を箇条書き</b>にして</div></div>
+</div>
+</template>
+
+<template id="board_a">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">📝</div>授業のホワイトボードの写真</div><div style="margin-top:14px"><b class="mark">要点を箇条書き</b>にして</div></div>
+  <div class="ai">・欲しい人が増えると、値段は上がる<br>・作る量が増えると、値段は下がる<br>・2つがつり合う所で、<span class="mark">値段が決まる</span></div>
+</div>
+</template>
+
+<template id="manual_q">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">📘</div>英語の説明書の写真<br><span style="font-size:32px;color:#BDB8AA">Press and hold the power button…</span></div><div style="margin-top:14px"><b class="mark">日本語で手順だけ</b>教えて</div></div>
+</div>
+</template>
+
+<template id="manual_a">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">📘</div>英語の説明書の写真</div><div style="margin-top:14px"><b class="mark">日本語で手順だけ</b>教えて</div></div>
+  <div class="ai">1. 電源ボタンを3秒長押し<br>2. ランプが青く点滅したら、スマホでつなぐ<br>3. アプリで「追加」を押す<br>4. 音が鳴ったら完了</div>
+</div>
+</template>
+
+<template id="shift_q">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">📅</div>手書きのシフト表の写真</div><div style="margin-top:14px"><b class="mark">カレンダーに入れる形</b>にして</div></div>
+</div>
+</template>
+
+<template id="shift_a">
+<div class="chat">
+  <div class="me"><div class="photo"><div class="ic">📅</div>手書きのシフト表の写真</div><div style="margin-top:14px"><b class="mark">カレンダーに入れる形</b>にして</div></div>
+  <table class="t">
+    <tr><th>日付</th><th>時間</th></tr>
+    <tr><td>11/18（火）</td><td>17:00〜22:00</td></tr>
+    <tr><td>11/20（木）</td><td>18:00〜22:00</td></tr>
+    <tr><td>11/23（日）</td><td>10:00〜15:00</td></tr>
+  </table>
+</div>
+</template>
