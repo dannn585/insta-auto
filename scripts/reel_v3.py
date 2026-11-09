@@ -186,7 +186,9 @@ def main():
     voice = ROOT / spec["voice"]
     bg_uri = data_uri(ROOT / spec["background"]) if spec.get("background") else ""
     sil = silences(voice) if spec.get("tighten", True) else []
-    scene_pieces = [pieces(*sc["audio"], sil) for sc in spec["scenes"]]
+    # "audio": [a, z]  or  [[a, z], [a2, z2]] to skip a retake inside one scene
+    scene_pieces = [[p for a, z in (sc["audio"] if isinstance(sc["audio"][0], list) else [sc["audio"]])
+                     for p in pieces(a, z, sil)] for sc in spec["scenes"]]
     tail = spec.get("tail", 0.8 if spec.get("bgm") else 0.0)
 
     with tempfile.TemporaryDirectory() as td:

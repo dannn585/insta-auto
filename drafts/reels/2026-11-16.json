@@ -15,7 +15,7 @@
     {"audio": [13.32, 16.5], "steps": [
       {"card": "split2", "cap": "画像・調べ物 → <y>ChatGPT</y>"}]},
     {"audio": [17.12, 21.05], "steps": [
-      {"card": "queue", "cap": "自動投稿の仕組みも<y>Claude</y>"}]},
+      {"card": "queue", "cap": "仕組みも<y>Claude</y>で作った"}]},
     {"audio": [21.3, 23.45], "steps": [
       {"card": "poll", "cap": "あなたは<y>どっち派</y>？"}]}
   ],
