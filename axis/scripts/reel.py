@@ -157,7 +157,7 @@ def main():
             for f in range(nframes):
                 scrub(page, f / FPS)
                 ff.stdin.write(page.screenshot(type="jpeg", quality=92))
-                if i == 0 and f == round(1.6 * FPS):
+                if i == 0 and f == round(min(2.2, s["dur"] - .2) * FPS):  # 点滅が終わって文字がはっきり出たところ
                     page.screenshot(path=str(out / "cover.jpg"), type="jpeg", quality=92)
             ff.stdin.close()
             if ff.wait() != 0:
