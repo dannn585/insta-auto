@@ -1,11 +1,35 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 12,
-    "media_count": 6,
+    "followers_count": 14,
+    "media_count": 7,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18127078636912726",
+      "caption": "【DAY 6】AI秘書の作り方キット、中身を全部見せます\n\nClaudeを毎回ゼロから使うのをやめるために、私が毎日使っている「AI秘書」を、コピペで作れる形にまとめました。\n\n① できるようになること\n毎回の説明がいらない／タスク表と日報が残る／あとから社員を増やせる\n\n② 入っているファイル\n会社のルール（書き換えは3か所だけ）、秘書の設定、タスク表・日報・メモのひな形\n\n③ 最初の3日間\n1日15分ほど。プログラミングは使いません\n\n④ 安心して任せるために\nお金・送信・削除・公開は勝手にやらず、下書きで止めるルールが最初から入っています\n\n欲しい人は「AI」とコメントしてください。無料でDMに送ります📩\n（届かないときは、DMの「リクエスト」も見てみてください）\n\n※Claudeの画面やプランの内容は2026年11月時点のものです\n\n#AI起業 #Claude #ClaudeCode #AIエージェント #AI活用 #AI秘書 #大学生起業 #仕組み化 #挑戦記録",
+      "comments_count": 0,
+      "like_count": 1,
+      "media_type": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DfhQlc7k_Lb/",
+      "timestamp": "2026-11-09T11:47:57+0000",
+      "files": [
+        "media/18127078636912726_1.jpg",
+        "media/18127078636912726_2.jpg",
+        "media/18127078636912726_3.jpg",
+        "media/18127078636912726_4.jpg",
+        "media/18127078636912726_5.jpg",
+        "media/18127078636912726_6.jpg"
+      ],
+      "insights": {
+        "reach": 3,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 1,
+        "views": 6
+      }
+    },
     {
       "id": "17995458573109889",
       "caption": "【DAY 5】Claudeで「AIの会社」を作るときに決めたこと\n\nDAY 3で紹介した、社員6人全員AIの会社。その仕組みの詳しい版です。\n\n① 会社の形\n窓口は秘書1人。部署は5つ。部署ごとにルール表を1枚。\n\n② 記録は1か所に\nタスク表・日報・知識メモ。同じことを2回調べないため。\n\n③ AIが勝手にやらないこと\nお金の支払い、新しい形の投稿、設定の変更、外への送信、削除。ここは下書きまでで止めて、人間が確認します。\n\n④ これから試す回し方\n朝に指示、昼に確認、夜に振り返り。うまく回るかは、ここで報告します。\n\nあなたならAI社員に何を任せたいですか？「こんな部署がほしい」もコメントで教えてください👇\n\n#AI起業 #Claude #ClaudeCode #AIエージェント #AI活用 #大学生起業 #学生起業 #仕組み化 #挑戦記録",
@@ -23,11 +47,11 @@
         "media/17995458573109889_6.jpg"
       ],
       "insights": {
-        "reach": 3,
+        "reach": 6,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 6
+        "views": 10
       }
     },
     {
@@ -42,11 +66,11 @@
         "media/17907208752598257_1.jpg"
       ],
       "insights": {
-        "reach": 115,
+        "reach": 118,
         "saved": 3,
         "shares": 0,
         "total_interactions": 3,
-        "views": 125
+        "views": 130
       }
     },
     {
@@ -61,11 +85,11 @@
         "media/17957164689286786_1.jpg"
       ],
       "insights": {
-        "reach": 35,
+        "reach": 37,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 40
+        "views": 41
       }
     },
     {
@@ -84,11 +108,11 @@
         "media/18154699189493882_5.jpg"
       ],
       "insights": {
-        "reach": 5,
+        "reach": 6,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 11
+        "views": 12
       }
     },
     {
@@ -103,11 +127,11 @@
         "media/18133299574845324_1.jpg"
       ],
       "insights": {
-        "reach": 11,
+        "reach": 12,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 12
+        "views": 13
       }
     },
     {
@@ -122,11 +146,11 @@
         "media/18161548561499379_1.jpg"
       ],
       "insights": {
-        "reach": 33,
+        "reach": 34,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 40
+        "views": 41
       }
     }
   ]
