@@ -6,6 +6,13 @@ caption box below. Scenes are cut on the silences of the recording (silence shor
 Usage: python scripts/reel_v3.py drafts/reels/2026-11-10.json
   needs: <same name>.cards.html  (<template id="..."> per card; "reasonsN" style = template "reasons" with N items shown)
 Output goes to drafts/ (not queue/): the first reels of a new style are checked by Dan before queue/.
+
+Optional spec keys (added 11/09):
+  "bgm": {"preset": "pop", "seed": 3, "db": -13}  original music from scripts/bgm.py under the voice
+        (ducked while Dan speaks). "tail": seconds the last screen stays after the last word (default 0.8 with bgm).
+  pauses inside one scene longer than 0.45 s are shortened to 0.25 s automatically ("tighten": false to keep them).
+  step "w": relative length of a step inside its scene (default 1).
+  in cards, src="asset:assets/screens/x.png" is replaced by the image itself.
 """
 import json
 import re
@@ -77,11 +84,57 @@ ol.reasons li.hide{visibility:hidden}
 .pr{background:#fff;border:3px solid #D8D3C4;border-radius:24px;padding:30px 32px;font-size:50px;line-height:1.55;font-weight:500}
 .pr b{color:#D7262E;margin-right:10px}
 .tip{font-size:34px;color:#5A574F;text-align:right}
+/* real screen images (kit_*.png etc.) */
+.shot{position:absolute;inset:0;background:#0F1117}
+.shot img{width:100%;display:block;transition:none}
+/* generic helpers for new cards */
+.big{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:24px;text-align:center}
+.big .num{font-size:200px;font-weight:900;line-height:1;color:#1F1E1B}
+.big .unit{font-size:56px;font-weight:900}
+.big .sub{font-size:40px;color:#5A574F;line-height:1.5}
+table.t{border-collapse:collapse;width:100%;font-size:38px;background:#fff}
+table.t th,table.t td{border:2px solid #D8D3C4;padding:14px 16px;text-align:left;line-height:1.35}
+table.t th{background:#EFEBDF;font-weight:900}
+.photo{border-radius:22px;padding:26px 30px;background:#2B2A27;color:#fff;font-size:38px;line-height:1.5}
+.photo .ic{font-size:90px;line-height:1;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:40px 36px}
+.tile{background:#fff;border:3px solid #E2DED2;border-radius:24px;padding:26px 24px;font-size:38px;line-height:1.45;font-weight:500}
+.tile .ic{font-size:80px;line-height:1.1}
+.tile b{display:block;font-size:44px;font-weight:900}
+.tile.hl{border-color:#FFD400;background:#FFF8D6}
 """
 
 
 def templates(path):
-    return dict(re.findall(r'<template id="([^"]+)">(.*?)</template>', path.read_text(encoding="utf-8"), re.S))
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(r'src="asset:([^"]+)"', lambda m: f'src="{png_uri(ROOT / m.group(1))}"', text)
+    return dict(re.findall(r'<template id="([^"]+)">(.*?)</template>', text, re.S))
+
+
+def png_uri(path):
+    import base64
+    return "data:image/png;base64," + base64.b64encode(path.read_bytes()).decode()
+
+
+def silences(path, noise="-45dB", min_len=0.45):
+    log = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(path), "-af",
+                          f"silencedetect=noise={noise}:d={min_len}", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    st = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", log)]
+    en = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", log)]
+    return list(zip(st, en))
+
+
+def pieces(a, z, sil, keep=0.25):
+    """Speech range a..z with every pause inside it shortened to `keep` seconds."""
+    out, cur = [], a
+    for s, e in sil:
+        if s > cur and e < z:
+            mid = keep / 2
+            out.append((cur, s + mid))
+            cur = e - mid
+    out.append((cur, z))
+    return out
 
 
 def card_html(name, tpl):
@@ -132,6 +185,9 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     voice = ROOT / spec["voice"]
     bg_uri = data_uri(ROOT / spec["background"]) if spec.get("background") else ""
+    sil = silences(voice) if spec.get("tighten", True) else []
+    scene_pieces = [pieces(*sc["audio"], sil) for sc in spec["scenes"]]
+    tail = spec.get("tail", 0.8 if spec.get("bgm") else 0.0)
 
     with tempfile.TemporaryDirectory() as td:
         td = Path(td)
@@ -141,10 +197,13 @@ def main():
             b = p.chromium.launch()
             pg = b.new_page(viewport={"width": W, "height": H})
             k = 0
-            for sc in spec["scenes"]:
-                a, z = sc["audio"]
-                d = (z - a) / len(sc["steps"])
+            for si, sc in enumerate(spec["scenes"]):
+                length = sum(z - a for a, z in scene_pieces[si])
+                if si == len(spec["scenes"]) - 1:
+                    length += tail
+                wsum = sum(st.get("w", 1) for st in sc["steps"])
                 for st in sc["steps"]:
+                    d = length * st.get("w", 1) / wsum
                     f = td / f"s{k:03d}.png"
                     pg.set_content(page(spec, tpl, st, bg_uri), wait_until="load")
                     pg.wait_for_timeout(150)
@@ -161,10 +220,26 @@ def main():
         lst.write_text("\n".join(lines), encoding="utf-8")
         run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
              "-vf", f"fps={FPS},format=yuv420p", "-c:v", "libx264", "-preset", "medium", "-crf", "20", str(td / "v.mp4")])
-        segs = [sc["audio"] for sc in spec["scenes"]]
-        parts = "".join(f"[0:a]atrim={a}:{z},asetpts=PTS-STARTPTS[a{i}];" for i, (a, z) in enumerate(segs))
-        fc = parts + "".join(f"[a{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=0:a=1,loudnorm=I=-14:TP=-1.5[out]"
-        run(["ffmpeg", "-y", "-v", "error", "-i", str(voice), "-filter_complex", fc, "-map", "[out]",
+        segs = [p for ps in scene_pieces for p in ps]
+        total = sum(z - a for a, z in segs) + tail
+        # short fades on every cut so the joins do not click
+        parts = "".join(f"[0:a]atrim={a}:{z},asetpts=PTS-STARTPTS,afade=t=in:d=0.015,afade=t=out:st={max(z - a - 0.02, 0):.3f}:d=0.02[a{i}];"
+                        for i, (a, z) in enumerate(segs))
+        cat = parts + "".join(f"[a{i}]" for i in range(len(segs))) + f"concat=n={len(segs)}:v=0:a=1"
+        if spec.get("bgm"):
+            import bgm as bgm_mod
+            g = spec["bgm"]
+            bgm_mod.write(td / "bgm.wav", bgm_mod.render(total, g.get("preset", "chill"), g.get("seed", 1)))
+            db = g.get("db", -13)
+            fc = (cat + f",loudnorm=I=-16:TP=-2,aresample=48000,apad=whole_dur={total:.3f},asplit=2[vo][sc];"
+                  f"[1:a]aresample=48000,volume={db}dB[m];"
+                  "[m][sc]sidechaincompress=threshold=0.04:ratio=4:attack=30:release=400:makeup=1[md];"
+                  "[vo][md]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5[out]")
+            inputs = ["-i", str(voice), "-i", str(td / "bgm.wav")]
+        else:
+            fc = cat + ",loudnorm=I=-14:TP=-1.5[out]"
+            inputs = ["-i", str(voice)]
+        run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc, "-map", "[out]",
              "-ar", "48000", "-c:a", "aac", "-b:a", "192k", str(td / "a.m4a")])
         run(["ffmpeg", "-y", "-v", "error", "-i", str(td / "v.mp4"), "-i", str(td / "a.m4a"),
              "-c:v", "copy", "-c:a", "copy", "-shortest", "-movflags", "+faststart", str(out / "reel.mp4")])
