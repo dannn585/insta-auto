@@ -13,6 +13,7 @@ Optional spec keys (added 11/09):
   pauses inside one scene longer than 0.45 s are shortened to 0.25 s automatically ("tighten": false to keep them).
   step "w": relative length of a step inside its scene (default 1).
   in cards, src="asset:assets/screens/x.png" is replaced by the image itself.
+  breaths (inhale/exhale noises) are muted by scripts/breath.py ("breath": false to keep them).
 """
 import json
 import re
@@ -185,6 +186,10 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     voice = ROOT / spec["voice"]
     bg_uri = data_uri(ROOT / spec["background"]) if spec.get("background") else ""
+    if spec.get("breath", True):   # mute breaths first (scripts/breath.py); pauses get shorter too
+        import breath
+        _vt = tempfile.TemporaryDirectory()
+        voice = breath.clean(voice, Path(_vt.name) / "voice.wav")
     sil = silences(voice) if spec.get("tighten", True) else []
     # "audio": [a, z]  or  [[a, z], [a2, z2]] to skip a retake inside one scene
     scene_pieces = [[p for a, z in (sc["audio"] if isinstance(sc["audio"][0], list) else [sc["audio"]])
