@@ -1,11 +1,30 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 12,
-    "media_count": 8,
+    "followers_count": 13,
+    "media_count": 9,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18150011335599769",
+      "caption": "Claudeの答えが別物になる「一言」5選｜ChatGPTでも使えます\n\n質問の最後に一言足すだけで、答えがかなり変わります👇\n\n①「結論から3行で」→ 長い前置きが消える\n②「足りない情報があったら先に質問して」→ 的外れな答えが減る\n③「表にして」→ 比べるときはこれ\n④「反対意見も出して」→ 自分の考えの穴が見える\n⑤「中学生にもわかる言葉で」→ むずかしい話はこれ\n\n※画面の質問と答えは説明用の例です\n\n保存して、次に質問するときに1つ足してみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #ChatGPT #AI活用 #プロンプト #生成AI #大学生 #時短術 #仕事効率化",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DfmdauECtYA/",
+      "timestamp": "2026-11-11T12:16:30+0000",
+      "files": [
+        "media/18150011335599769_1.jpg"
+      ],
+      "insights": {
+        "reach": 35,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 39
+      }
+    },
     {
       "id": "18112680614588588",
       "caption": "ClaudeにESを本気でダメ出しさせたら、普通に刺さった\n\n「直して」と頼むと、AIはやさしく褒めるだけ。\n本気で直したいなら、こう頼む👇\n\n①「人事の面接官として、このESを落とす理由を5つ挙げて」\n②「指摘を全部直した版を書いて」\n\nこれだけで、数字がない・誰でも書ける・自分の役割が見えない…が全部出てくる。ここまで5分。\n\n※画面のESは説明用の架空の例です\n\n就活の人は保存して、自分のESで1回やってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #就活 #ES添削 #エントリーシート #27卒 #28卒 #大学生 #生成AI",
@@ -18,11 +37,11 @@
         "media/18112680614588588_1.jpg"
       ],
       "insights": {
-        "reach": 106,
+        "reach": 109,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 115
+        "views": 118
       }
     },
     {
@@ -66,11 +85,11 @@
         "media/17995458573109889_6.jpg"
       ],
       "insights": {
-        "reach": 6,
+        "reach": 7,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 10
+        "views": 11
       }
     },
     {
@@ -131,7 +150,7 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 12
+        "views": 13
       }
     },
     {
