@@ -2,10 +2,29 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 13,
-    "media_count": 9,
+    "media_count": 10,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18276138631305367",
+      "caption": "AIだけで会社を作って10日目。正直な数字を出します。\n\n再生回数は、少ない日で6回。フォロワーは12人。\n原因を調べたら、最初の1秒で「AIが作った動画だ」と分かって飛ばされていました。\n\nだから今日から、声は自分で録ることにしました。\n中身も、見た人がその日に試せることだけにします。\n\nこの動画が前より伸びたかどうかも、次でちゃんと報告します。\nどうなるか気になる人は、フォローして見ていてください。\n\n#Claude #AI活用 #大学生起業 #生成AI #AI社員 #大学生 #挑戦記録",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DfpCJwpgXHd/",
+      "timestamp": "2026-11-12T12:16:05+0000",
+      "files": [
+        "media/18276138631305367_1.jpg"
+      ],
+      "insights": {
+        "reach": 14,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 19
+      }
+    },
     {
       "id": "18150011335599769",
       "caption": "Claudeの答えが別物になる「一言」5選｜ChatGPTでも使えます\n\n質問の最後に一言足すだけで、答えがかなり変わります👇\n\n①「結論から3行で」→ 長い前置きが消える\n②「足りない情報があったら先に質問して」→ 的外れな答えが減る\n③「表にして」→ 比べるときはこれ\n④「反対意見も出して」→ 自分の考えの穴が見える\n⑤「中学生にもわかる言葉で」→ むずかしい話はこれ\n\n※画面の質問と答えは説明用の例です\n\n保存して、次に質問するときに1つ足してみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #ChatGPT #AI活用 #プロンプト #生成AI #大学生 #時短術 #仕事効率化",
@@ -18,11 +37,11 @@
         "media/18150011335599769_1.jpg"
       ],
       "insights": {
-        "reach": 35,
+        "reach": 49,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 39
+        "views": 52
       }
     },
     {
@@ -37,11 +56,11 @@
         "media/18112680614588588_1.jpg"
       ],
       "insights": {
-        "reach": 109,
+        "reach": 111,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 118
+        "views": 119
       }
     },
     {
@@ -85,11 +104,11 @@
         "media/17995458573109889_6.jpg"
       ],
       "insights": {
-        "reach": 7,
+        "reach": 9,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 11
+        "views": 13
       }
     },
     {
