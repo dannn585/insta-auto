@@ -1,11 +1,36 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 14,
-    "media_count": 10,
+    "followers_count": 16,
+    "media_count": 11,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18099622472441840",
+      "caption": "Claudeの答えが別物になる「一言」5つ【保存版】\n\n質問の最後に1つ足すだけで、答えがかなり変わります。\n\n①「結論から3行で」→ 長い前置きが消える\n②「足りない情報があったら先に質問して」→ 的外れが減る\n③「表にして」→ 比べるときに一目でわかる\n④「反対意見も出して」→ 自分の考えの穴が見える\n⑤「中学生にもわかる言葉で」→ むずかしい話が読める\n\nChatGPTでも同じように使えます。\n保存して、次に質問するとき1つ試してみてください。\n\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります📩\n（届かないときは、DMの「リクエスト」も見てみてください）\n\n#Claude #ChatGPT #AI活用 #プロンプト #生成AI #大学生 #勉強法 #作業効率化",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DfrrVWvF47J/",
+      "timestamp": "2026-11-13T12:54:05+0000",
+      "files": [
+        "media/18099622472441840_1.jpg",
+        "media/18099622472441840_2.jpg",
+        "media/18099622472441840_3.jpg",
+        "media/18099622472441840_4.jpg",
+        "media/18099622472441840_5.jpg",
+        "media/18099622472441840_6.jpg",
+        "media/18099622472441840_7.jpg"
+      ],
+      "insights": {
+        "reach": 2,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 6
+      }
+    },
     {
       "id": "18276138631305367",
       "caption": "AIだけで会社を作って10日目。正直な数字を出します。\n\n再生回数は、少ない日で6回。フォロワーは12人。\n原因を調べたら、最初の1秒で「AIが作った動画だ」と分かって飛ばされていました。\n\nだから今日から、声は自分で録ることにしました。\n中身も、見た人がその日に試せることだけにします。\n\nこの動画が前より伸びたかどうかも、次でちゃんと報告します。\nどうなるか気になる人は、フォローして見ていてください。\n\n#Claude #AI活用 #大学生起業 #生成AI #AI社員 #大学生 #挑戦記録",
@@ -18,13 +43,13 @@
         "media/18276138631305367_1.jpg"
       ],
       "insights": {
-        "reach": 34,
+        "reach": 108,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 37,
-        "ig_reels_avg_watch_time": 8208,
-        "reels_skip_rate": 63.6
+        "views": 114,
+        "ig_reels_avg_watch_time": 5427,
+        "reels_skip_rate": 65.7
       }
     },
     {
@@ -39,13 +64,13 @@
         "media/18150011335599769_1.jpg"
       ],
       "insights": {
-        "reach": 49,
+        "reach": 50,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 52,
-        "ig_reels_avg_watch_time": 1810,
-        "reels_skip_rate": 95.8
+        "views": 53,
+        "ig_reels_avg_watch_time": 1976,
+        "reels_skip_rate": 93.9
       }
     },
     {
@@ -60,13 +85,13 @@
         "media/18112680614588588_1.jpg"
       ],
       "insights": {
-        "reach": 111,
+        "reach": 112,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 119,
-        "ig_reels_avg_watch_time": 3494,
-        "reels_skip_rate": 82.4
+        "views": 123,
+        "ig_reels_avg_watch_time": 4212,
+        "reels_skip_rate": 81.7
       }
     },
     {
@@ -194,7 +219,7 @@
         "media/18133299574845324_1.jpg"
       ],
       "insights": {
-        "reach": 12,
+        "reach": 13,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
