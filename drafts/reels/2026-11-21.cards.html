@@ -1,18 +1,137 @@
-<!-- 11/21 キット告知③「AI社員6人で会社を回してる大学生」の上の画面。
-     画面は会社の実物を大きな文字で画像にしたもの（assets/screens/kit_*.png）。 -->
+<!-- 11/21 キット告知③「AI社員6人の会社の始め方」の上の画面（カード）。明るい見た目（11/13 作り直し）。
+     暗い作業画面の画像（assets/screens/kit_*.png）は使わず、会社の実物（6つの部署・tasks.md・日報）を明るいカードに描き直したもの。
+     旧版（暗い見た目・組織図の画像で始まる）は spare/v1_2026-11-21/。 -->
+
+<style>
+.six{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:30px;text-align:center}
+.six .lab{font-size:52px;font-weight:900;color:#5A574F}
+.six .num{font-size:330px;font-weight:900;line-height:1}
+.six .num small{font-size:120px}
+.six .sub{font-size:44px;color:#8A867B;font-weight:700}
+.mk{background:linear-gradient(transparent 58%,#FFD400 58%,#FFD400 92%,transparent 92%);font-weight:900}
+/* org chart, light */
+.org{padding:46px 40px;display:flex;flex-direction:column;gap:22px;height:100%;position:relative}
+.org .head{font-size:32px;font-weight:900;color:#8A867B;letter-spacing:.04em}
+.org .boss{background:#FFD400;border-radius:26px;padding:26px;text-align:center}
+.org .boss b{display:block;font-size:60px;font-weight:900}
+.org .boss span{font-size:34px;font-weight:700}
+.org .g{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.org .d{background:#F3F0E7;border:2px solid #E6E1D5;border-radius:22px;padding:30px 26px}
+.org .d b{display:block;font-size:46px;font-weight:900}
+.org .d span{font-size:33px;color:#5A574F}
+.org .d.hl{background:#fff;border:4px solid #1F1E1B}
+.org.dim .boss,.org.dim .d{opacity:.3}
+.stw{position:absolute;left:0;right:0;top:46%;display:flex;justify-content:center}
+.stampx{transform:rotate(-5deg);background:#1F1E1B;color:#fff;font-size:60px;font-weight:900;padding:22px 40px;border-radius:20px;white-space:nowrap}
+/* only the secretary */
+.solo{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:40px;padding:0 60px;text-align:center}
+.solo .boss{background:#FFD400;border-radius:34px;padding:50px 40px;width:100%}
+.solo .boss b{display:block;font-size:110px;font-weight:900;line-height:1.1}
+.solo .boss span{font-size:40px;font-weight:700}
+.solo .sub{font-size:42px;color:#5A574F;font-weight:700;line-height:1.5}
+/* one place for records */
+.rec{padding:80px 56px;font-size:58px;line-height:1.8;font-weight:700}
+.rec .c{color:#8A867B;font-weight:500;font-size:42px;margin-left:16px}
+.rec .rnote{margin-top:40px;font-size:42px;color:#5A574F;font-weight:700;line-height:1.5}
+/* everybody reads the same place */
+.hub{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:26px;padding:0 40px}
+.hub .row{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.hub .p{background:#F3F0E7;border:2px solid #E6E1D5;border-radius:999px;padding:14px 30px;font-size:46px;font-weight:900}
+.hub .p.new{background:#fff;border:3px dashed #1F1E1B}
+.hub .ar{font-size:80px;font-weight:900;line-height:1}
+.hub .core{background:#1F1E1B;color:#fff;border-radius:28px;padding:36px 56px;font-size:64px;font-weight:900;text-align:center;line-height:1.4}
+.hub .core small{display:block;font-size:40px;font-weight:700;color:#D8D3C4}
+.ctab{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:40px;text-align:center}
+.ctab .cm{background:#F3F0E7;border:3px solid #E6E1D5;border-radius:40px;padding:40px 90px;font-size:76px;font-weight:900}
+.ctab .cm b{font-size:220px;display:block;line-height:1.1}
+.ctab .sub{font-size:54px;color:#5A574F;line-height:1.5;font-weight:700}
+</style>
+
+<template id="six">
+<div class="six">
+  <div class="lab">僕の会社の社員</div>
+  <div class="num pop">6<small>人</small></div>
+  <div class="sub in" style="animation-delay:.4s">全員 <span class="mk">AI（Claude）</span></div>
+</div>
+</template>
 
 <template id="org">
-<div class="shot"><img src="asset:assets/screens/kit_org.png"></div>
+<div class="org">
+  <div class="head">AI社員6人の会社</div>
+  <div class="boss in"><b>秘書</b><span>窓口・振り分け・日報</span></div>
+  <div class="g">
+    <div class="d in" style="animation-delay:.1s"><b>リサーチ</b><span>伸びてる投稿を調べる</span></div>
+    <div class="d in" style="animation-delay:.15s"><b>クリエイティブ</b><span>台本・画像を作る</span></div>
+    <div class="d in" style="animation-delay:.2s"><b>コミュニティ</b><span>コメントの返事</span></div>
+    <div class="d in" style="animation-delay:.25s"><b>マーケティング</b><span>販売までの流れ</span></div>
+    <div class="d in" style="animation-delay:.3s"><b>プロダクト</b><span>売る商品を作る</span></div>
+  </div>
+</div>
 </template>
 
-<template id="folder">
-<div class="shot"><img src="asset:assets/screens/kit_folder.png"></div>
+<template id="orgjob">
+<div class="org">
+  <div class="head">仕事ごとに係を分ける</div>
+  <div class="boss"><b>秘書</b><span>窓口・振り分け・日報</span></div>
+  <div class="g">
+    <div class="d hl pop"><b>リサーチ</b><span>調べる係</span></div>
+    <div class="d hl pop" style="animation-delay:.6s"><b>クリエイティブ</b><span>台本を作る係</span></div>
+    <div class="d hl pop" style="animation-delay:1.2s"><b>コミュニティ</b><span>返事を考える係</span></div>
+    <div class="d"><b>マーケティング</b><span>販売までの流れ</span></div>
+    <div class="d"><b>プロダクト</b><span>売る商品を作る</span></div>
+  </div>
+</div>
 </template>
 
-<template id="tasks">
-<div class="shot"><img src="asset:assets/screens/kit_tasks.png"></div>
+<template id="orgx">
+<div class="org dim">
+  <div class="head">いきなり全員そろえると…</div>
+  <div class="boss"><b>秘書</b><span>窓口・振り分け・日報</span></div>
+  <div class="g">
+    <div class="d"><b>リサーチ</b><span>伸びてる投稿を調べる</span></div>
+    <div class="d"><b>クリエイティブ</b><span>台本・画像を作る</span></div>
+    <div class="d"><b>コミュニティ</b><span>コメントの返事</span></div>
+    <div class="d"><b>マーケティング</b><span>販売までの流れ</span></div>
+    <div class="d"><b>プロダクト</b><span>売る商品を作る</span></div>
+  </div>
+  <div class="stw"><div class="pop"><div class="stampx">誰に何を頼むか迷う</div></div></div>
+</div>
 </template>
 
-<template id="morning_top">
-<div class="shot"><img src="asset:assets/screens/kit_morning.png"></div>
+<template id="solo">
+<div class="solo">
+  <div class="sub">最初はこれだけ</div>
+  <div class="boss pop"><b>秘書 1人</b><span>窓口・振り分け・日報</span></div>
+  <div class="sub in" style="animation-delay:.4s">ルールを書いたファイル1枚で作れる</div>
+</div>
+</template>
+
+<template id="record">
+<div class="rec">
+  <div style="font-size:40px;color:#8A867B;font-weight:900;margin-bottom:24px">記録を置くのはここだけ</div>
+  📁 my-company<br>
+  　└ 📄 <span class="mk">tasks.md</span><span class="c">タスク表</span><br>
+  　└ 📁 <span class="mk">reports</span><span class="c">日報</span>
+  <div class="rnote in" style="animation-delay:.3s">秘書も、あとから入る社員も<br>同じ場所を読む</div>
+</div>
+</template>
+
+<template id="grow">
+<div class="hub">
+  <div class="row">
+    <div class="p">秘書</div><div class="p">リサーチ</div><div class="p">クリエイティブ</div>
+    <div class="p">コミュニティ</div><div class="p">マーケ</div><div class="p">プロダクト</div>
+    <div class="p new pop">＋ 7人目</div>
+  </div>
+  <div class="ar">↓</div>
+  <div class="core">tasks.md ＋ 日報<small>全員ここを読んでから動く</small></div>
+</div>
+</template>
+
+<template id="cta">
+<div class="ctab">
+  <div class="sub">秘書の作り方を無料でまとめました</div>
+  <div class="cm pop">コメントに<b>AI</b></div>
+  <div class="sub">→ DMで送ります</div>
+</div>
 </template>

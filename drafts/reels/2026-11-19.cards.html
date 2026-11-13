@@ -1,22 +1,90 @@
-<!-- 11/19 キット告知②「朝、AIが今日やることを3つ出してくる」の上の画面。
-     画面は会社の実物を大きな文字で画像にしたもの（assets/screens/kit_*.png）。 -->
+<!-- 11/19 キット告知②「朝やることをAIが決めてくれる」の上の画面（カード）。明るい見た目（11/13 作り直し）。
+     暗い作業画面の画像（assets/screens/kit_*.png）は使わず、会社の実物（秘書リンの朝のあいさつ・tasks.md・日報）を明るいカードに描き直したもの。
+     旧版（暗い見た目・「何からやるか考えない」＋画面の一部だけの始まり）は spare/v1_2026-11-19/。 -->
 
-<template id="hello_only">
-<div class="shot"><div style="height:218px;overflow:hidden"><img src="asset:assets/screens/kit_morning.png"></div></div>
+<style>
+.lt{padding:44px 40px;display:flex;flex-direction:column;gap:26px;height:100%}
+.lt .who{font-size:32px;font-weight:900;color:#8A867B;letter-spacing:.04em}
+.bub{border-radius:28px;padding:22px 32px;font-size:44px;line-height:1.5;font-weight:500;max-width:90%}
+.bub.me{align-self:flex-end;background:#1F1E1B;color:#fff;font-weight:900}
+.bub.ai{align-self:flex-start;background:#F3F0E7;border:2px solid #E6E1D5}
+.bub.ai ol{margin:12px 0 0 1.25em}.bub.ai li{margin:10px 0;font-weight:700}
+.bub.ai li span{display:block;font-size:30px;color:#8A867B;font-weight:500}
+.mk{background:linear-gradient(transparent 58%,#FFD400 58%,#FFD400 92%,transparent 92%);font-weight:900}
+/* first screen: one big reply */
+.one{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:56px;text-align:center}
+.one .lab{font-size:50px;font-weight:900;color:#5A574F}
+.one .huge{background:#1F1E1B;color:#fff;font-size:150px;font-weight:900;border-radius:60px;padding:40px 80px;line-height:1.1}
+.one .sub{font-size:42px;color:#8A867B;font-weight:700}
+/* compact chat (after the choice) */
+.sm .bub{font-size:38px;padding:18px 28px}
+.sm .bub.ai li{margin:4px 0}.sm .bub.ai li span{font-size:26px}
+.sm .bub.me.ok{font-size:64px;padding:22px 50px}
+/* what the secretary reads every morning */
+.reads{padding:56px 46px;display:flex;flex-direction:column;gap:30px;height:100%}
+.reads .lab{font-size:40px;font-weight:900;color:#5A574F}
+.fcard{border:3px solid #E6E1D5;border-radius:24px;overflow:hidden;background:#fff}
+.fcard .fb{background:#F3F0E7;border-bottom:2px solid #E6E1D5;padding:16px 28px;font-size:34px;font-weight:900;color:#5A574F}
+.fcard .fx{padding:18px 30px;font-size:36px;line-height:1.6}
+.fcard .fx .r{display:flex;justify-content:space-between}
+.fcard .fx .r b{font-weight:900}
+.fcard .fx .r i{font-style:normal;color:#8A867B;font-weight:700}
+.reads .to{text-align:center;font-size:44px;font-weight:900}
+.ctab{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:40px;text-align:center}
+.ctab .cm{background:#F3F0E7;border:3px solid #E6E1D5;border-radius:40px;padding:40px 90px;font-size:76px;font-weight:900}
+.ctab .cm b{font-size:220px;display:block;line-height:1.1}
+.ctab .sub{font-size:54px;color:#5A574F;line-height:1.5;font-weight:700}
+</style>
+
+<template id="reply">
+<div class="one">
+  <div class="lab">朝、僕が送る返事は</div>
+  <div class="huge pop">1でOK</div>
+  <div class="sub in" style="animation-delay:.45s">これだけ</div>
+</div>
 </template>
 
-<template id="morning_top">
-<div class="shot"><img src="asset:assets/screens/kit_morning.png"></div>
+<template id="morning">
+<div class="lt">
+  <div class="who">秘書（Claude）との朝のやりとり</div>
+  <div class="bub me pop">おはよう</div>
+  <div class="bub ai in" style="animation-delay:.4s">今日やることは<span class="mk">3つ</span>です。
+    <ol><li>投稿を作る<span>予約が明日で切れるため・1〜2時間</span></li>
+        <li>予備の投稿を用意<span>昨日は23:56でギリギリ・20分</span></li>
+        <li>コメントの返事を作る<span>期限が今日・30分</span></li></ol></div>
+</div>
 </template>
 
-<template id="morning_end">
-<div class="shot"><img src="asset:assets/screens/kit_morning.png" style="margin-top:-172px"></div>
+<template id="ok">
+<div class="lt sm">
+  <div class="who">秘書（Claude）との朝のやりとり</div>
+  <div class="bub me">おはよう</div>
+  <div class="bub ai">今日やることは<span class="mk">3つ</span>です。
+    <ol><li>投稿を作る<span>1〜2時間</span></li>
+        <li>予備の投稿を用意<span>20分</span></li>
+        <li>コメントの返事を作る<span>30分</span></li></ol></div>
+  <div class="bub me ok pop">1でOK</div>
+  <div class="bub ai in" style="animation-delay:.45s">了解です。始めます。</div>
+</div>
 </template>
 
-<template id="tasks">
-<div class="shot"><img src="asset:assets/screens/kit_tasks.png"></div>
+<template id="reads">
+<div class="reads">
+  <div class="lab">秘書が毎朝読んでいるもの</div>
+  <div class="fcard in"><div class="fb">📄 tasks.md（タスク表）</div>
+    <div class="fx"><div class="r"><b>投稿づくり</b><i>進行中</i></div>
+      <div class="r"><span>予備の投稿</span><i>✓ 完了</i></div>
+      <div class="r"><span>コメントの返事</span><i>まだ</i></div></div></div>
+  <div class="fcard in" style="animation-delay:.25s"><div class="fb">📁 reports（日報）</div>
+    <div class="fx">昨日やったこと・<span class="mk">次にやること</span></div></div>
+  <div class="to in" style="animation-delay:.5s">↓ だから「昨日の続き」が分かる</div>
+</div>
 </template>
 
-<template id="claudemd">
-<div class="shot"><img src="asset:assets/screens/kit_claudemd.png"></div>
+<template id="cta">
+<div class="ctab">
+  <div class="sub">設定のしかたを無料で配っています</div>
+  <div class="cm pop">コメントに<b>AI</b></div>
+  <div class="sub">→ DMで送ります</div>
+</div>
 </template>
