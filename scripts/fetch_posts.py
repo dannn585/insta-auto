@@ -64,6 +64,32 @@ def reel_insights(ig, token, media_id):
     return out
 
 
+# アカウント全体の1日の数字。1つずつ聞く（使えないものは飛ばす）
+ACCOUNT_METRICS = ("profile_views", "profile_links_taps", "reach", "views", "accounts_engaged")
+
+
+def account_daily(ig, token, me):
+    """前日（UTC）のアカウント全体の数字を reference/account_daily.json に日付ごとに追記する（上書きしない）。"""
+    import datetime as dt
+    day = dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=1)
+    since = int(dt.datetime.combine(day, dt.time(), dt.timezone.utc).timestamp())
+    row = {"date": day.isoformat(), "followers_count": me.get("followers_count")}
+    for m in ACCOUNT_METRICS:
+        try:
+            r = requests.get(f"{ig.base}/{ig.ig_id}/insights",
+                             params=dict(metric=m, period="day", metric_type="total_value",
+                                         since=since, until=since + 86400, access_token=token), timeout=60)
+            data = r.json()
+        except (requests.RequestException, ValueError):
+            continue
+        for d in data.get("data", []):
+            row[d["name"]] = d.get("total_value", {}).get("value")
+    f = OUT / "account_daily.json"
+    rows = json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    rows = [x for x in rows if x.get("date") != row["date"]] + [row]
+    f.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
 def main():
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not token:
@@ -97,6 +123,10 @@ def main():
         if p.get("media_type") == "VIDEO" and "error" not in p["insights"]:
             p["insights"].update(reel_insights(ig, token, p["id"]))
 
+    try:
+        account_daily(ig, token, me)
+    except Exception as e:  # 1日の数字が取れなくても投稿の取り込みは止めない
+        print(f"account_daily skipped: {e}")
     (OUT / "posts.json").write_text(json.dumps({"account": me, "posts": posts}, ensure_ascii=False, indent=2),
                                     encoding="utf-8")
     print(f"@{me.get('username')}: {len(posts)} posts -> {OUT}")
