@@ -3,9 +3,17 @@
 v3 = company/marketing/panda-reels-v3.md: real voice, fixed title band on top, big readable "screen" card,
 caption box below. Scenes are cut on the silences of the recording (silence shortened to ~0.2 s).
 
-Usage: python scripts/reel_v3.py drafts/reels/2026-11-10.json
+Usage: python scripts/reel_v3.py drafts/reels/2026-11-10.json [--out DIR] [--stills]
+  --out DIR   write reel.mp4 / cover.jpg / caption.txt to DIR instead of drafts/reels/<date>/
+  --stills    also keep the finished still of every step in <out>/stills/ (for checking)
   needs: <same name>.cards.html  (<template id="..."> per card; "reasonsN" style = template "reasons" with N items shown)
 Output goes to drafts/ (not queue/): the first reels of a new style are checked by Dan before queue/.
+
+Look (11/13, style v3): light by default = cream background, ink extra-bold letters, yellow only as a
+marker band under <y> words, no dark blur. "look": "dark" brings back the old look (black bands).
+Motion (11/13): the first step rises in and every new caption pops, so the screen moves in the first
+second; class="in" / "pop" inside a card animates that element ("motion": false turns it all off).
+cover.jpg = the finished first screen.
 
 Optional spec keys (added 11/09):
   "bgm": {"preset": "pop", "seed": 3, "db": -10}  original music from scripts/bgm.py under the voice
@@ -27,7 +35,29 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parent.parent
 W, H, FPS = 1080, 1920, 30
 
-CSS = """
+# --- look: frame around the card (title / card / caption) -------------------------------------------
+# "light" (default since 11/13, style v3): plain cream background, ink extra-bold letters,
+# yellow only as a marker band under words (<y>). No dark blur, no grid, no code screen as the first frame.
+LOOK_LIGHT = """
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F7F5EF}
+body{font-family:"Noto Sans JP","Yu Gothic","Meiryo",sans-serif;color:#1F1E1B;position:relative;font-feature-settings:"palt"}
+.bg{display:none}
+.title{position:absolute;left:0;right:0;top:150px;height:200px;display:flex;align-items:center;justify-content:center;
+  font-size:64px;font-weight:900;text-align:center;line-height:1.3;padding:0 40px;color:#1F1E1B;letter-spacing:.01em}
+.card{position:absolute;left:44px;right:44px;top:380px;height:930px;border-radius:30px;overflow:hidden;background:#FFFFFF;color:#1F1E1B;
+  border:3px solid #E6E1D5;box-shadow:0 18px 40px rgba(60,50,30,.08)}
+.cap{position:absolute;left:30px;right:30px;top:1345px;height:280px;display:flex;align-items:center;justify-content:center}
+.cap span.t{font-size:84px;font-weight:900;line-height:1.3;text-align:center;color:#1F1E1B}
+y{color:inherit;background:linear-gradient(transparent 58%,#FFD400 58%,#FFD400 92%,transparent 92%);padding:0 .06em}
+/* one accent only: the red of the old look becomes ink */
+ol.reasons li::before{background:#1F1E1B}
+.after .lab,.arrow,.slab,.pr b{color:#1F1E1B}
+.big .num y,.big .unit y{padding:0 .1em}
+"""
+
+# "dark" = the look up to 11/12 (dark blurred background, black title band, black caption box). Spec "look": "dark".
+LOOK_DARK = """
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;height:1920px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#2A2D36 0%,#07080C 75%)}
 body{font-family:"Noto Sans JP","Yu Gothic","Meiryo",sans-serif;color:#fff;position:relative;font-feature-settings:"palt"}
@@ -40,6 +70,39 @@ body{font-family:"Noto Sans JP","Yu Gothic","Meiryo",sans-serif;color:#fff;posit
 .cap span.t{background:#07080C;border-radius:18px;padding:18px 34px;font-size:78px;font-weight:900;line-height:1.3;text-align:center}
 y{color:#FFD400}
 .title y{color:#FFD400}
+"""
+
+# --- motion (rendered frame by frame, see render_step) ----------------------------------------------
+# first step of the reel: card rises in, caption pops -> the screen moves inside the first second.
+# every new caption pops; the marker under <y> sweeps in. Inside cards, class="in" fades an element in
+# (set style="animation-delay:.4s" to make it appear later in the same step).
+ANIM = """
+@keyframes rise{from{transform:translateY(70px) scale(.94);opacity:0}to{transform:none;opacity:1}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.06);opacity:1}100%{transform:scale(1)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes fadeup{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+@keyframes sweep{from{background-size:0% 100%}to{background-size:100% 100%}}
+.first .card{animation:rise .38s cubic-bezier(.2,.8,.2,1) both}
+.first .title{animation:fadein .3s both}
+.capnew .cap span.t{animation:pop .3s cubic-bezier(.2,.9,.3,1.2) both}
+.light.capnew .cap y{background-repeat:no-repeat;animation:sweep .3s .18s ease-out both}
+.in{animation:fadeup .3s ease-out both}
+.pop{animation:pop .32s cubic-bezier(.2,.9,.3,1.2) both}
+"""
+
+# title / caption lines never wrap by themselves (use <br>); a line that is too wide gets a smaller font
+FIT_JS = """
+for (const [sel, box] of [['.title > span', '.title'], ['.cap span.t', '.cap']]) {
+  const el = document.querySelector(sel), b = document.querySelector(box);
+  if (!el || !b) continue;
+  el.style.whiteSpace = 'nowrap'; el.style.display = 'inline-block';
+  const max = b.clientWidth - 40;
+  let fs = parseFloat(getComputedStyle(el).fontSize);
+  while (el.scrollWidth > max && fs > 30) { fs -= 2; el.style.fontSize = fs + 'px'; }
+}
+"""
+
+CSS = """
 /* chat screen */
 .chat{padding:46px 40px;display:flex;flex-direction:column;gap:30px;height:100%}
 .chat.end{justify-content:flex-end}
@@ -109,7 +172,11 @@ table.t th{background:#EFEBDF;font-weight:900}
 def templates(path):
     text = path.read_text(encoding="utf-8")
     text = re.sub(r'src="asset:([^"]+)"', lambda m: f'src="{png_uri(ROOT / m.group(1))}"', text)
-    return dict(re.findall(r'<template id="([^"]+)">(.*?)</template>', text, re.S))
+    tpl = dict(re.findall(r'<template id="([^"]+)">(.*?)</template>', text, re.S))
+    # <style> blocks outside the templates are shared by every card of this reel
+    outside = re.sub(r'<template id="[^"]+">.*?</template>', "", text, flags=re.S)
+    tpl["__style__"] = "".join(re.findall(r"<style>(.*?)</style>", outside, re.S))
+    return tpl
 
 
 def png_uri(path):
@@ -153,13 +220,37 @@ def card_html(name, tpl):
     return re.sub(r"<li>", cls, html)
 
 
-def page(spec, tpl, step, bg_uri):
-    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>
-{f'<div class="bg" style="background-image:url({bg_uri})"></div>' if bg_uri else ''}
+def page(spec, tpl, step, bg_uri, classes=""):
+    look = spec.get("look", "light")
+    css = (LOOK_DARK if look == "dark" else LOOK_LIGHT) + CSS + tpl.get("__style__", "") + ANIM
+    bg = f'<div class="bg" style="background-image:url({bg_uri})"></div>' if bg_uri and look == "dark" else ""
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{css}</style></head><body class="{look} {classes}">
+{bg}
 <div class="title"><span>{spec['title']}</span></div>
 <div class="card">{card_html(step['card'], tpl)}</div>
 <div class="cap"><span class="t">{step['cap']}</span></div>
+<script>{FIT_JS}</script>
 </body></html>"""
+
+
+def render_step(pg, stem, d):
+    """Screenshots for one step: if the page has CSS animations (motion), pause them and take a frame
+    every 1/FPS s until they end (at most d - 0.05 s), then one still for the rest of the step."""
+    end = pg.evaluate("""() => { const a = document.getAnimations(); a.forEach(x => x.pause());
+        return Math.max(0, ...a.map(x => { const t = x.effect.getComputedTiming(); return (t.delay || 0) + t.activeDuration; })) / 1000; }""")
+    frames = []
+    end = min(end, max(d - 0.05, 0))
+    n = int(end * FPS)
+    for i in range(n):
+        pg.evaluate(f"() => document.getAnimations().forEach(x => x.currentTime = {i * 1000 / FPS})")
+        f = Path(f"{stem}_{i:02d}.png")
+        pg.screenshot(path=str(f))
+        frames.append((f, 1 / FPS))
+    pg.evaluate("() => document.getAnimations().forEach(x => x.finish())")
+    f = Path(f"{stem}_z.png")
+    pg.screenshot(path=str(f))
+    frames.append((f, d - n / FPS))
+    return frames
 
 
 def data_uri(path):
@@ -183,6 +274,8 @@ def main():
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     tpl = templates(spec_path.with_suffix(".cards.html"))
     out = spec_path.parent / spec_path.stem
+    if "--out" in sys.argv:   # render somewhere else (e.g. a test folder) without touching drafts/
+        out = Path(sys.argv[sys.argv.index("--out") + 1]).resolve()
     out.mkdir(parents=True, exist_ok=True)
     voice = ROOT / spec["voice"]
     bg_uri = data_uri(ROOT / spec["background"]) if spec.get("background") else ""
@@ -198,12 +291,13 @@ def main():
 
     with tempfile.TemporaryDirectory() as td:
         td = Path(td)
-        # 1) stills, one per step; each step gets an equal share of its scene's speech
-        items = []
+        # 1) one still per step (+ a few frames while its animations play); each step gets an equal
+        #    share of its scene's speech
+        items, cover = [], None
         with sync_playwright() as p:
             b = p.chromium.launch()
             pg = b.new_page(viewport={"width": W, "height": H})
-            k = 0
+            k, prev = 0, None
             for si, sc in enumerate(spec["scenes"]):
                 length = sum(z - a for a, z in scene_pieces[si])
                 if si == len(spec["scenes"]) - 1:
@@ -211,12 +305,17 @@ def main():
                 wsum = sum(st.get("w", 1) for st in sc["steps"])
                 for st in sc["steps"]:
                     d = length * st.get("w", 1) / wsum
-                    f = td / f"s{k:03d}.png"
-                    pg.set_content(page(spec, tpl, st, bg_uri), wait_until="load")
+                    cls = ("first " if prev is None else "") + ("capnew" if prev is None or prev["cap"] != st["cap"] else "")
+                    if spec.get("motion", True) is False:
+                        cls = ""
+                    pg.set_content(page(spec, tpl, st, bg_uri, cls), wait_until="load")
                     pg.wait_for_timeout(150)
-                    pg.screenshot(path=str(f))
-                    items.append((f, d))
+                    frames = render_step(pg, td / f"s{k:03d}", d)
+                    items += frames
+                    if cover is None:
+                        cover = frames[-1][0]
                     k += 1
+                    prev = st
             b.close()
         # 2) video from stills (exact durations), 3) voice cut on the silences, 4) mux
         lst = td / "list.txt"
@@ -250,7 +349,12 @@ def main():
              "-ar", "48000", "-c:a", "aac", "-b:a", "192k", str(td / "a.m4a")])
         run(["ffmpeg", "-y", "-v", "error", "-i", str(td / "v.mp4"), "-i", str(td / "a.m4a"),
              "-c:v", "copy", "-c:a", "copy", "-shortest", "-movflags", "+faststart", str(out / "reel.mp4")])
-        run(["ffmpeg", "-y", "-v", "error", "-i", str(items[0][0]), "-q:v", "3", str(out / "cover.jpg")])
+        run(["ffmpeg", "-y", "-v", "error", "-i", str(cover), "-q:v", "3", str(out / "cover.jpg")])
+        if "--stills" in sys.argv:   # keep the still of every step for checking (out/stills/)
+            import shutil
+            (out / "stills").mkdir(exist_ok=True)
+            for f in sorted(td.glob("s*_z.png")):
+                shutil.copy(f, out / "stills" / f.name)
     (out / "caption.txt").write_text(spec["caption"], encoding="utf-8")
     print(out / "reel.mp4")
 

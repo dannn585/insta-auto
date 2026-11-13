@@ -1,26 +1,90 @@
-<!-- 11/17 キット告知①「Claudeに毎回、自己紹介してない？」の上の画面。
-     画面は会社の実物を大きな文字で画像にしたもの（assets/screens/kit_*.png、scripts/kit_screens.py）。 -->
+<!-- 11/17 キット告知①「Claudeが昨日の続きから動く設定」の上の画面（カード）。明るい見た目（11/13 作り直し）。
+     中身は会社の実物（秘書リンの朝のあいさつ・CLAUDE.md・フォルダ）を短くしたもの。
+     旧版（暗い作業画面の画像・「毎回自己紹介してない？」始まり）は spare/v1_2026-11-17/。 -->
 
-<template id="retype_top">
-<div class="shot"><img src="asset:assets/screens/kit_retype.png"></div>
+<style>
+.lt{padding:44px 40px;display:flex;flex-direction:column;gap:26px;height:100%}
+.lt .who{font-size:32px;font-weight:900;color:#8A867B;letter-spacing:.04em}
+.bub{border-radius:28px;padding:22px 32px;font-size:44px;line-height:1.5;font-weight:500;max-width:90%}
+.bub.me{align-self:flex-end;background:#1F1E1B;color:#fff;font-weight:900}
+.bub.me.big{font-size:64px;padding:26px 46px}
+.bub.ai{align-self:flex-start;background:#F3F0E7;border:2px solid #E6E1D5}
+.bub.ai ol{margin:12px 0 0 1.25em}.bub.ai li{margin:10px 0;font-weight:700}
+.bub.ai li span{display:block;font-size:30px;color:#8A867B;font-weight:500}
+.mk{background:linear-gradient(transparent 58%,#FFD400 58%,#FFD400 92%,transparent 92%);font-weight:900}
+.rt{gap:16px;padding-top:36px}.rt .bub{font-size:40px;padding:18px 28px}
+.day{font-size:30px;color:#8A867B;font-weight:700;margin-bottom:-12px}
+.file{padding:0;height:100%}
+.fbar{height:84px;display:flex;align-items:center;padding:0 36px;background:#F3F0E7;border-bottom:2px solid #E6E1D5;font-size:34px;font-weight:900;color:#5A574F}
+.fbody{padding:40px 50px;font-size:48px;line-height:1.6}
+.fbody h4{font-size:52px;font-weight:900;margin:18px 0 4px}
+.fbody p{color:#3A3833}
+.tree{padding:90px 56px;font-size:62px;line-height:1.8;font-weight:700}
+.tree .c{color:#8A867B;font-weight:500;font-size:44px;margin-left:16px}
+.ctab{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:40px;text-align:center}
+.ctab .cm{background:#F3F0E7;border:3px solid #E6E1D5;border-radius:40px;padding:40px 90px;font-size:76px;font-weight:900}
+.ctab .cm b{font-size:220px;display:block;line-height:1.1}
+.stampx{position:absolute;right:40px;bottom:60px;transform:rotate(-5deg);background:#1F1E1B;color:#fff;font-size:52px;font-weight:900;padding:18px 34px;border-radius:18px}
+.ctab .sub{font-size:54px;color:#5A574F;line-height:1.5;font-weight:700}
+</style>
+
+<template id="morning">
+<div class="lt">
+  <div class="who">秘書（Claude）との朝のやりとり</div>
+  <div class="bub me big pop">おはよう</div>
+  <div class="bub ai in" style="animation-delay:.45s">昨日の日報の続きから、今日やることは<span class="mk">3つ</span>です。
+    <ol><li>投稿を作る<span>予約が明日で切れるため・1〜2時間</span></li>
+        <li>予備の投稿を用意<span>昨日は23:56でギリギリ・20分</span></li>
+        <li>コメントの返事を作る<span>期限が今日・30分</span></li></ol></div>
+</div>
 </template>
 
-<template id="retype_end">
-<div class="shot"><img src="asset:assets/screens/kit_retype.png" style="margin-top:-116px"></div>
+<template id="retype">
+<div class="lt rt">
+  <div class="who">前の使い方（毎日これ）</div>
+  <div class="day">11/01</div><div class="bub me" style="font-weight:500">私は大学生で、Instagramをやってて、目標は…</div>
+  <div class="day">11/02</div><div class="bub me" style="font-weight:500">私は大学生で、Instagramをやってて、目標は…</div>
+  <div class="day">11/03</div><div class="bub me" style="font-weight:500">私は大学生で、Instagramをやってて、目標は…</div>
+  <div class="bub ai">はい、まずは状況を教えてください。</div>
+</div>
+</template>
+
+<template id="retype2">
+<div class="lt rt" style="position:relative">
+  <div class="who">前の使い方（毎日これ）</div>
+  <div class="day">11/01</div><div class="bub me" style="font-weight:500">私は大学生で、Instagramをやってて、目標は…</div>
+  <div class="day">11/02</div><div class="bub me" style="font-weight:500">私は大学生で、Instagramをやってて、目標は…</div>
+  <div class="day">11/03</div><div class="bub me" style="font-weight:500">私は大学生で、Instagramをやってて、目標は…</div>
+  <div class="bub ai">はい、まずは状況を教えてください。</div>
+  <div class="stampx pop">毎回ゼロから説明</div>
+</div>
 </template>
 
 <template id="folder">
-<div class="shot"><img src="asset:assets/screens/kit_folder.png"></div>
+<div class="tree">
+  <div style="font-size:40px;color:#8A867B;font-weight:900;margin-bottom:24px">作るのはこれだけ</div>
+  📁 my-company<br>
+  　└ 📄 <span class="mk">CLAUDE.md</span><span class="c">ルール</span><br>
+  　└ 📄 tasks.md<span class="c">やること</span><br>
+  　└ 📁 reports<span class="c">日報</span>
+</div>
 </template>
 
 <template id="claudemd">
-<div class="shot"><img src="asset:assets/screens/kit_claudemd.png"></div>
+<div class="file">
+  <div class="fbar">📄 my-company/CLAUDE.md</div>
+  <div class="fbody">
+    <h4># 自己紹介</h4><p>名前はダン。大学生。回答は日本語で</p>
+    <h4># 毎日のルール</h4><p>始める前に tasks.md と<br><span class="mk">前日の日報を読む</span></p>
+    <h4># 朝のあいさつ</h4><p>「次にやること」を3つまで出す</p>
+  </div>
+</div>
 </template>
 
-<template id="morning_top">
-<div class="shot"><img src="asset:assets/screens/kit_morning.png"></div>
-</template>
-
-<template id="morning_end">
-<div class="shot"><img src="asset:assets/screens/kit_morning.png" style="margin-top:-172px"></div>
+<template id="cta">
+<div class="ctab">
+  <div class="sub">作り方を無料でまとめました</div>
+  <div class="cm pop">コメントに<b>AI</b></div>
+  <div class="sub">→ DMで送ります</div>
+</div>
 </template>

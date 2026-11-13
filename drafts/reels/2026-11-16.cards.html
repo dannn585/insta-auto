@@ -1,55 +1,61 @@
-<!-- 11/16 リール「ChatGPTとClaude、どう使い分けてる？」の上の画面（カード）。
-     使い分けはダンの実感（録音のとおり）。予約一覧は insta-auto/queue の実際の予定。 -->
+<!-- 11/16 リール「ChatGPTとClaude 使い分けはこの2つだけ」の上の画面（カード）。明るい見た目（11/13 作り直し）。
+     答え（長い資料→Claude）を先頭に。使い分けはダンの実感（録音のとおり）。予約一覧は queue の予定（11/09 時点）。
+     旧版（「ChatGPT vs Claude」の止まった画面＋「どっち使えばいい？」始まり）は spare/v1_2026-11-16/。 -->
 
-<template id="vs">
-<div class="big" style="flex-direction:row;gap:30px;padding:0 40px">
-  <div class="tile" style="flex:1;text-align:center;padding:60px 10px"><b style="font-size:58px">ChatGPT</b></div>
-  <div style="font-size:60px;font-weight:900;color:#D7262E">VS</div>
-  <div class="tile" style="flex:1;text-align:center;padding:60px 10px"><b style="font-size:58px">Claude</b></div>
-</div>
-</template>
+<style>
+.hk{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:26px;text-align:center}
+.hk .from{font-size:46px;font-weight:700;color:#5A574F}
+.hk .n{font-size:190px;font-weight:900;line-height:1;letter-spacing:-.02em}
+.hk .n small{font-size:80px;margin-left:6px}
+.hk .n.old{color:#B9B4A6}
+.hk .ar{font-size:60px;font-weight:900;color:#1F1E1B}
+.hk .tool{display:inline-block;background:#1F1E1B;color:#fff;border-radius:22px;padding:8px 30px;font-size:52px;font-weight:900}
+.mk{background:linear-gradient(transparent 58%,#FFD400 58%,#FFD400 92%,transparent 92%);font-weight:900}
+.two{display:flex;flex-direction:column;justify-content:center;gap:34px;height:100%;padding:0 50px}
+.two .tile{display:flex;align-items:center;gap:30px;padding:40px 40px;font-size:64px;font-weight:900;border-radius:30px}
+.two .tile .ic{font-size:110px}
+.two .tool{align-self:center;background:#1F1E1B;color:#fff;border-radius:22px;padding:10px 40px;font-size:60px;font-weight:900}
+</style>
 
-<template id="split0">
-<div class="chat" style="gap:24px">
-  <div class="ai small">僕の使い分け</div>
-  <table class="t" style="font-size:42px">
-    <tr><th style="width:50%">Claude</th><th>ChatGPT</th></tr>
-    <tr><td style="height:300px;vertical-align:top;color:#B9B4A6">？</td><td style="vertical-align:top;color:#B9B4A6">？</td></tr>
-  </table>
-</div>
-</template>
-
-<template id="split1">
-<div class="chat" style="gap:24px">
-  <div class="ai small">僕の使い分け</div>
-  <table class="t" style="font-size:42px">
-    <tr><th style="width:50%">Claude</th><th>ChatGPT</th></tr>
-    <tr><td style="height:300px;vertical-align:top;background:#FFF8D6"><b>長い資料</b>を読ませる<br>まとめる・直す</td><td style="vertical-align:top;color:#B9B4A6">？</td></tr>
-  </table>
-</div>
-</template>
-
-<template id="split2">
-<div class="chat" style="gap:24px">
-  <div class="ai small">僕の使い分け</div>
-  <table class="t" style="font-size:42px">
-    <tr><th style="width:50%">Claude</th><th>ChatGPT</th></tr>
-    <tr><td style="height:300px;vertical-align:top"><b>長い資料</b>を読ませる<br>まとめる・直す</td><td style="vertical-align:top;background:#FFF8D6"><b>画像</b>を作る<br>ちょっと<b>調べ物</b></td></tr>
-  </table>
+<template id="doc">
+<div class="hk">
+  <div class="from">📄 ゼミの資料</div>
+  <div class="n old">32<small>ページ</small></div>
+  <div class="ar in" style="animation-delay:.3s">↓ <span class="tool">Claude</span></div>
+  <div class="n in" style="animation-delay:.5s"><span class="mk">3<small>行</small></span></div>
+  <div class="from in" style="animation-delay:.6s">＋わかりにくい所の直し</div>
 </div>
 </template>
 
 <template id="longdoc">
 <div class="chat">
   <div class="me"><div class="photo" style="font-size:36px">📄 ゼミの資料（32ページ）.pdf</div><div style="margin-top:14px">3行で<b class="mark">まとめて</b>、わかりにくい所を<b class="mark">直して</b></div></div>
-  <div class="ai">要点は3つです。<br>① 若い人の投票率は下がり続けている<br>② 原因は「関心」より「手間」<br>③ 手間を減らせば上がる可能性がある<br><span class="ai small">わかりにくい所：5か所（直した文つき）</span></div>
+  <div class="ai in">要点は3つです。<br>① 若い人の投票率は下がり続けている<br>② 原因は「関心」より「手間」<br>③ 手間を減らせば上がる可能性がある<br><span class="ai small">わかりにくい所：5か所（直した文つき）</span></div>
+</div>
+</template>
+
+<template id="gpt">
+<div class="two">
+  <div class="tile">  <span class="ic">🎨</span>画像を作る</div>
+  <div class="tile in" style="animation-delay:.3s"><span class="ic">🔎</span>ちょっと調べ物</div>
+  <div class="tool pop" style="animation-delay:.5s">ChatGPT</div>
+</div>
+</template>
+
+<template id="split2">
+<div class="chat" style="gap:24px;justify-content:center">
+  <div class="ai small">僕の使い分け</div>
+  <table class="t" style="font-size:48px">
+    <tr><th style="width:50%">Claude</th><th>ChatGPT</th></tr>
+    <tr><td style="height:340px;vertical-align:top"><b>長い資料</b>を読ませる<br>まとめる・直す</td><td style="vertical-align:top"><b>画像</b>を作る<br>ちょっと<b>調べ物</b></td></tr>
+  </table>
 </div>
 </template>
 
 <template id="queue">
 <div class="chat" style="gap:16px">
   <div class="ai small">投稿の予定（毎日20:00に自動で投稿）</div>
-  <table class="t" style="font-size:36px">
+  <table class="t" style="font-size:38px">
     <tr><td>11/10</td><td>ESを本気でダメ出しさせた</td></tr>
     <tr><td>11/11</td><td>答えが別物になる一言</td></tr>
     <tr><td>11/12</td><td>10日目の正直な数字</td></tr>
@@ -63,12 +69,12 @@
 </template>
 
 <template id="poll">
-<div class="big" style="gap:36px">
-  <div class="unit" style="font-size:66px">あなたはどっち派？</div>
+<div class="big" style="gap:40px">
+  <div class="unit" style="font-size:72px">あなたはどっち派？</div>
   <div style="display:flex;gap:30px;width:100%;padding:0 50px">
-    <div class="tile hl" style="flex:1;text-align:center;padding:50px 10px"><b style="font-size:54px">Claude派</b></div>
-    <div class="tile hl" style="flex:1;text-align:center;padding:50px 10px"><b style="font-size:54px">ChatGPT派</b></div>
+    <div class="tile hl pop" style="flex:1;text-align:center;padding:56px 10px"><b style="font-size:58px">Claude派</b></div>
+    <div class="tile hl pop" style="flex:1;text-align:center;padding:56px 10px;animation-delay:.15s"><b style="font-size:58px">ChatGPT派</b></div>
   </div>
-  <div class="sub">コメントで教えて</div>
+  <div class="sub" style="font-size:48px">コメントで教えて</div>
 </div>
 </template>
