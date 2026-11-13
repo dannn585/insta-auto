@@ -1,4 +1,7 @@
-"""Render a reel draft (drafts/reels/YYYY-MM-DD.json) into queue/YYYY-MM-DD/reel.mp4 + cover.jpg + caption.txt.
+"""Old reel style (v1/v2, VOICEVOX + dark blurred background). Not used for new reels since 11/08;
+new reels use scripts/reel_v3.py (light look since 11/13).
+
+Render a reel draft (drafts/reels/YYYY-MM-DD.json) into queue/YYYY-MM-DD/reel.mp4 + cover.jpg + caption.txt.
 
 Usage: python scripts/reel.py drafts/reels/2026-11-03.json [--stills]
 

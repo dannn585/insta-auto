@@ -1,4 +1,7 @@
-"""Build 'screen' images (code, terminal logs, notes, post grids) used as the visual layer of reels.
+"""Dark code / terminal screens for the v1/v2 reels. Since 11/13 do not use them as the first screen
+of a reel (style v3: light background, no code screen on the cover).
+
+Build 'screen' images (code, terminal logs, notes, post grids) used as the visual layer of reels.
 
 Everything shown is a real artifact of this project (its own code, logs and posts).
 Usage: python scripts/screens.py   -> assets/screens/*.png
