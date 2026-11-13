@@ -1,7 +1,7 @@
 """自分のアカウントの過去投稿を Instagram公式API で取得し、<ACCOUNT_DIR>/reference/ に保存する。
 
 保存物:
-  reference/posts.json            … キャプション・投稿日時・いいね数・コメント数・URL・insights（リーチ・保存・シェア・再生数）
+  reference/posts.json            … キャプション・投稿日時・いいね数・コメント数・URL・insights（リーチ・保存・シェア・再生数。リールは平均視聴時間 ig_reels_avg_watch_time〔ミリ秒〕・スキップ率 reels_skip_rate〔%〕も）
   reference/media/<id>_<n>.jpg    … 画像（動画はサムネイル）
 
 Env: IG_ACCESS_TOKEN（必須）, ACCOUNT_DIR（例: axis）, IG_API_VERSION（任意）
@@ -45,6 +45,25 @@ def insights(ig, token, media_id):
             for m in data.get("data", [])}
 
 
+# リールだけで取れる「見られ方」の数字。1つずつ聞く（1つが使えなくても他は取れるように）
+REEL_METRICS = ("ig_reels_avg_watch_time", "reels_skip_rate")
+
+
+def reel_insights(ig, token, media_id):
+    """リールの平均視聴時間（ミリ秒）とスキップ率（%）。取れないものは入れない。"""
+    out = {}
+    for m in REEL_METRICS:
+        try:
+            r = requests.get(f"{ig.base}/{media_id}/insights",
+                             params=dict(metric=m, access_token=token), timeout=60)
+            data = r.json()
+        except (requests.RequestException, ValueError):
+            continue
+        for d in data.get("data", []):
+            out[d["name"]] = (d.get("values") or [{}])[0].get("value", d.get("total_value", {}).get("value"))
+    return out
+
+
 def main():
     token = os.environ.get("IG_ACCESS_TOKEN")
     if not token:
@@ -75,6 +94,8 @@ def main():
             p.pop(k, None)  # 期限付きURLは保存しない
         p.pop("children", None)
         p["insights"] = insights(ig, token, p["id"])
+        if p.get("media_type") == "VIDEO" and "error" not in p["insights"]:
+            p["insights"].update(reel_insights(ig, token, p["id"]))
 
     (OUT / "posts.json").write_text(json.dumps({"account": me, "posts": posts}, ensure_ascii=False, indent=2),
                                     encoding="utf-8")
