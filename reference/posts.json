@@ -1,7 +1,7 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 13,
+    "followers_count": 14,
     "media_count": 10,
     "username": "dan_aishain"
   },
@@ -18,11 +18,13 @@
         "media/18276138631305367_1.jpg"
       ],
       "insights": {
-        "reach": 14,
+        "reach": 33,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 19
+        "views": 36,
+        "ig_reels_avg_watch_time": 8245,
+        "reels_skip_rate": 65.6
       }
     },
     {
@@ -41,7 +43,9 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 52
+        "views": 52,
+        "ig_reels_avg_watch_time": 1810,
+        "reels_skip_rate": 95.8
       }
     },
     {
@@ -60,7 +64,9 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 119
+        "views": 119,
+        "ig_reels_avg_watch_time": 3494,
+        "reels_skip_rate": 82.4
       }
     },
     {
@@ -127,7 +133,9 @@
         "saved": 3,
         "shares": 0,
         "total_interactions": 3,
-        "views": 130
+        "views": 130,
+        "ig_reels_avg_watch_time": 5164,
+        "reels_skip_rate": 69.6
       }
     },
     {
@@ -146,7 +154,9 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 41
+        "views": 41,
+        "ig_reels_avg_watch_time": 4932,
+        "reels_skip_rate": 75.7
       }
     },
     {
@@ -188,7 +198,9 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 13
+        "views": 13,
+        "ig_reels_avg_watch_time": 3114,
+        "reels_skip_rate": 72.7
       }
     },
     {
@@ -207,7 +219,9 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 41
+        "views": 41,
+        "ig_reels_avg_watch_time": 3753,
+        "reels_skip_rate": 88.2
       }
     }
   ]
