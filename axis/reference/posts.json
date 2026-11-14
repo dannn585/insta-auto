@@ -1,16 +1,42 @@
 {
   "account": {
     "id": "17841479729356296",
-    "followers_count": 433,
-    "media_count": 30,
+    "followers_count": 431,
+    "media_count": 31,
     "username": "axis_doshisha"
   },
   "posts": [
     {
+      "id": "17908144779671068",
+      "caption": "NISAって結局なに？💰\n大学生向けにざっくり解説します！\n\n✅ 一言でいうと「投資の利益に税金がかからない口座」\n✅ ふつうは利益の約20%が税金。NISAならまるごと手元に残る\n✅ つみたて投資枠 年120万円・成長投資枠 年240万円、一生で1800万円まで\n✅ 18歳以上なら大学生でも、月1000円など少額から始められる\n\nNISAはあくまで「税金のかからない箱」。\n何を・いくら・何年買うかは自分で決めるのが大事です💡\n\nまずは、NISAで買える商品にどんなものがあるか1回調べてみよう！\n\n※投資は元本割れのリスクがあります。この投稿は特定の商品をすすめるものではありません\n\nAXISでは、こういう「学校では学べない社会の仕組み」を勉強会で一緒に学んでいます📚\n参加は完全に任意・Zoomで気軽に参加・興味ある回だけでOK！\n\n見学だけでも大丈夫。気になった人は「見学したい」とDMください📩\n\n#同志社 #同志社大学 #同志社サークル #春から同志社 #起業 #ビジネス #投資 #就活 #新NISA #NISA #大学生のお金",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DfubrUolG4c/",
+      "timestamp": "2026-11-14T14:34:59+0000",
+      "files": [
+        "media/17908144779671068_1.jpg",
+        "media/17908144779671068_2.jpg",
+        "media/17908144779671068_3.jpg",
+        "media/17908144779671068_4.jpg",
+        "media/17908144779671068_5.jpg",
+        "media/17908144779671068_6.jpg",
+        "media/17908144779671068_7.jpg",
+        "media/17908144779671068_8.jpg"
+      ],
+      "insights": {
+        "reach": 28,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 91
+      }
+    },
+    {
       "id": "18098736281667781",
       "caption": "「ガクチカが何もない…」って思っている1・2回生へ🎓\n\n実は、面接で見られているのは「すごい経験」より「考えて動いた過程」。\nバイト・授業・サークルでも十分ネタになります👇\n\n✅ 今やっていることで、小さな目標を1つ決める\n✅ 始める前と後を数字で記録する\n✅ なぜやったか・何を工夫したかを、その日のうちにメモする\n\nこれを3か月続けるだけで、話せるガクチカが1つできます💪\n\nまずは今日、目標を1つだけ決めてみよう！\n\nAXISでは、自己分析や早めの就活対策も勉強会で一緒にやっています📚\n参加は完全に任意・Zoomで気軽に参加・興味ある回だけでOK！\n\n見学だけでも大丈夫。気になった人は「見学したい」とDMください📩\n\n#同志社 #同志社大学 #同志社サークル #春から同志社 #起業 #ビジネス #投資 #就活 #ガクチカ #29卒 #30卒",
       "comments_count": 0,
-      "like_count": 0,
+      "like_count": 1,
       "media_type": "VIDEO",
       "permalink": "https://www.instagram.com/reel/DfrioPhFHxA/",
       "timestamp": "2026-11-13T11:38:13+0000",
@@ -18,13 +44,13 @@
         "media/18098736281667781_1.jpg"
       ],
       "insights": {
-        "reach": 52,
+        "reach": 62,
         "saved": 0,
         "shares": 0,
-        "total_interactions": 0,
-        "views": 92,
-        "ig_reels_avg_watch_time": 2434,
-        "reels_skip_rate": 86.8
+        "total_interactions": 1,
+        "views": 107,
+        "ig_reels_avg_watch_time": 2777,
+        "reels_skip_rate": 90.3
       }
     },
     {
@@ -60,13 +86,13 @@
         "media/18121293995091351_1.jpg"
       ],
       "insights": {
-        "reach": 198,
+        "reach": 203,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 278,
-        "ig_reels_avg_watch_time": 3016,
-        "reels_skip_rate": 88.9
+        "views": 290,
+        "ig_reels_avg_watch_time": 3060,
+        "reels_skip_rate": 88.7
       }
     },
     {
@@ -86,11 +112,11 @@
         "media/18045615836839488_6.jpg"
       ],
       "insights": {
-        "reach": 75,
+        "reach": 77,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 271
+        "views": 284
       }
     },
     {
@@ -105,13 +131,13 @@
         "media/18133555165772760_1.jpg"
       ],
       "insights": {
-        "reach": 102,
+        "reach": 104,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 147,
-        "ig_reels_avg_watch_time": 2115,
-        "reels_skip_rate": 96.1
+        "views": 156,
+        "ig_reels_avg_watch_time": 2166,
+        "reels_skip_rate": 96.2
       }
     },
     {
@@ -126,13 +152,13 @@
         "media/17894637135684344_1.jpg"
       ],
       "insights": {
-        "reach": 84,
+        "reach": 86,
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 138,
-        "ig_reels_avg_watch_time": 2323,
-        "reels_skip_rate": 91
+        "views": 141,
+        "ig_reels_avg_watch_time": 2476,
+        "reels_skip_rate": 90.1
       }
     },
     {
@@ -158,7 +184,7 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 571
+        "views": 573
       }
     },
     {
@@ -177,8 +203,8 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 378,
-        "ig_reels_avg_watch_time": 1804,
+        "views": 382,
+        "ig_reels_avg_watch_time": 1814,
         "reels_skip_rate": 96.1
       }
     },
@@ -222,11 +248,11 @@
         "media/17988965706094582_8.jpg"
       ],
       "insights": {
-        "reach": 109,
+        "reach": 111,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 408
+        "views": 410
       }
     },
     {
@@ -250,11 +276,11 @@
         "media/18100713200376071_11.jpg"
       ],
       "insights": {
-        "reach": 100,
+        "reach": 101,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 336
+        "views": 341
       }
     },
     {
