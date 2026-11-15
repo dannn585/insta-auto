@@ -1,7 +1,7 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 16,
+    "followers_count": 18,
     "media_count": 12,
     "username": "dan_aishain"
   },
@@ -18,13 +18,13 @@
         "media/18060959981567533_1.jpg"
       ],
       "insights": {
-        "reach": 69,
+        "reach": 104,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 70,
-        "ig_reels_avg_watch_time": 2896,
-        "reels_skip_rate": 75.4
+        "views": 106,
+        "ig_reels_avg_watch_time": 2713,
+        "reels_skip_rate": 77.9
       }
     },
     {
@@ -69,7 +69,7 @@
         "shares": 0,
         "total_interactions": 0,
         "views": 117,
-        "ig_reels_avg_watch_time": 5426,
+        "ig_reels_avg_watch_time": 5380,
         "reels_skip_rate": 66
       }
     },
