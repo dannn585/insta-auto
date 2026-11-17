@@ -1,11 +1,32 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 20,
-    "media_count": 12,
+    "followers_count": 21,
+    "media_count": 13,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18016120881004627",
+      "caption": "朝「おはよう」と送るだけで、Claudeが昨日の続きから今日やることを3つ出してくれる設定です。\n\n毎回「私は大学生で〜」と同じ説明をしているなら、それは「覚えておく場所」がないだけ。\n\nフォルダを1つ作って、ルールを書いたファイルを置くだけで、前日の続きから仕事を回してくれる秘書になります。準備30分〜1時間、むずかしいプログラムは使いません。\n\n手順をまとめた「AI社員スターターキット」を無料で配っています。ほしい人は「AI」とコメントしてください。DMで送ります。\n\n#Claude #AI活用 #AI秘書 #大学生の勉強法 #作業効率化",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/Df17GhNCKDK/",
+      "timestamp": "2026-11-17T12:24:36+0000",
+      "files": [
+        "media/18016120881004627_1.jpg"
+      ],
+      "insights": {
+        "reach": 20,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 24,
+        "ig_reels_avg_watch_time": 4333,
+        "reels_skip_rate": 85
+      }
+    },
     {
       "id": "18060959981567533",
       "caption": "Claudeって、写真を見せるだけでこれができる📸\n\n①冷蔵庫の中を撮って「これで3日分の夕飯考えて」\n②授業のホワイトボードを撮って「要点を箇条書きにして」\n③読めない英語の説明書を撮って「日本語で手順だけ教えて」\n④バイトのシフト表を撮って「カレンダーに入れる形にして」\n\n打ち込まなくていいから、とにかく楽。\nスマホのClaudeアプリで、写真を送って一言そえるだけです。\n\n※画面は説明用の例です\n\n保存して、今日1回やってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #時短術 #大学生 #一人暮らし #生成AI #スマホ活用",
@@ -136,7 +157,7 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 8
+        "views": 9
       }
     },
     {
@@ -160,7 +181,7 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 15
+        "views": 16
       }
     },
     {
@@ -200,9 +221,9 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 42,
-        "ig_reels_avg_watch_time": 5280,
-        "reels_skip_rate": 73.7
+        "views": 43,
+        "ig_reels_avg_watch_time": 5194,
+        "reels_skip_rate": 74.4
       }
     },
     {
@@ -225,7 +246,7 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 15
+        "views": 16
       }
     },
     {
