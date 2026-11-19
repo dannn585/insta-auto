@@ -2,10 +2,31 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 22,
-    "media_count": 13,
+    "media_count": 14,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "17989185272900599",
+      "caption": "朝いちばんに「何からやろう」と悩むのを、やめました。\n\n「おはよう」と送ると、AI秘書が前日の日報とタスク表を読んで、今日やることを3つまで出してくれます。理由と、かかる時間つき。僕は「1でOK」と返すだけ。\n\n設定のしかたは無料キットにまとめています。ほしい人は「AI」とコメントしてください。DMで送ります。\n\n#Claude #AI秘書 #朝活 #タスク管理 #AI活用",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/Df7L5FblahP/",
+      "timestamp": "2026-11-19T13:27:30+0000",
+      "files": [
+        "media/17989185272900599_1.jpg"
+      ],
+      "insights": {
+        "reach": 22,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 23,
+        "ig_reels_avg_watch_time": 2334,
+        "reels_skip_rate": 73.9
+      }
+    },
     {
       "id": "18016120881004627",
       "caption": "朝「おはよう」と送るだけで、Claudeが昨日の続きから今日やることを3つ出してくれる設定です。\n\n毎回「私は大学生で〜」と同じ説明をしているなら、それは「覚えておく場所」がないだけ。\n\nフォルダを1つ作って、ルールを書いたファイルを置くだけで、前日の続きから仕事を回してくれる秘書になります。準備30分〜1時間、むずかしいプログラムは使いません。\n\n手順をまとめた「AI社員スターターキット」を無料で配っています。ほしい人は「AI」とコメントしてください。DMで送ります。\n\n#Claude #AI活用 #AI秘書 #大学生の勉強法 #作業効率化",
@@ -23,7 +44,7 @@
         "shares": 0,
         "total_interactions": 0,
         "views": 34,
-        "ig_reels_avg_watch_time": 3492,
+        "ig_reels_avg_watch_time": 3210,
         "reels_skip_rate": 89.7
       }
     },
@@ -44,7 +65,7 @@
         "shares": 0,
         "total_interactions": 0,
         "views": 107,
-        "ig_reels_avg_watch_time": 2684,
+        "ig_reels_avg_watch_time": 2667,
         "reels_skip_rate": 78.1
       }
     },
@@ -66,11 +87,11 @@
         "media/18099622472441840_7.jpg"
       ],
       "insights": {
-        "reach": 5,
+        "reach": 6,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 10
+        "views": 12
       }
     },
     {
