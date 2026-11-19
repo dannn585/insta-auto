@@ -3,7 +3,8 @@ name: Instagram daily post
 on:
   schedule:
     # 20:00 JST ごろに投稿したいが、GitHub の予約は毎日 7〜8 時間遅れて動いていた（2026-11 実測）。
-    # そこで「毎時1回」動かし、19:30〜23:59 JST に当たった最初の回だけが投稿する（POST_WINDOW）。
+    # そこで「毎時1回」動かし、17:00〜23:59 JST に当たった最初の回だけが投稿する（POST_WINDOW）。
+    # 11/19 に 19:30〜 から広げた：11/15・16 は実行が18時台と翌朝にしか来ず、2日とも投稿もれになったため。
     # 投稿済みなら後の回は何もしない（queue から posted に移動済み＋Instagram 上の同じキャプションも確認）。
     - cron: "17 * * * *"
   workflow_dispatch:        # 手動実行ボタン（テスト用）
@@ -44,7 +45,7 @@ jobs:
           POST_DATE: ${{ github.event.inputs.post_date }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
           CHECK_ONLY: ${{ github.event.inputs.check_only }}
-          POST_WINDOW: ${{ github.event_name == 'schedule' && '19:30-23:59' || '' }}
+          POST_WINDOW: ${{ github.event_name == 'schedule' && '17:00-23:59' || '' }}
         run: python scripts/publish.py
       - name: Move posted files
         run: |
