@@ -2,10 +2,31 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 22,
-    "media_count": 14,
+    "media_count": 15,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18113867789260556",
+      "caption": "ChatGPTとClaudeの使い分けは、この2つだけ。\n\n・長い資料を読ませて、まとめる・直す → Claude\n・画像を作る、ちょっと調べ物をする → ChatGPT\n\nどっちか1つに決めないで、得意なほうに頼んでいます。\n\nこのアカウントの動画づくりや、毎日の自動投稿の仕組みは、全部Claudeで作りました。\n\nあなたはどっち派？コメントで教えてください。\n\n#Claude #ChatGPT #AI活用 #生成AI #使い分け #大学生 #AIツール",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/Df9of-ajpZV/",
+      "timestamp": "2026-11-20T12:15:52+0000",
+      "files": [
+        "media/18113867789260556_1.jpg"
+      ],
+      "insights": {
+        "reach": 56,
+        "saved": 1,
+        "shares": 0,
+        "total_interactions": 1,
+        "views": 58,
+        "ig_reels_avg_watch_time": 3156,
+        "reels_skip_rate": 75.4
+      }
+    },
     {
       "id": "17989185272900599",
       "caption": "朝いちばんに「何からやろう」と悩むのを、やめました。\n\n「おはよう」と送ると、AI秘書が前日の日報とタスク表を読んで、今日やることを3つまで出してくれます。理由と、かかる時間つき。僕は「1でOK」と返すだけ。\n\n設定のしかたは無料キットにまとめています。ほしい人は「AI」とコメントしてください。DMで送ります。\n\n#Claude #AI秘書 #朝活 #タスク管理 #AI活用",
@@ -18,13 +39,13 @@
         "media/17989185272900599_1.jpg"
       ],
       "insights": {
-        "reach": 22,
+        "reach": 44,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 23,
-        "ig_reels_avg_watch_time": 2334,
-        "reels_skip_rate": 73.9
+        "views": 44,
+        "ig_reels_avg_watch_time": 1682,
+        "reels_skip_rate": 86.4
       }
     },
     {
@@ -39,13 +60,13 @@
         "media/18016120881004627_1.jpg"
       ],
       "insights": {
-        "reach": 29,
+        "reach": 30,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 34,
-        "ig_reels_avg_watch_time": 3210,
-        "reels_skip_rate": 89.7
+        "views": 35,
+        "ig_reels_avg_watch_time": 3144,
+        "reels_skip_rate": 90
       }
     },
     {
