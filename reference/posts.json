@@ -1,7 +1,7 @@
 {
   "account": {
     "id": "17841453744504940",
-    "followers_count": 22,
+    "followers_count": 23,
     "media_count": 16,
     "username": "dan_aishain"
   },
@@ -18,13 +18,13 @@
         "media/18148866823582432_1.jpg"
       ],
       "insights": {
-        "reach": 41,
+        "reach": 115,
         "saved": 1,
         "shares": 0,
         "total_interactions": 1,
-        "views": 56,
-        "ig_reels_avg_watch_time": 3483,
-        "reels_skip_rate": 63.3
+        "views": 128,
+        "ig_reels_avg_watch_time": 4745,
+        "reels_skip_rate": 69.6
       }
     },
     {
@@ -39,13 +39,13 @@
         "media/18113867789260556_1.jpg"
       ],
       "insights": {
-        "reach": 74,
+        "reach": 75,
         "saved": 1,
         "shares": 0,
         "total_interactions": 1,
-        "views": 80,
-        "ig_reels_avg_watch_time": 2822,
-        "reels_skip_rate": 78.7
+        "views": 81,
+        "ig_reels_avg_watch_time": 2829,
+        "reels_skip_rate": 77.6
       }
     },
     {
@@ -220,7 +220,7 @@
         "saved": 0,
         "shares": 0,
         "total_interactions": 1,
-        "views": 9
+        "views": 10
       }
     },
     {
