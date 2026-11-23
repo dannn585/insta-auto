@@ -95,13 +95,41 @@ def main():
     # 予約実行のときだけ、決めた時間帯（JST）の中でしか投稿しない。
     # GitHub の予約実行は数時間遅れることがあり、日付をまたぐと翌日分を早朝に出してしまうため。
     window = os.environ.get("POST_WINDOW", "").strip()  # 例 "19:30-23:59"
+    date = os.environ.get("POST_DATE") or datetime.now(JST).strftime("%Y-%m-%d")
     if window:
+        # 2026-11-23：GitHub の予約は実際には約8時間おきにしか動かず、夜の枠を外して出ない日があった。
+        # 夜の枠：今日の夜にまだ出していなければ、いちばん古い予約（今日以前）を出す。
+        # 取り戻し（昼〜夜の枠の前）：前の日以前の残りがあり、今日まだ1本も出していなければ、いちばん古いものを出す。
+        # → 1日最大2本（昼と夜）。取りこぼしがあっても1〜2日で追いつく。
         now = datetime.now(JST)
+        today = now.strftime("%Y-%m-%d")
         start, end = (datetime.strptime(t, "%H:%M").time() for t in window.split("-"))
-        if not (start <= now.time() <= end):
+        catchup_from = datetime.strptime(os.environ.get("POST_CATCHUP_FROM", "12:00"), "%H:%M").time()
+        due = sorted(p.name for p in QUEUE.iterdir() if p.is_dir() and p.name <= today) if QUEUE.is_dir() else []
+        posted_today = []  # 今日出した時刻
+        for r in POSTED.glob("*/result.json") if POSTED.is_dir() else []:
+            try:
+                t = datetime.fromisoformat(json.loads(r.read_text(encoding="utf-8"))["published_at"])
+            except Exception:
+                continue
+            if t.astimezone(JST).strftime("%Y-%m-%d") == today:
+                posted_today.append(t.astimezone(JST).time())
+        if start <= now.time() <= end:
+            if any(t >= start for t in posted_today):
+                print(f"Already posted in tonight's window. Nothing to do.")
+                return
+        elif catchup_from <= now.time() < start and any(d < today for d in due):
+            if posted_today:
+                print("Overdue post exists, but already posted today. A later run will post.")
+                return
+            print(f"Catch-up: posting overdue {due[0]}.")
+        else:
             print(f"Outside posting window {window} JST (now {now:%H:%M}). Skip; a later run will post.")
             return
-    date = os.environ.get("POST_DATE") or datetime.now(JST).strftime("%Y-%m-%d")
+        if not due:
+            print(f"No post queued for {today} or before. Nothing to do.")
+            return
+        date = due[0]
     folder = QUEUE / date
     if not folder.is_dir():
         print(f"No post queued for {date}. Nothing to do.")
