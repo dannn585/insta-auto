@@ -1,0 +1,72 @@
+<!-- 11/25 リール「チラシの写真をClaudeに見せたら、告知文が3つできた」（T93・冒頭1秒で結果を見せる型）。
+     声なし（文字＋BGM）。チラシ・告知文は説明用の例（架空のサークル）。 -->
+
+<style>
+.three{padding:40px 36px;display:flex;flex-direction:column;gap:22px;height:100%;position:relative}
+.three .b{background:#fff;border:3px solid #E6E1D5;border-radius:24px;padding:22px 28px;font-size:38px;line-height:1.5}
+.three .b .lb{display:inline-block;background:#1F1E1B;color:#fff;font-size:30px;font-weight:900;border-radius:12px;padding:4px 16px;margin-bottom:8px}
+.stw{position:absolute;left:0;right:0;bottom:50px;display:flex;justify-content:center}
+.stamp2{transform:rotate(-5deg);background:#1F1E1B;color:#fff;font-size:56px;font-weight:900;padding:20px 40px;border-radius:20px;white-space:nowrap}
+.poster{margin:60px 50px;background:#FFF3C4;border:4px solid #1F1E1B;border-radius:18px;padding:50px 40px;text-align:center;transform:rotate(-2deg)}
+.poster .h{font-size:96px;font-weight:900;line-height:1.2}
+.poster .d{font-size:52px;font-weight:900;margin-top:24px;line-height:1.5}
+.poster .s{font-size:40px;margin-top:20px;color:#5A574F;line-height:1.5}
+.chat.lg .me,.chat.lg .ai{font-size:52px}
+.chat.lg .photo{font-size:44px}
+.two{padding:40px 36px;display:flex;flex-direction:column;gap:26px}
+.two .b{border-radius:24px;padding:26px 30px;font-size:40px;line-height:1.55;background:#fff;border:3px solid #E6E1D5}
+.two .b.x{border:4px solid #FFD400}
+.two .lb{font-size:32px;font-weight:900;color:#8A867B;margin-bottom:6px}
+.chk{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 70px;gap:34px}
+.chk div{font-size:66px;font-weight:900}
+.chk div span{display:inline-block;width:90px}
+.chk .sub{font-size:42px;color:#5A574F;font-weight:700;line-height:1.5}
+</style>
+
+<template id="three">
+<div class="three">
+  <div class="b in"><span class="lb">Instagram</span><br>📚 テスト前、ひとりで勉強するのしんどくない？ 12/6(土) 冬の勉強会やります！</div>
+  <div class="b in" style="animation-delay:.12s"><span class="lb">LINE</span><br>【冬の勉強会】12/6(土)14時〜 図書館3F。参加する人は「参加」と返信してね</div>
+  <div class="b in" style="animation-delay:.24s"><span class="lb">X</span><br>12/6(土)14時〜 冬の勉強会📚 参加無料・途中参加OK</div>
+  <div class="stw"><div class="pop" style="animation-delay:.45s"><div class="stamp2">写真1枚から</div></div></div>
+</div>
+</template>
+
+<template id="flyer">
+<div class="poster pop">
+  <div class="h">冬の勉強会</div>
+  <div class="d">12/6（土）14:00〜<br>図書館 3F</div>
+  <div class="s">参加無料・途中参加OK<br>申し込みはDMへ</div>
+</div>
+</template>
+
+<template id="ask">
+<div class="chat lg" style="justify-content:center">
+  <div class="me"><div class="photo"><div class="ic">📸</div>チラシの写真</div>
+  <div style="margin-top:16px">このチラシから<b class="mark">インスタ・LINE・X</b>の告知文を作って。大学生向けに短く</div></div>
+</div>
+</template>
+
+<template id="two">
+<div class="two">
+  <div class="b"><div class="lb">LINE 用（くわしく）</div>【冬の勉強会のお知らせ】<br>12/6(土) 14時〜 図書館3F<br>テスト前に一緒にやりませんか？参加無料です。<br>来る人はこのLINEに「参加」と返信してね</div>
+  <div class="b x pop" style="animation-delay:.5s"><div class="lb">X 用（ひと目で）</div>12/6(土)14時〜 冬の勉強会📚<br>参加無料・途中参加OK</div>
+</div>
+</template>
+
+<template id="check">
+<div class="chk">
+  <div class="sub">出す前に、ここだけは自分の目で</div>
+  <div class="in"><span>✅</span>日付・曜日</div>
+  <div class="in" style="animation-delay:.25s"><span>✅</span>時間</div>
+  <div class="in" style="animation-delay:.5s"><span>✅</span>場所</div>
+</div>
+</template>
+
+<template id="cta">
+<div class="big">
+  <div class="sub" style="font-size:48px">コメント欄に</div>
+  <div class="num pop" style="font-size:260px">AI</div>
+  <div class="sub" style="font-size:48px">と書くだけ</div>
+</div>
+</template>

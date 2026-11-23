@@ -1,0 +1,24 @@
+{
+  "type": "reel_v3",
+  "voice": "C:/Users/ssrdn/AppData/Local/Temp/claude/9e3b9340bd7aa654/82b29f7d-4fbd-47f4-860b-b9d390a837f9/scratchpad/silent40.wav",
+  "breath": false,
+  "tighten": false,
+  "title": "告知文づくりが<y>1分</y>で終わる",
+  "bgm": {"preset": "pop", "seed": 25, "db": -4},
+  "segments_note": "T93（11/23）。録音なし＝文字＋BGMだけ（voice は無音の wav。秒は画面の長さ）。ダンが録音したら voice と秒を差し替えて作り直せる。冒頭1秒で、できあがった告知文3つ（結果）を見せる",
+  "scenes": [
+    {"audio": [0, 3.4], "steps": [
+      {"card": "three", "cap": "チラシの写真から<br><y>3つ</y>できた"}]},
+    {"audio": [3.4, 5.9], "steps": [
+      {"card": "flyer", "cap": "①チラシを<y>撮る</y>"}]},
+    {"audio": [5.9, 9.3], "steps": [
+      {"card": "ask", "cap": "②<y>どこに載せるか</y>を伝える"}]},
+    {"audio": [9.3, 12.9], "steps": [
+      {"card": "two", "cap": "場所ごとに<br><y>長さ</y>を変えてくれる"}]},
+    {"audio": [12.9, 16.0], "steps": [
+      {"card": "check", "cap": "日付と場所だけは<br><y>自分で確認</y>"}]},
+    {"audio": [16.0, 19.0], "steps": [
+      {"card": "cta", "cap": "頼み方のまとめを<br><y>DMで無料</y>で送ります"}]}
+  ],
+  "caption": "サークルやバイト先のチラシ、写真をClaudeに見せたら告知文が3つできました📸\n\n①チラシを撮る\n②「このチラシから、インスタ・LINE・Xの告知文を作って。大学生向けに短く」と送る\n③LINEはくわしく、Xはひと目でわかる長さに、場所ごとに書き分けてくれる\n\nただし、日付・曜日・時間・場所だけは、出す前に自分の目で確認してください。ここをまちがえると全部が台なしです。\n\n※画面は説明用の例です\n\n保存して、次の告知のときに使ってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #大学生 #サークル #告知 #生成AI #時短術"
+}

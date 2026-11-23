@@ -1,0 +1,24 @@
+{
+  "type": "reel_v3",
+  "voice": "C:/Users/ssrdn/AppData/Local/Temp/claude/9e3b9340bd7aa654/82b29f7d-4fbd-47f4-860b-b9d390a837f9/scratchpad/silent40.wav",
+  "breath": false,
+  "tighten": false,
+  "title": "テスト前の<y>Claude</y>の使い方",
+  "bgm": {"preset": "bright", "seed": 24, "db": -4},
+  "segments_note": "T93（11/23）。録音なし＝文字＋BGMだけ（voice は無音の wav。秒は画面の長さ）。ダンが録音したら voice と秒を差し替えて作り直せる。冒頭1秒で完成した計画表（結果）を見せる",
+  "scenes": [
+    {"audio": [0, 3.2], "steps": [
+      {"card": "plan", "cap": "日程の写真が<br><y>計画表</y>になった"}]},
+    {"audio": [3.2, 5.8], "steps": [
+      {"card": "photo", "cap": "①テスト日程を<y>撮る</y>"}]},
+    {"audio": [5.8, 9.2], "steps": [
+      {"card": "ask", "cap": "②<y>一言</y>そえて送る"}]},
+    {"audio": [9.2, 12.4], "steps": [
+      {"card": "planjob", "cap": "バイトの日は<y>軽め</y>に<br>してくれる"}]},
+    {"audio": [12.4, 15.6], "steps": [
+      {"card": "redo", "cap": "サボった日も<br><y>組み直せる</y>"}]},
+    {"audio": [15.6, 18.6], "steps": [
+      {"card": "cta", "cap": "頼み方のまとめを<br><y>DMで無料</y>で送ります"}]}
+  ],
+  "caption": "テスト日程の写真をClaudeに見せたら、勉強の計画表になりました📄\n\n①テスト日程のプリントを撮る\n②「この日程で、今日からの勉強計画を表にして。バイトは火・金の夜」と一言そえて送る\n③バイトの日は短めのメニューにして、表で返してくれる\n\nできなかった日があっても「残りを組み直して」で作り直してくれます。\n計画を立てるのに30分悩むくらいなら、写真1枚で。\n\n※画面は説明用の例です\n\n保存して、テスト前に1回やってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #大学生 #テスト勉強 #勉強計画 #生成AI #時短術"
+}

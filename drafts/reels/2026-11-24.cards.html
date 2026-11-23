@@ -1,0 +1,82 @@
+<!-- 11/24 リール「テスト日程の写真をClaudeに見せたら、勉強の計画表になった」（T93・冒頭1秒で結果を見せる型）。
+     声なし（文字＋BGM）。写真・計画表は説明用の例。 -->
+
+<style>
+.plan{padding:40px 36px;display:flex;flex-direction:column;gap:20px;height:100%;position:relative}
+.plan .head{font-size:40px;font-weight:900}
+.plan .head small{display:block;font-size:30px;color:#8A867B;font-weight:700}
+table.p{border-collapse:collapse;width:100%;font-size:44px}
+table.p td{border-bottom:2px solid #E6E1D5;padding:18px 10px;line-height:1.3}
+table.p td:first-child{font-weight:900;white-space:nowrap;width:220px}
+table.p tr.job td{background:#FFF8D6}
+.stw{position:absolute;left:0;right:0;bottom:60px;display:flex;justify-content:center}
+.stamp2{transform:rotate(-5deg);background:#1F1E1B;color:#fff;font-size:58px;font-weight:900;padding:20px 40px;border-radius:20px;white-space:nowrap}
+.print{background:#2B2A27;color:#fff;border-radius:22px;padding:40px 44px;font-size:56px;line-height:1.8;margin-top:60px}
+.chat.lg .me,.chat.lg .ai{font-size:54px}
+.chat.lg .photo{font-size:44px}
+.print .ic{font-size:80px;line-height:1}
+.print b{font-size:54px}
+</style>
+
+<template id="plan">
+<div class="plan">
+  <div class="head">テスト勉強の計画表<small>11/24〜12/6（Claudeが作成）</small></div>
+  <table class="p">
+    <tr class="job"><td>11/24 火</td><td>バイト → 英単語 30分</td></tr>
+    <tr><td>11/25 水</td><td>線形代数 演習1〜3</td></tr>
+    <tr><td>11/26 木</td><td>材料力学 過去問・前半</td></tr>
+    <tr class="job"><td>11/27 金</td><td>バイト → 公式の見直し</td></tr>
+    <tr><td>11/28 土</td><td>熱力学 ノートまとめ</td></tr>
+    <tr><td>11/29 日</td><td>材料力学 過去問・後半</td></tr>
+  </table>
+  <div class="stw"><div class="pop" style="animation-delay:.35s"><div class="stamp2">写真1枚から</div></div></div>
+</div>
+</template>
+
+<template id="photo">
+<div class="chat">
+  <div class="print pop">
+    <div class="ic">📄</div>
+    <b>期末テスト日程（写真）</b><br>
+    12/7 月　線形代数<br>
+    12/8 火　材料力学<br>
+    12/9 水　英語<br>
+    12/10 木　熱力学
+  </div>
+</div>
+</template>
+
+<template id="ask">
+<div class="chat lg" style="justify-content:center">
+  <div class="me"><div class="photo"><div class="ic">📄</div>テスト日程の写真</div>
+  <div style="margin-top:16px">この日程で、今日からの<b class="mark">勉強計画を表に</b>して。<br>バイトは<b>火・金の夜</b></div></div>
+</div>
+</template>
+
+<template id="planjob">
+<div class="plan">
+  <div class="head">バイトの日は短く</div>
+  <table class="p">
+    <tr class="job"><td>11/24 火</td><td>バイト → <b class="mark">英単語 30分</b></td></tr>
+    <tr><td>11/25 水</td><td>線形代数 演習1〜3</td></tr>
+    <tr><td>11/26 木</td><td>材料力学 過去問・前半</td></tr>
+    <tr class="job"><td>11/27 金</td><td>バイト → <b class="mark">公式の見直し</b></td></tr>
+    <tr><td>11/28 土</td><td>熱力学 ノートまとめ</td></tr>
+  </table>
+</div>
+</template>
+
+<template id="redo">
+<div class="chat lg" style="justify-content:center">
+  <div class="me">11/26 の分、<b class="mark">できなかった</b>。<br>残りを組み直して</div>
+  <div class="ai in" style="animation-delay:.4s">了解です。材料力学の前半を<br>11/30（月）と 12/2（水）に<br>分けて入れ直しました。</div>
+</div>
+</template>
+
+<template id="cta">
+<div class="big">
+  <div class="sub" style="font-size:48px">コメント欄に</div>
+  <div class="num pop" style="font-size:260px">AI</div>
+  <div class="sub" style="font-size:48px">と書くだけ</div>
+</div>
+</template>

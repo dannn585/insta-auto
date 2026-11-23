@@ -1,0 +1,92 @@
+<!-- 11/26 リール「リールの最初の1秒を変えたら、届く人が30人→115人になった」（T93・冒頭1秒で結果を見せる型）。
+     声なし（文字＋BGM）。数字は実数（instagram-strategy.md「panda 週次ふりかえり 2026-11-23」のリーチ）。 -->
+
+<style>
+.res{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:30px;text-align:center}
+.res .lab{font-size:46px;font-weight:900;color:#5A574F}
+.res .row{display:flex;align-items:baseline;gap:24px}
+.res .a{font-size:130px;font-weight:900;color:#B9B4A6}
+.res .ar{font-size:90px;font-weight:900}
+.res .b{font-size:220px;font-weight:900;line-height:1}
+.res small{font-size:70px}
+.res .sub{font-size:40px;color:#8A867B;font-weight:700;line-height:1.5}
+.bars{padding:50px 50px;display:flex;flex-direction:column;gap:40px;height:100%;justify-content:center}
+.bars .head{font-size:40px;font-weight:900;color:#8A867B}
+.bars .r{display:flex;align-items:center;gap:20px;font-size:44px;font-weight:900}
+.bars .r .d{width:140px}
+.bars .r .bar{height:80px;background:#E6E1D5;border-radius:12px}
+.bars .r.top .bar{background:#FFD400}
+.bars .r .v{white-space:nowrap}
+.hk{padding:56px 44px;display:flex;flex-direction:column;gap:34px;height:100%;justify-content:center}
+.hk .q{background:#F3F0E7;border:3px solid #E6E1D5;border-radius:24px;padding:30px 32px;font-size:48px;line-height:1.5;font-weight:700}
+.hk .q .v{display:block;text-align:right;font-size:44px;font-weight:900;color:#8A867B;margin-top:8px}
+.hk .q.good{background:#fff;border:5px solid #1F1E1B;font-size:56px}
+.hk .q.good .v{color:#1F1E1B;font-size:64px}
+.hk .lb{font-size:38px;font-weight:900;color:#8A867B}
+.rules{padding:80px 44px}
+.rules ol.reasons{gap:30px}
+.rules ol.reasons li b{font-size:52px}
+.rules ol.reasons li span{font-size:38px}
+.rules ol.reasons li::before{background:#1F1E1B}
+.rules ol.reasons li{padding:26px 26px 26px 100px}
+.rules ol.reasons li b{font-size:56px}
+</style>
+
+<template id="num">
+<div class="res">
+  <div class="lab">リール1本が届いた人数</div>
+  <div class="row"><span class="a">30</span><span class="ar">→</span><span class="b pop">115<small>人</small></span></div>
+  <div class="sub in" style="animation-delay:.4s">11/17 → 11/21（Instagramの数字）</div>
+</div>
+</template>
+
+<template id="bars">
+<div class="bars">
+  <div class="head">先週のリール4本（届いた人数）</div>
+  <div class="r"><span class="d">11/17</span><div class="bar in" style="width:120px"></div><span class="v">30人</span></div>
+  <div class="r"><span class="d">11/19</span><div class="bar in" style="width:176px;animation-delay:.1s"></div><span class="v">44人</span></div>
+  <div class="r"><span class="d">11/20</span><div class="bar in" style="width:300px;animation-delay:.2s"></div><span class="v">75人</span></div>
+  <div class="r top"><span class="d">11/21</span><div class="bar in" style="width:460px;animation-delay:.3s"></div><span class="v">115人</span></div>
+</div>
+</template>
+
+<template id="bad">
+<div class="hk">
+  <div class="lb">届かなかった最初の一言</div>
+  <div class="q">朝「おはよう」と送るだけで…<span class="v">30人</span></div>
+  <div class="q">朝いちばんに「何からやろう」と悩むのを…<span class="v">44人</span></div>
+</div>
+</template>
+
+<template id="good">
+<div class="hk">
+  <div class="lb">いちばん届いた最初の一言</div>
+  <div class="q good pop">AIの社員6人で、会社っぽいことをしている大学生です。<span class="v">115人</span></div>
+</div>
+</template>
+
+<template id="rules">
+<div class="rules">
+<ol class="reasons">
+  <li class="in"><b>答え・結果から始める</b><span>問いかけや悩みで始めない</span></li>
+  <li class="in" style="animation-delay:.3s"><b>最初の画面は大きく1つ</b><span>一瞬で読める量だけ</span></li>
+  <li class="in" style="animation-delay:.6s"><b>何の人かを先に言う</b><span>「AIの社員6人の大学生」</span></li>
+</ol>
+</div>
+</template>
+
+<template id="now">
+<div class="res">
+  <div class="lab">いまのフォロワー</div>
+  <div class="b pop">23<small>人</small></div>
+  <div class="sub in" style="animation-delay:.4s">まだ全然少ない。<br>この動画も3つのルール通りに作りました</div>
+</div>
+</template>
+
+<template id="cta">
+<div class="big">
+  <div class="sub" style="font-size:48px">コメント欄に</div>
+  <div class="num pop" style="font-size:260px">AI</div>
+  <div class="sub" style="font-size:48px">と書くだけ</div>
+</div>
+</template>
