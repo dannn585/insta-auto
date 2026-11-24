@@ -2,10 +2,31 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 24,
-    "media_count": 16,
+    "media_count": 17,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18004540463813553",
+      "caption": "テスト日程の写真をClaudeに見せたら、勉強の計画表になりました📄\n\n①テスト日程のプリントを撮る\n②「この日程で、今日からの勉強計画を表にして。バイトは火・金の夜」と一言そえて送る\n③バイトの日は短めのメニューにして、表で返してくれる\n\nできなかった日があっても「残りを組み直して」で作り直してくれます。\n計画を立てるのに30分悩むくらいなら、写真1枚で。\n\n※画面は説明用の例です\n\n保存して、テスト前に1回やってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #大学生 #テスト勉強 #勉強計画 #生成AI #時短術",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DgIHLdSgLTR/",
+      "timestamp": "2026-11-24T13:56:23+0000",
+      "files": [
+        "media/18004540463813553_1.jpg"
+      ],
+      "insights": {
+        "reach": 35,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 37,
+        "ig_reels_avg_watch_time": 2945,
+        "reels_skip_rate": 82.9
+      }
+    },
     {
       "id": "18148866823582432",
       "caption": "AIの社員6人で、会社っぽいことをしている大学生です。\n\n調べる係、台本を作る係、コメントの返事を考える係…と、仕事ごとに分けています。\n\nでも、いきなり6人はおすすめしません。まずは窓口になる「秘書」を1人。記録はタスク表と日報の1か所だけ。\nこれだけで、あとから社員を増やしても迷わなくなります。\n\n秘書の作り方をまとめた無料キット、ほしい人は「AI」とコメントしてください。DMで送ります。\n\n#Claude #AI社員 #副業 #大学生起業 #AI活用",
@@ -18,13 +39,13 @@
         "media/18148866823582432_1.jpg"
       ],
       "insights": {
-        "reach": 115,
+        "reach": 116,
         "saved": 1,
         "shares": 0,
         "total_interactions": 1,
-        "views": 128,
-        "ig_reels_avg_watch_time": 4674,
-        "reels_skip_rate": 69.6
+        "views": 131,
+        "ig_reels_avg_watch_time": 5011,
+        "reels_skip_rate": 69
       }
     },
     {
@@ -60,13 +81,13 @@
         "media/17989185272900599_1.jpg"
       ],
       "insights": {
-        "reach": 44,
+        "reach": 46,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 44,
-        "ig_reels_avg_watch_time": 1649,
-        "reels_skip_rate": 86.4
+        "views": 46,
+        "ig_reels_avg_watch_time": 1625,
+        "reels_skip_rate": 87
       }
     },
     {
@@ -129,11 +150,11 @@
         "media/18099622472441840_7.jpg"
       ],
       "insights": {
-        "reach": 7,
+        "reach": 8,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 15
+        "views": 17
       }
     },
     {
@@ -153,7 +174,7 @@
         "shares": 0,
         "total_interactions": 0,
         "views": 120,
-        "ig_reels_avg_watch_time": 5494,
+        "ig_reels_avg_watch_time": 5451,
         "reels_skip_rate": 64.8
       }
     },
