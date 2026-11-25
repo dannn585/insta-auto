@@ -1,0 +1,76 @@
+<!-- 11/27 リール「AI社員6人のある1日」（冒頭1秒で何者かを見せる型。11/21 の方向）。
+     声なし（文字＋BGM）。中身は実際の記録：company/reports/2026-11-23.md（11/23 の1日）、本社 CLAUDE.md「全員が守るルール」3、
+     フォロワー24人は reference/account_daily.json の 11/23。 -->
+
+<style>
+.who{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:26px;text-align:center}
+.who .lab{font-size:46px;font-weight:900;color:#5A574F}
+.who .b{font-size:200px;font-weight:900;line-height:1.05}
+.who .b small{font-size:90px}
+.who .boss{font-size:64px;font-weight:900;background:#1F1E1B;color:#fff;border-radius:20px;padding:14px 36px}
+.who .sub{font-size:42px;color:#8A867B;font-weight:700;line-height:1.5}
+.day{padding:56px 44px;display:flex;flex-direction:column;gap:24px;height:100%;justify-content:center}
+.day .head{font-size:42px;font-weight:900;color:#8A867B}
+.day .r{display:flex;align-items:center;gap:22px;background:#fff;border:3px solid #E6E1D5;border-radius:22px;padding:24px 28px}
+.day .r .w{font-size:34px;font-weight:900;background:#1F1E1B;color:#fff;border-radius:12px;padding:6px 14px;white-space:nowrap}
+.day .r .t{font-size:50px;font-weight:900;line-height:1.35}
+.day .r.x{border:5px solid #FFD400}
+.mine{padding:60px 44px;display:flex;flex-direction:column;gap:26px;height:100%;justify-content:center}
+.mine .head{font-size:44px;font-weight:900;color:#8A867B;text-align:center}
+.mine .g{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.mine .g div{background:#FFF3B0;border:4px solid #FFD400;border-radius:24px;padding:44px 10px;text-align:center;font-size:58px;font-weight:900}
+.mine .nt{font-size:40px;color:#5A574F;font-weight:700;text-align:center;line-height:1.5}
+.res{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:30px;text-align:center}
+.res .lab{font-size:46px;font-weight:900;color:#5A574F}
+.res .b{font-size:240px;font-weight:900;line-height:1}
+.res small{font-size:80px}
+.res .sub{font-size:40px;color:#8A867B;font-weight:700;line-height:1.5}
+</style>
+
+<template id="who">
+<div class="who">
+  <div class="lab">社員は全員AI</div>
+  <div class="b pop">6<small>人</small></div>
+  <div class="boss in" style="animation-delay:.3s">社長＝ぼく（大学生）</div>
+  <div class="sub in" style="animation-delay:.5s">秘書・リサーチ・台本・コメント係…</div>
+</div>
+</template>
+
+<template id="day">
+<div class="day">
+  <div class="head">11/23 の1日（実際の日報より）</div>
+  <div class="r in"><span class="w">リサーチ</span><span class="t">先週の数字をまとめた</span></div>
+  <div class="r in" style="animation-delay:.12s"><span class="w">秘書</span><span class="t">出てない投稿の<br>原因を見つけて直した</span></div>
+  <div class="r in" style="animation-delay:.24s"><span class="w">台本</span><span class="t">リール3本を予約</span></div>
+  <div class="r x in" style="animation-delay:.36s"><span class="w">ぼく</span><span class="t">見て「OK」と言った</span></div>
+</div>
+</template>
+
+<template id="mine">
+<div class="mine">
+  <div class="head">ここだけは AI に決めさせない</div>
+  <div class="g">
+    <div class="in">お金</div>
+    <div class="in" style="animation-delay:.1s">新しい投稿</div>
+    <div class="in" style="animation-delay:.2s">外への送信</div>
+    <div class="in" style="animation-delay:.3s">削除</div>
+  </div>
+  <div class="nt in" style="animation-delay:.5s">AIは下書きまで。<br>出す前に、ぼくが確認する</div>
+</div>
+</template>
+
+<template id="real">
+<div class="res">
+  <div class="lab">いまのフォロワー</div>
+  <div class="b pop">24<small>人</small></div>
+  <div class="sub in" style="animation-delay:.4s">（11/23 時点）<br>まだ少ない。数字も全部出していきます</div>
+</div>
+</template>
+
+<template id="cta">
+<div class="big">
+  <div class="sub" style="font-size:48px">コメント欄に</div>
+  <div class="num pop" style="font-size:260px">AI</div>
+  <div class="sub" style="font-size:48px">と書くだけ</div>
+</div>
+</template>

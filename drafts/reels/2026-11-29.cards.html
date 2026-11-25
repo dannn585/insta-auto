@@ -1,0 +1,80 @@
+<!-- 11/29 リール「AIに辛口で採点させたら C だった」（冒頭1秒で結果＝評価C）。
+     声なし（文字＋BGM）。中身は実際の記録：company/reviews/2026-11-08_会社全体.md（総合 C・第一印象・やめてよいこと）、
+     company/departments/reviewer/CLAUDE.md（頼み方のルール）。 -->
+
+<style>
+.grade{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:24px;text-align:center}
+.grade .lab{font-size:46px;font-weight:900;color:#5A574F}
+.grade .g{width:400px;height:340px;border-radius:40px;background:#1F1E1B;color:#fff;flex-direction:column;gap:0;display:flex;align-items:center;justify-content:center;font-size:240px;font-weight:900;line-height:1}
+.grade .g small{font-size:44px;font-weight:900;color:#FFD400;margin-bottom:-10px}
+.grade .sub{font-size:52px;font-weight:900;line-height:1.45}
+.grade .s2{font-size:38px;color:#8A867B;font-weight:700}
+.card .chat.lg .me{font-size:56px;line-height:1.55}
+.hit{padding:56px 44px;display:flex;flex-direction:column;gap:30px;height:100%;justify-content:center}
+.hit .lb{font-size:40px;font-weight:900;color:#8A867B}
+.hit .q{background:#F3F0E7;border:3px solid #E6E1D5;border-radius:24px;padding:32px 34px;font-size:50px;line-height:1.5;font-weight:900}
+.hit .q.x{background:#fff;border:5px solid #1F1E1B}
+.hit .q .s{display:block;font-size:36px;color:#5A574F;font-weight:700;margin-top:8px}
+.chg{padding:60px 44px;display:flex;flex-direction:column;gap:26px;height:100%;justify-content:center}
+.chg .head{font-size:42px;font-weight:900;color:#8A867B}
+.chg .r{display:flex;align-items:center;gap:18px;font-size:46px;font-weight:900}
+.chg .r .a{flex:1;background:#F3F0E7;border:3px solid #E6E1D5;border-radius:20px;padding:24px 20px;color:#8A867B;text-decoration:line-through;text-align:center}
+.chg .r .ar{font-size:50px}
+.chg .r .b{flex:1.2;background:#FFF3B0;border:4px solid #FFD400;border-radius:20px;padding:24px 20px;text-align:center}
+.rules{padding:80px 44px}
+.rules ol.reasons{gap:30px}
+.rules ol.reasons li{padding:26px 26px 26px 100px}
+.card .rules ol.reasons li b{font-size:56px}
+.card .rules ol.reasons li::before{background:#1F1E1B}
+.card .rules ol.reasons li span{font-size:40px}
+</style>
+
+<template id="grade">
+<div class="grade">
+  <div class="lab">AIにつけられた会社の評価</div>
+  <div class="g pop"><small>評価</small>C</div>
+  <div class="sub in" style="animation-delay:.35s">「方向を見直すべき」</div>
+  <div class="s2 in" style="animation-delay:.5s">11/8 社外の評価役（AI）より</div>
+</div>
+</template>
+
+<template id="ask">
+<div class="chat lg" style="justify-content:center">
+  <div class="me">あなたは<b class="mark">社外の人</b>です。<br>このアカウントを白紙で見て、<b class="mark">直さずに</b>、A〜Dの評価と問題点だけ出して</div>
+</div>
+</template>
+
+<template id="hit">
+<div class="hit">
+  <div class="lb">刺さった指摘（そのまま）</div>
+  <div class="q in">機械の声と読めない画面で<br>1〜2秒で離れる</div>
+  <div class="q x pop" style="animation-delay:.4s">見ている自分の<br>役に立つ話がない<span class="s">「会社の裏側の仕組み」の話ばかり</span></div>
+</div>
+</template>
+
+<template id="chg">
+<div class="chg">
+  <div class="head">言われて変えたこと</div>
+  <div class="r in"><span class="a">機械の声</span><span class="ar">→</span><span class="b">読める大きな文字</span></div>
+  <div class="r in" style="animation-delay:.15s"><span class="a">仕組みの話</span><span class="ar">→</span><span class="b">まねできる使い方</span></div>
+  <div class="r in" style="animation-delay:.3s"><span class="a">前置き</span><span class="ar">→</span><span class="b">最初の1秒に結果</span></div>
+</div>
+</template>
+
+<template id="tips">
+<div class="rules">
+<ol class="reasons">
+  <li class="in"><b>「社外の人」として頼む</b><span>身内だと、やさしく褒めて終わる</span></li>
+  <li class="in" style="animation-delay:.3s"><b>直させない</b><span>評価と指摘だけ。直すのは自分</span></li>
+  <li class="in" style="animation-delay:.6s"><b>作った意図は言わない</b><span>先入観なしで見てもらう</span></li>
+</ol>
+</div>
+</template>
+
+<template id="cta">
+<div class="big">
+  <div class="sub" style="font-size:48px">コメント欄に</div>
+  <div class="num pop" style="font-size:260px">AI</div>
+  <div class="sub" style="font-size:48px">と書くだけ</div>
+</div>
+</template>

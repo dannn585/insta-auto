@@ -1,0 +1,99 @@
+<!-- 11/28 リール「予約した投稿が出ていなかった原因」（冒頭1秒で結果＝取りこぼし2本→0本）。
+     声なし（文字＋BGM）。中身は実際の記録：company/reports/2026-11-23.md「夜」、company/tasks-done.md T92（GitHub の予約は1日3〜4回・間4〜8時間）・T94（11/25 確認：取りこぼしゼロ、11/22分→11/24 14:01、11/24分→11/25 19:33）。 -->
+
+<style>
+.res{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:30px;text-align:center}
+.res .lab{font-size:46px;font-weight:900;color:#5A574F}
+.res .row{display:flex;align-items:baseline;gap:24px}
+.res .a{font-size:150px;font-weight:900;color:#B9B4A6}
+.res .ar{font-size:90px;font-weight:900}
+.res .b{font-size:240px;font-weight:900;line-height:1}
+.res small{font-size:70px}
+.res .sub{font-size:40px;color:#8A867B;font-weight:700;line-height:1.5}
+.tl{padding:56px 50px;display:flex;flex-direction:column;gap:30px;height:100%;justify-content:center}
+.tl .head{font-size:42px;font-weight:900;color:#8A867B}
+.tl .bx{border-radius:24px;padding:30px 32px;font-size:50px;font-weight:900;line-height:1.45;background:#F3F0E7;border:3px solid #E6E1D5}
+.tl .bx.x{background:#fff;border:5px solid #1F1E1B}
+.tl .bx .s{display:block;font-size:38px;color:#5A574F;font-weight:700;margin-top:6px}
+.clock{padding:60px 50px;display:flex;flex-direction:column;gap:26px;height:100%;justify-content:center}
+.clock .head{font-size:42px;font-weight:900;color:#8A867B}
+.clock .line{position:relative;height:120px;background:#F3F0E7;border-radius:16px;border:3px solid #E6E1D5}
+.clock .win{position:absolute;top:0;bottom:0;left:85%;right:0;background:#FFD400;border-radius:0 14px 14px 0}
+.clock .tick{position:absolute;top:-14px;bottom:-14px;width:10px;background:#1F1E1B;border-radius:5px}
+.clock .ax{display:flex;justify-content:space-between;font-size:34px;font-weight:900;color:#8A867B}
+.clock .lg{font-size:40px;font-weight:900;line-height:1.6}
+.clock .lg i{display:inline-block;width:40px;height:30px;vertical-align:middle;margin-right:12px;border-radius:6px;font-style:normal}
+.fix{padding:60px 44px;display:flex;flex-direction:column;gap:30px;height:100%;justify-content:center}
+.fix .head{font-size:44px;font-weight:900;color:#8A867B}
+.fix .bx{background:#FFF3B0;border:4px solid #FFD400;border-radius:24px;padding:36px 34px;font-size:56px;font-weight:900;line-height:1.45}
+.fix .s{font-size:42px;font-weight:700;color:#5A574F;line-height:1.5}
+.ok{padding:60px 44px;display:flex;flex-direction:column;gap:30px;height:100%;justify-content:center}
+.ok .head{font-size:42px;font-weight:900;color:#8A867B}
+.ok .r{display:flex;align-items:center;justify-content:space-between;background:#fff;border:3px solid #E6E1D5;border-radius:22px;padding:30px 32px;font-size:48px;font-weight:900}
+.ok .r .v{font-size:44px;background:#1F1E1B;color:#fff;border-radius:14px;padding:6px 18px}
+.lesson{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:40px;text-align:center;padding:0 50px}
+.lesson .a{font-size:60px;font-weight:900;color:#B9B4A6;line-height:1.4}
+.lesson .b{font-size:76px;font-weight:900;line-height:1.4}
+</style>
+
+<template id="zero">
+<div class="res">
+  <div class="lab">出ていなかった予約投稿</div>
+  <div class="row"><span class="a">2本</span><span class="ar">→</span><span class="b pop">0<small>本</small></span></div>
+  <div class="sub in" style="animation-delay:.4s">原因はAIの秘書が見つけて、直した</div>
+</div>
+</template>
+
+<template id="miss">
+<div class="tl">
+  <div class="head">自動で出すはずが…</div>
+  <div class="bx">予約したのに<br>出ていない日があった<span class="s">サークルのインスタ（運用を手伝っている）</span></div>
+  <div class="bx x pop" style="animation-delay:.4s">11/21 と 11/22 の<br>2本が出ていなかった</div>
+</div>
+</template>
+
+<template id="why">
+<div class="clock">
+  <div class="head">自動投稿の見回り（GitHub の予約）</div>
+  <div class="line">
+    <div class="win"></div>
+    <div class="tick in" style="left:12%"></div>
+    <div class="tick in" style="left:38%;animation-delay:.1s"></div>
+    <div class="tick in" style="left:66%;animation-delay:.2s"></div>
+  </div>
+  <div class="ax"><span>0時</span><span>12時</span><span>24時</span></div>
+  <div class="lg"><i style="background:#1F1E1B"></i>見回りは1日3〜4回だけ（4〜8時間おき）<br><i style="background:#FFD400"></i>夜の投稿の枠（20:30〜）</div>
+</div>
+</template>
+
+<template id="fix">
+<div class="fix">
+  <div class="head">AIの秘書が足した「取り戻し」</div>
+  <div class="bx pop">前の日に出せなかった分は<br>次の日の昼に自動で出す</div>
+  <div class="s in" style="animation-delay:.4s">出すのは1日最大2本（昼と夜）まで</div>
+</div>
+</template>
+
+<template id="ok">
+<div class="ok">
+  <div class="head">2日後に確かめた</div>
+  <div class="r in">11/22 の分<span class="v">11/24 14:01 に出た</span></div>
+  <div class="r in" style="animation-delay:.15s">11/24 の分<span class="v">11/25 19:33 に出た</span></div>
+  <div class="r pop" style="animation-delay:.4s;border:5px solid #FFD400">取りこぼし<span class="v" style="background:#FFD400;color:#1F1E1B">ゼロ</span></div>
+</div>
+</template>
+
+<template id="lesson">
+<div class="lesson">
+  <div class="a in">自動化は<br>作って終わり</div>
+  <div class="b pop" style="animation-delay:.35s">「出たか」の<br><y>確認</y>までがセット</div>
+</div>
+</template>
+
+<template id="cta">
+<div class="big">
+  <div class="sub" style="font-size:48px">コメント欄に</div>
+  <div class="num pop" style="font-size:260px">AI</div>
+  <div class="sub" style="font-size:48px">と書くだけ</div>
+</div>
+</template>
