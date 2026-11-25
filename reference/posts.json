@@ -2,10 +2,31 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 24,
-    "media_count": 17,
+    "media_count": 18,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "18222100264358175",
+      "caption": "サークルやバイト先のチラシ、写真をClaudeに見せたら告知文が3つできました📸\n\n①チラシを撮る\n②「このチラシから、インスタ・LINE・Xの告知文を作って。大学生向けに短く」と送る\n③LINEはくわしく、Xはひと目でわかる長さに、場所ごとに書き分けてくれる\n\nただし、日付・曜日・時間・場所だけは、出す前に自分の目で確認してください。ここをまちがえると全部が台なしです。\n\n※画面は説明用の例です\n\n保存して、次の告知のときに使ってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #大学生 #サークル #告知 #生成AI #時短術",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DgKI67EA4bQ/",
+      "timestamp": "2026-11-25T08:50:05+0000",
+      "files": [
+        "media/18222100264358175_1.jpg"
+      ],
+      "insights": {
+        "reach": 2,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 2,
+        "ig_reels_avg_watch_time": 6808,
+        "reels_skip_rate": 100
+      }
+    },
     {
       "id": "18004540463813553",
       "caption": "テスト日程の写真をClaudeに見せたら、勉強の計画表になりました📄\n\n①テスト日程のプリントを撮る\n②「この日程で、今日からの勉強計画を表にして。バイトは火・金の夜」と一言そえて送る\n③バイトの日は短めのメニューにして、表で返してくれる\n\nできなかった日があっても「残りを組み直して」で作り直してくれます。\n計画を立てるのに30分悩むくらいなら、写真1枚で。\n\n※画面は説明用の例です\n\n保存して、テスト前に1回やってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #大学生 #テスト勉強 #勉強計画 #生成AI #時短術",
@@ -18,13 +39,13 @@
         "media/18004540463813553_1.jpg"
       ],
       "insights": {
-        "reach": 35,
+        "reach": 36,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 37,
-        "ig_reels_avg_watch_time": 2945,
-        "reels_skip_rate": 82.9
+        "views": 38,
+        "ig_reels_avg_watch_time": 3540,
+        "reels_skip_rate": 80.6
       }
     },
     {
@@ -44,7 +65,7 @@
         "shares": 0,
         "total_interactions": 1,
         "views": 131,
-        "ig_reels_avg_watch_time": 5011,
+        "ig_reels_avg_watch_time": 4991,
         "reels_skip_rate": 69
       }
     },
@@ -174,7 +195,7 @@
         "shares": 0,
         "total_interactions": 0,
         "views": 120,
-        "ig_reels_avg_watch_time": 5451,
+        "ig_reels_avg_watch_time": 5406,
         "reels_skip_rate": 64.8
       }
     },
@@ -285,7 +306,7 @@
         "shares": 0,
         "total_interactions": 3,
         "views": 135,
-        "ig_reels_avg_watch_time": 5369,
+        "ig_reels_avg_watch_time": 5333,
         "reels_skip_rate": 67.5
       }
     },
