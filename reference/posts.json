@@ -2,10 +2,31 @@
   "account": {
     "id": "17841453744504940",
     "followers_count": 24,
-    "media_count": 18,
+    "media_count": 19,
     "username": "dan_aishain"
   },
   "posts": [
+    {
+      "id": "17976633024181130",
+      "caption": "リールの最初の1秒を変えたら、届く人が30人→115人になりました。\n\n先週の4本の数字（届いた人数）です。\n11/17「朝『おはよう』と送るだけで…」30人\n11/19「朝いちばんに『何からやろう』と悩むのを…」44人\n11/20「ChatGPTとClaudeの使い分け」75人\n11/21「AIの社員6人で、会社っぽいことをしている大学生です」115人\n\n悩みや問いかけで始めた回ほど、飛ばされていました。\nそこでAIの秘書と、3つのルールを決めました。\n①答え・結果から始める\n②最初の画面は大きいもの1つだけ\n③何の人かを先に言う\n\nフォロワーはまだ23人（先週の時点）。この動画もルール通りに作ったので、結果は次で報告します。\n\nAIの秘書の作り方をまとめた無料キット、ほしい人は「AI」とコメントしてください。DMで送ります。\n\n#Claude #AI活用 #大学生起業 #AI社員 #リール運用 #挑戦記録 #生成AI",
+      "comments_count": 0,
+      "like_count": 0,
+      "media_type": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DgNJMNJhyy9/",
+      "timestamp": "2026-11-26T12:50:11+0000",
+      "files": [
+        "media/17976633024181130_1.jpg"
+      ],
+      "insights": {
+        "reach": 4,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 0,
+        "views": 4,
+        "ig_reels_avg_watch_time": 2505,
+        "reels_skip_rate": 100
+      }
+    },
     {
       "id": "18222100264358175",
       "caption": "サークルやバイト先のチラシ、写真をClaudeに見せたら告知文が3つできました📸\n\n①チラシを撮る\n②「このチラシから、インスタ・LINE・Xの告知文を作って。大学生向けに短く」と送る\n③LINEはくわしく、Xはひと目でわかる長さに、場所ごとに書き分けてくれる\n\nただし、日付・曜日・時間・場所だけは、出す前に自分の目で確認してください。ここをまちがえると全部が台なしです。\n\n※画面は説明用の例です\n\n保存して、次の告知のときに使ってみて。\nこういう頼み方をまとめたスターターキットは、コメントに「AI」と書いてくれたらDMで送ります。\n\n#Claude #AI活用 #大学生 #サークル #告知 #生成AI #時短術",
@@ -18,12 +39,12 @@
         "media/18222100264358175_1.jpg"
       ],
       "insights": {
-        "reach": 2,
+        "reach": 4,
         "saved": 0,
         "shares": 0,
         "total_interactions": 0,
-        "views": 2,
-        "ig_reels_avg_watch_time": 6808,
+        "views": 4,
+        "ig_reels_avg_watch_time": 4364,
         "reels_skip_rate": 100
       }
     },
@@ -305,9 +326,9 @@
         "saved": 3,
         "shares": 0,
         "total_interactions": 3,
-        "views": 135,
-        "ig_reels_avg_watch_time": 5333,
-        "reels_skip_rate": 67.5
+        "views": 136,
+        "ig_reels_avg_watch_time": 5400,
+        "reels_skip_rate": 66.9
       }
     },
     {
